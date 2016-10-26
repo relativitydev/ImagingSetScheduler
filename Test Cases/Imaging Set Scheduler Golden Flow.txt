@@ -1,0 +1,73 @@
+*** Settings ***
+| Documentation | These are manual tests for creating an Imaging Set Scheduler job
+| Metadata      | Authors | Priyanka Pande
+| Force Tags | manual | Imaging Set Schedular
+
+
+
+*** Test Cases ***
+| 1. Verify an Imaging Set scheduler job is created
+| | [Documentation] | Create an Imaging Set Scheduler job
+| | ... | [id] d7d543c5-8a0d-46c3-bbef-0c347e6a5d4e
+| | Run the following manual steps
+| | ... | *Preconditions:*
+| | ... | 1) Install Imaging Set Scheduler application in the Application library
+| | ... | 2) Verify the following 
+| | ... |	a) Relativity version should be greater than or equal to 9.3.297.13
+| | ... |   b) Imaging is installed
+| | ... |   c) Imaging Set Scheduler version - 3.0.0.2
+| | ... |   d) Imaging Set is created with name 'Imaging Set 1'
+| | ... | 	e) Verify Imaging Set Scheduler Manager and Worker are created
+| | ... | 
+| | ... | Run the following manual steps:
+| | ... | *Steps*
+| | ... | 1. Navigate to the workspace where Imaging Set scheduler is installed.
+| | ... | 2. Navigate to the tab 'Imaging Set Scheduler'
+| | ... | 3. Click: New Imaging Set Scheduler
+| | ... |  Name: ISS1
+| | ... |  Imaging Set: Imaging Set 1
+| | ... |  Frequency: <Select today's day>
+| | ... |  Time(in 24-hour format): <Enter a time 2 minutes from now>
+| | ... |  Lock Images for QC: <Unselect checkbox>
+| | ... | 4. Click : Save
+| | ... |
+| | ... | *Expected Results:*
+| | ... | 1. Imaging Set Scheduler with the name Imaging Set 1
+| | ... | 2. Imaging Set Details  gets populated with the correct details inputed above
+| | ... | 3. History
+| | ... |    Last run is blank
+| | ... | 	 Status is blank
+| | ... |    Next Run is set to time set by the user in 'Time(in 24-hour format)'
+| | ... | 4. Imaging Set Section
+| | ... |	 Imaging Set:Status : Staging
+| | ... |    Imaging Set: Image 0 documents remaining 
+
+
+| 2. Verify an Imaging Set scheduler job is executed
+| | [Documentation] | Verify execution of an Imaging Set Scheduler created in Test case 1
+| | ... | [id] 67e4732b-7083-409a-9a16-30125816899f
+| | Run the following manual steps
+| | ... | *Preconditions:*
+| | ... | 1) Run TestCase 1 and verify that the Imaging Set Scheduler is created 
+| | ... |
+| | Run the following manual steps
+| | ... | *Steps*
+| | ... | 1. Navigate to ISS1 from Testcase 1
+| | ... | 2. When the current time is the same as 'Next Run' time, verify the fiollowing 
+| | ... |  Status : Waiting
+| | ... |  Imaging Set Status : Staging
+| | ... | 3. Once the Imaging Set Scheduler is picked up by the Agent, it is then submitted to the Imaging API
+| | ... |  Status : Imaging set was submitted to run at  <Time>
+| | ... |  Imaging Set Status : Submitting
+| | ... | 4. Once the Imaging Set is completed, verfy the following
+| | ... |  Status : Imaging set was submitted to run at  <Time>
+| | ... |  Imaging Set Status : Submitting
+| | ... |
+| | ... | *Expected Results:*
+| | ... | 1. Imaging Set Scheduler has imaged all the documents that are part of the Imaging set at the set time
+| | ... | 2. All the Fields under 'Imaging Set' (in ISS1) is the same as the 'Imaging Status' page in the Imaging Set Tab for 'Imaging Set 1' (Testcase 1)
+
+
+
+*** Settings ***
+| Library	| ${KEYWORD_DIR}/kWebDriver.py
