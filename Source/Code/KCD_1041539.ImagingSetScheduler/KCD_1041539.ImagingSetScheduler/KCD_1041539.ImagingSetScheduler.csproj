@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4D4E02E8-0803-4122-B675-DFB54E63BE00}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KCD_1041539.ImagingSetScheduler</RootNamespace>
+    <AssemblyName>KCD_1041539.ImagingSetScheduler</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="kCura.Agent, Version=9.2.337.3, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\kCura.Agent.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.EventHandler, Version=9.2.337.3, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\kCura.EventHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="kCura.Relativity.Client, Version=9.2.337.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\kCura.Relativity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Relativity.API, Version=9.2.337.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Relativity.API.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Agents\Manager.cs" />
+    <Compile Include="Database\SqlQueryHelper.cs" />
+    <Compile Include="EventHandlers\ImagingSetSchedulerPreLoad.cs" />
+    <Compile Include="EventHandlers\PreInstallValidation.cs" />
+    <Compile Include="EventHandlers\RemoveFromQueue.cs" />
+    <Compile Include="EventHandlers\SetNextRunDate.cs" />
+    <Compile Include="Helper\CapiHelper.cs" />
+    <Compile Include="Helper\Constant.cs" />
+    <Compile Include="Agents\Worker.cs" />
+    <Compile Include="Helper\CustomExceptions.cs" />
+    <Compile Include="Helper\ExceptionMessageFormatter.cs" />
+    <Compile Include="Helper\ImagingSetHandlerQueries.cs" />
+    <Compile Include="Helper\ImagingSetStatusDTO.cs" />
+    <Compile Include="Helper\Response.cs" />
+    <Compile Include="Helper\RSAPI.cs" />
+    <Compile Include="Helper\ServiceUrlHelper.cs" />
+    <Compile Include="Helper\Validator.cs" />
+    <Compile Include="Interfaces\IValidator.cs" />
+    <Compile Include="Objects\ImagingSet.cs" />
+    <Compile Include="Objects\ImagingSetScheduler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EventHandlers\ValidateTimeFormat.cs" />
+    <Compile Include="EventHandlers\WorkspaceSetup.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

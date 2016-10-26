@@ -1,0 +1,628 @@
+
+Microsoft Windows [Version 6.1.7601]
+
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+
+
+C:\Windows\System32>cd "C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler"
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>					git checkout master
+
+Your branch is up-t
+date with 'origin/master'.
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>					xcopy "C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\*" "C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler" /E /C /H /K /Y
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Deployment\Imaging Set Scheduler - v3\RA_Imaging_Set_Scheduler.rap
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Deployment\Imaging Set Scheduler - v3\Relativity - Imaging Set Scheduler.pdf
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Documentation\Relativity - Imaging Set Scheduler.docx
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler.sln
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetSchedule.NUnit\AgentTests.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetSchedule.NUnit\app.config
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetSchedule.NUnit\GetNextOccurrenceTests.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetSchedule.NUnit\GetNextRunDateTests.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetSchedule.NUnit\ImagingSetNUnitTest.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetSchedule.NUnit\ImagingSetSchedulerPreLoadTests.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetSchedule.NUnit\ImagingSetSchedulerTests.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetSchedule.NUnit\ImagingSetTests.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetSchedule.NUnit\KCD_1041539.ImagingSetSchedule.NUnit.csproj
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetSchedule.NUnit\packages.config
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetSchedule.NUnit\RSAPITests.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetSchedule.NUnit\Helper\Connection.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetSchedule.NUnit\Helper\Query.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetSchedule.NUnit\Helper\ServiceManager.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetSchedule.NUnit\Helper\TestConstant.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetSchedule.NUnit\Properties\AssemblyInfo.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler.csproj
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Agents\Manager.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Agents\Worker.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Database\SqlQueryHelper.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\EventHandlers\ImagingSetSchedulerPreLoad.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\EventHandlers\PreInstallValidation.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\EventHandlers\RemoveFromQueue.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\EventHandlers\SetNextRunDate.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\EventHandlers\ValidateTimeFormat.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\EventHandlers\WorkspaceSetup.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Helper\CapiHelper.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Helper\Constant.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Helper\CustomExceptions.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Helper\ExceptionMessageFormatter.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Helper\ImagingSetHandlerQueries.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Helper\ImagingSetStatusDTO.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Helper\Response.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Helper\RSAPI.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Helper\ServiceUrlHelper.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Helper\Validator.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Interfaces\IValidator.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Objects\ImagingSet.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Objects\ImagingSetScheduler.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\Properties\AssemblyInfo.cs
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\kCura.Agent.dll
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\kCura.EventHandler.dll
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\kCura.Relativity.Client.dll
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\Relativity.API.dll
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\repositories.config
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\kCura.Talos.Utility.1.0.371.2\kCura.Talos.Utility.1.0.371.2.nupkg
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\kCura.Talos.Utility.1.0.371.2\lib\net45\kCura.Talos.Utility.dll
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\Moq.4.2.1510.2205\Moq.4.2.1510.2205.nupkg
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\Moq.4.2.1510.2205\lib\net35\Moq.dll
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\Moq.4.2.1510.2205\lib\net35\Moq.xml
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\Moq.4.2.1510.2205\lib\net40\Moq.xml
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\Moq.4.2.1510.2205\lib\sl5\Moq.Silverlight.dll
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\Moq.4.2.1510.2205\lib\sl5\Moq.Silverlight.xml
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\NUnit.2.6.4\license.txt
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\NUnit.2.6.4\NUnit.2.6.4.nupkg
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\NUnit.2.6.4\lib\nunit.framework.dll
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Code\KCD_1041539.ImagingSetScheduler\packages\NUnit.2.6.4\lib\nunit.framework.xml
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Flowcharts\Imaging Set Scheduler Manager-Worker agent flowchart.pdf
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Source\Flowcharts\Imaging Set Scheduler Manager-Worker agent flowchart.vsd
+
+C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3\Test Cases\Testing - Imaging Set Scheduler.xlsx
+
+65 File(s) copied
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>					RMDIR "C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler\Deployment" /s /q
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>					git add .
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>					git commit -m "added KCD_1041539_Imaging-Set-Scheduler Branch v3"
+
+[master 2a7f000] added KCD_1041539_Imaging-Set-Scheduler Branch v3
+
+ 63 files changed, 32476 insertions(+)
+
+ create mode 100644 Documentation/Relativity - Imaging Set Scheduler.docx
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/AgentTests.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/GetNextOccurrenceTests.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/GetNextRunDateTests.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/Helper/Connection.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/Helper/Query.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/Helper/ServiceManager.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/Helper/TestConstant.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/ImagingSetNUnitTest.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/ImagingSetSchedulerPreLoadTests.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/ImagingSetSchedulerTests.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/ImagingSetTests.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/KCD_1041539.ImagingSetSchedule.NUnit.csproj
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/Properties/AssemblyInfo.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/RSAPITests.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/app.config
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/packages.config
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler.sln
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Agents/Manager.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Agents/Worker.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Database/SqlQueryHelper.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/EventHandlers/ImagingSetSchedulerPreLoad.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/EventHandlers/PreInstallValidation.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/EventHandlers/RemoveFromQueue.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/EventHandlers/SetNextRunDate.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/EventHandlers/ValidateTimeFormat.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/EventHandlers/WorkspaceSetup.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/CapiHelper.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/Constant.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/CustomExceptions.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/ExceptionMessageFormatter.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/ImagingSetHandlerQueries.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/ImagingSetStatusDTO.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/RSAPI.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/Response.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/ServiceUrlHelper.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/Validator.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Interfaces/IValidator.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler.csproj
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Objects/ImagingSet.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Objects/ImagingSetScheduler.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Properties/AssemblyInfo.cs
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/Moq.4.2.1510.2205/Moq.4.2.1510.2205.nupkg
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/Moq.4.2.1510.2205/lib/net35/Moq.dll
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/Moq.4.2.1510.2205/lib/net35/Moq.xml
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/Moq.4.2.1510.2205/lib/net40/Moq.dll
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/Moq.4.2.1510.2205/lib/net40/Moq.xml
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/Moq.4.2.1510.2205/lib/sl5/Moq.Silverlight.dll
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/Moq.4.2.1510.2205/lib/sl5/Moq.Silverlight.xml
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/NUnit.2.6.4/NUnit.2.6.4.nupkg
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/NUnit.2.6.4/lib/nunit.framework.dll
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/NUnit.2.6.4/lib/nunit.framework.xml
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/NUnit.2.6.4/license.txt
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/Relativity.API.dll
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/kCura.Agent.dll
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/kCura.EventHandler.dll
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/kCura.Relativity.Client.dll
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/kCura.Talos.Utility.1.0.371.2/kCura.Talos.Utility.1.0.371.2.nupkg
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/kCura.Talos.Utility.1.0.371.2/lib/net45/kCura.Talos.Utility.dll
+
+ create mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/repositories.config
+
+ create mode 100644 Source/Flowcharts/Imaging Set Scheduler Manager-Worker agent flowchart.pdf
+
+ create mode 100644 Source/Flowcharts/Imaging Set Scheduler Manager-Worker agent flowchart.vsd
+
+ create mode 100644 Test Cases/Testing - Imaging Set Scheduler.xlsx
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>					git branch "v3"
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>					git push --all -u
+
+Branch master set up to track remote branch master from origin.
+
+Branch v1 set up to track remote branch v1 from origin.
+
+Branch v1.1 set up to track remote branch v1.1 from origin.
+
+Branch v1.2 set up to track remote branch v1.2 from origin.
+
+Branch v1.3 set up to track remote branch v1.3 from origin.
+
+Branch v2 set up to track remote branch v2 from origin.
+
+Branch v2.1 set up to track remote branch v2.1 from origin.
+
+Branch v3 set up to track remote branch v3 from origin.
+
+To ssh://git@git.kcura.com:7999/cd/KCD_1041539_Imaging-Set-Scheduler.git
+
+   832ac75..2a7f000  master -> master
+
+ * [new branch]      v3 -> v3
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>					
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>
+
+Microsoft Windows [Version 6.1.7601]
+
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+
+
+C:\Windows\System32>cd "C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler"
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>				git checkout master
+
+Already on 'master'
+date with 'origin/master'.
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>
+
+Microsoft Windows [Version 6.1.7601]
+
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+
+
+C:\Windows\System32>cd "C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler"
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>						RMDIR "C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler\Documentation" /s /q
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>
+
+Microsoft Windows [Version 6.1.7601]
+
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+
+
+C:\Windows\System32>cd "C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler"
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>						RMDIR "C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler\Source" /s /q
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>
+
+Microsoft Windows [Version 6.1.7601]
+
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+
+
+C:\Windows\System32>cd "C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler"
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>						RMDIR "C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler\Test Cases" /s /q
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>
+
+Microsoft Windows [Version 6.1.7601]
+
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+
+
+C:\Windows\System32>cd "C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler"
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>				git add .
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>				git commit -m "deleted v3 contents from master"
+
+[master 361e0b6] deleted v3 contents from master
+
+ 63 files changed, 32476 deletions(-)
+
+ delete mode 100644 Documentation/Relativity - Imaging Set Scheduler.docx
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/AgentTests.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/GetNextOccurrenceTests.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/GetNextRunDateTests.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/Helper/Connection.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/Helper/Query.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/Helper/ServiceManager.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/Helper/TestConstant.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/ImagingSetNUnitTest.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/ImagingSetSchedulerPreLoadTests.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/ImagingSetSchedulerTests.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/ImagingSetTests.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/KCD_1041539.ImagingSetSchedule.NUnit.csproj
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/Properties/AssemblyInfo.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/RSAPITests.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/app.config
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetSchedule.NUnit/packages.config
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler.sln
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Agents/Manager.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Agents/Worker.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Database/SqlQueryHelper.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/EventHandlers/ImagingSetSchedulerPreLoad.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/EventHandlers/PreInstallValidation.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/EventHandlers/RemoveFromQueue.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/EventHandlers/SetNextRunDate.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/EventHandlers/ValidateTimeFormat.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/EventHandlers/WorkspaceSetup.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/CapiHelper.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/Constant.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/CustomExceptions.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/ExceptionMessageFormatter.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/ImagingSetHandlerQueries.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/ImagingSetStatusDTO.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/RSAPI.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/Response.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/ServiceUrlHelper.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Helper/Validator.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Interfaces/IValidator.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler.csproj
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Objects/ImagingSet.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Objects/ImagingSetScheduler.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/KCD_1041539.ImagingSetScheduler/Properties/AssemblyInfo.cs
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/Moq.4.2.1510.2205/Moq.4.2.1510.2205.nupkg
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/Moq.4.2.1510.2205/lib/net35/Moq.dll
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/Moq.4.2.1510.2205/lib/net35/Moq.xml
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/Moq.4.2.1510.2205/lib/net40/Moq.dll
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/Moq.4.2.1510.2205/lib/net40/Moq.xml
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/Moq.4.2.1510.2205/lib/sl5/Moq.Silverlight.dll
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/Moq.4.2.1510.2205/lib/sl5/Moq.Silverlight.xml
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/NUnit.2.6.4/NUnit.2.6.4.nupkg
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/NUnit.2.6.4/lib/nunit.framework.dll
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/NUnit.2.6.4/lib/nunit.framework.xml
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/NUnit.2.6.4/license.txt
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/Relativity.API.dll
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/kCura.Agent.dll
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/kCura.EventHandler.dll
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/kCura.Relativity.Client.dll
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/kCura.Talos.Utility.1.0.371.2/kCura.Talos.Utility.1.0.371.2.nupkg
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/kCura.Talos.Utility.1.0.371.2/lib/net45/kCura.Talos.Utility.dll
+
+ delete mode 100644 Source/Code/KCD_1041539.ImagingSetScheduler/packages/repositories.config
+
+ delete mode 100644 Source/Flowcharts/Imaging Set Scheduler Manager-Worker agent flowchart.pdf
+
+ delete mode 100644 Source/Flowcharts/Imaging Set Scheduler Manager-Worker agent flowchart.vsd
+
+ delete mode 100644 Test Cases/Testing - Imaging Set Scheduler.xlsx
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>				git push
+
+To ssh://git@git.kcura.com:7999/cd/KCD_1041539_Imaging-Set-Scheduler.git
+
+   2a7f000..361e0b6  master -> master
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>
+
+Microsoft Windows [Version 6.1.7601]
+
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+
+
+C:\Windows\System32>cd "C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler"
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>				git checkout "v3"
+
+Your branch is up-to-date with 'origin/v3'.
+
+Switched to branch 'v3'
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>				xcopy "C:\SourceCode\CustomDev\.gitignore" "C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler\.gitignore" /E /C /H /K /Y
+
+C:\SourceCode\CustomDev\.gitignore
+
+1 File(s) copied
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>				git add .
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>				git commit -m "Updated Git Ignore File"
+
+[v3 f7aaa3b] Updated Git Ignore File
+
+ 1 file changed, 27 insertions(+)
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>				git push
+
+remote: 
+
+remote: Create pull request for v3:        
+
+remote:   https://git.kcura.com/projects/CD/repos/kcd_1041539_imaging-set-scheduler/compare/commits?sourceBranch=refs/heads/v3        
+
+remote: 
+
+To ssh://git@git.kcura.com:7999/cd/KCD_1041539_Imaging-Set-Scheduler.git
+
+   2a7f000..f7aaa3b  v3 -> v3
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>
+
+Microsoft Windows [Version 6.1.7601]
+
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+
+
+C:\Windows\System32>cd "C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler"
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>				git checkout "C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3"
+
+fatal: C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3: 'C:\SourceCode\CustomDev\KCD_1041539_Imaging Set Scheduler\v3' is outside repository
+
+
+
+C:\SourceCode\KCD_1041539_Imaging-Set-Scheduler>
