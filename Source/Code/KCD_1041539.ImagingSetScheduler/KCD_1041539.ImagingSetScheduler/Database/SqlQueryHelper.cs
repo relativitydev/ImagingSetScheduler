@@ -23,6 +23,7 @@ namespace KCD_1041539.ImagingSetScheduler.Database
 					INNER JOIN [EDDSDBO].[Artifact] A WITH(NOLOCK) ON C.ArtifactId = A.ArtifactId
 					INNER JOIN [EDDSDBO].[ApplicationInstall] as AI WITH(NOLOCK) on CA.CurrentApplicationInstallID = AI.ApplicationInstallID
 				WHERE CA.ApplicationID = @appArtifactId
+					AND CA.CaseID != -1
 					AND AI.[Status] = 6 --Installed
 				ORDER BY A.CreatedOn
 				";
