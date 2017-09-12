@@ -15,13 +15,13 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 
 		public Connection()
 		{
-			ServerName = "cd-9-3-001"; //"dv-dsk-kyeak3-5.kcura.corp";
+			ServerName = "p-dv-vm-jkni-4";
 			Rsapiuri = new Uri("http://" + ServerName + "/relativity.services/");
 			RsapiUserName = "relativity.admin@kcura.com";
 			RsapiPassword = "Test1234!";
 			DbUserName = "eddsdbo";
-			DbPassword = "P@ssw0rd@1";
-		}
+			DbPassword = "MySqlPassword123"; // Possibly P@ssw0rd@1
+        }
 
 		public RSAPIClient GetRsapi()
 		{
@@ -32,13 +32,14 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 
 		public SqlConnection GetDbConnection(int workspaceArtifactId)
 		{
-			string dbName = "EDDS";
+		    string dbServerSuffix = "\\EDDSINSTANCE001"; // Probably leave blank if you're not running on a TestVM
+            string dbName = "EDDS";
 
 			if (workspaceArtifactId > 0)
 			{
 				dbName += workspaceArtifactId.ToString();
 			}
-			var connectionString = String.Format("Server={0};Database={1};User Id={2}; Password={3};", ServerName, dbName, DbUserName, DbPassword);
+			var connectionString = String.Format("Server={0}{1};Database={2};User Id={3}; Password={4};", ServerName, dbServerSuffix, dbName, DbUserName, DbPassword);
 			var sqlConnection = new SqlConnection(connectionString);
 			sqlConnection.Open();
 			return sqlConnection;
