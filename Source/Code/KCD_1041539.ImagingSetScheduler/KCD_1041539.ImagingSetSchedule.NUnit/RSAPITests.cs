@@ -10,7 +10,7 @@ using KCD_1041539.ImagingSetScheduler.Helper;
 namespace KCD_1041539.ImagingSetSchedule.NUnit
 {
 	[TestFixture]
-	class RSAPITests
+	class RsapiTests
 	{
 
 		#region Vars
@@ -18,8 +18,8 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		ExecutionIdentity _identity;
 		SqlConnection _masterDBConnection;
 		SqlConnection _workspaceDBConnection;
-		int _workspaceArtifactID = Helper.TestConstant.WORKSPACE_ARTIFACT_ID;
-		int _imagingSetScheuleArtifactID = Helper.TestConstant.IMAGING_SET_SCHEDULER_ARTIFACT_ID;
+		int _workspaceArtifactID = Helper.Connection.WorkspaceArtifactId;
+		int _imagingSetScheuleArtifactID = Helper.Connection.ImagingSetSchedulerArtifactId;
 		#endregion
 
 		#region SetUp and Teardown
@@ -30,7 +30,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 
 			_masterDBConnection = conn.GetDbConnection(-1);
 			_workspaceDBConnection = conn.GetDbConnection(_workspaceArtifactID);
-			_svcMgr = new Helper.ServiceManager(conn.Rsapiuri, conn.GetRsapi());
+			_svcMgr = new Helper.ServiceManager(conn.RsapiUri, conn.GetRsapi());
 			_identity = Relativity.API.ExecutionIdentity.System;
 		}
 
@@ -42,9 +42,8 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 				_masterDBConnection.Close();
 				_workspaceDBConnection.Close();
 			}
-			catch (System.Exception ex)
+			catch (System.Exception)
 			{
-				//do nothing
 			}
 		}
 		#endregion

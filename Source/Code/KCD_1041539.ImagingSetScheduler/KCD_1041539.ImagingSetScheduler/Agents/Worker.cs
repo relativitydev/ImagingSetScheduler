@@ -30,7 +30,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			{
 				RaiseMessage("Retrieving next imaging set scheduler in waiting status", 10);
 
-				var nextJob = SqlQueryHelper.RetrieveNextJobInQueue(eddsSqlConnection, Constant.Tables.IMAIGNG_SET_SCHEDULER_QUEUE);
+				var nextJob = SqlQueryHelper.RetrieveNextJobInQueue(eddsSqlConnection, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE);
 
 				if (nextJob != null && nextJob.Rows.Count > 0 && nextJob.Rows[0]["ImagingSetSchedulerArtifactId"].ToString() != "")
 				{
@@ -47,7 +47,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 				RaiseMessage(errorMessages, 1);
 
 				var errorcontext = String.Format("{0}. \n\nStack Trace:{1}", AGENT_TYPE, ex);
-				sqlQueryHelper.InsertRowIntoErrorLog(eddsDbContext, 0, Constant.Tables.IMAIGNG_SET_SCHEDULER_QUEUE, 0, AgentID, errorcontext);
+				sqlQueryHelper.InsertRowIntoErrorLog(eddsDbContext, 0, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, 0, AgentID, errorcontext);
 			}
 
 			RaiseMessage("Agent execution finished.", 10);
@@ -63,12 +63,12 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			{
 				if (nextJob.Rows[0]["WorkspaceArtifactId"] == null)
 				{
-					throw new CustomExceptions.ImagingSetSchedulerException(String.Format("WorkspaceArtifactId is NULL in {0} table", Constant.Tables.IMAIGNG_SET_SCHEDULER_QUEUE));
+					throw new CustomExceptions.ImagingSetSchedulerException(String.Format("WorkspaceArtifactId is NULL in {0} table", Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE));
 				}
 
 				if (nextJob.Rows[0]["ImagingSetSchedulerArtifactId"] == null)
 				{
-					throw new CustomExceptions.ImagingSetSchedulerException(String.Format("ImagingSetSchedulerArtifactId is NULL in {0} table", Constant.Tables.IMAIGNG_SET_SCHEDULER_QUEUE));
+					throw new CustomExceptions.ImagingSetSchedulerException(String.Format("ImagingSetSchedulerArtifactId is NULL in {0} table", Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE));
 				}
 
 				workspaceArtifactId = (int)nextJob.Rows[0]["WorkspaceArtifactId"];

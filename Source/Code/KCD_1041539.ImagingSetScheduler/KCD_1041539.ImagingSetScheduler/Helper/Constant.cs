@@ -83,7 +83,7 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 
 		public class Tables
 		{
-			public const string IMAIGNG_SET_SCHEDULER_QUEUE = "KCD_1041539_ImagingSetScheduler_Queue";
+			public const string IMAGING_SET_SCHEDULER_QUEUE = "KCD_1041539_ImagingSetScheduler_Queue";
 			public const string ERROR_LOG = "KCD_1041539_ImagingSetScheduler_ErrorLog";
 			public const string IMAGING_JOB_TOKEN = "CustomApplicationAuthenticationToken";
 		}
@@ -127,7 +127,7 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 			public const string HIDING_IMAGES = "Hiding Images";
 			public const string RELEASING_IMAGES = "Releasing Images";
 
-			//below status's are for legacy imaging set code.
+			//below statuses are for legacy imaging set code.
 			public const string INITIALIZING = "initializing";
 		}
 

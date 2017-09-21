@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using Relativity.API;
 using System.Data.SqlClient;
 using KCD_1041539.ImagingSetScheduler.Helper;
 using KCD_1041539.ImagingSetSchedule.NUnit.Helper;
@@ -10,11 +9,9 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 	class ImagingSetSchedulerPreLoadTests
 	{
 		#region Vars
-		IServicesMgr SvcMgr;
-		ExecutionIdentity Identity;
 		SqlConnection MasterDbConnection;
 		SqlConnection WorkspaceDbConnection;
-		readonly int WorkspaceArtifactId = TestConstant.WORKSPACE_ARTIFACT_ID;
+		readonly int WorkspaceArtifactId = Connection.WorkspaceArtifactId;
 		#endregion
 
 		#region SetUp and Teardown
@@ -22,9 +19,6 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		protected void TestFixtureSetUp()
 		{
 			Connection conn = new Connection();
-
-			SvcMgr = new ServiceManager(conn.Rsapiuri, conn.GetRsapi());
-			Identity = ExecutionIdentity.System;
 			MasterDbConnection = conn.GetDbConnection(-1);
 			WorkspaceDbConnection = conn.GetDbConnection(WorkspaceArtifactId);
 		}
@@ -56,7 +50,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 
 			//assert
 			Assert.AreEqual("documents", noResults);
-			Assert.AreEqual("document", noResults);
+			Assert.AreEqual("document", oneResult);
 			Assert.AreEqual("documents", manyResults);
 		}
 	}

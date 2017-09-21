@@ -81,7 +81,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 
 		public static void RemoveKcdQueueRecords(SqlConnection dbContext)
 		{
-			string sql = string.Format(@"DELETE FROM {0}", KCD_1041539.ImagingSetScheduler.Helper.Constant.Tables.IMAIGNG_SET_SCHEDULER_QUEUE);
+			string sql = string.Format(@"DELETE FROM {0}", KCD_1041539.ImagingSetScheduler.Helper.Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE);
 
 			var command = dbContext.CreateCommand();
 			command.CommandText = sql;

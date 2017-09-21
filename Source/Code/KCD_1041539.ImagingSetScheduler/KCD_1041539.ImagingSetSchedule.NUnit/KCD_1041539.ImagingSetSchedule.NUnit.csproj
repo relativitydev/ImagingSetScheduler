@@ -205,10 +205,8 @@
     <Compile Include="GetNextOccurrenceTests.cs" />
     <Compile Include="GetNextRunDateTests.cs" />
     <Compile Include="Helper\Connection.cs" />
-    <Compile Include="Helper\TestConstant.cs" />
     <Compile Include="Helper\Query.cs" />
     <Compile Include="Helper\ServiceManager.cs" />
-    <Compile Include="ImagingSetNUnitTest.cs" />
     <Compile Include="ImagingSetSchedulerPreLoadTests.cs" />
     <Compile Include="ImagingSetSchedulerTests.cs" />
     <Compile Include="ImagingSetTests.cs" />

@@ -102,12 +102,12 @@ namespace KCD_1041539.ImagingSetScheduler.Objects
 
 		public void RemoveRecordFromQueue(int imagingSetArtifactId, SqlConnection masterDbConnection, int workspaceArtifactId)
 		{
-			Database.SqlQueryHelper.RemoveRecordFromQueue(masterDbConnection, Constant.Tables.IMAIGNG_SET_SCHEDULER_QUEUE, ArtifactId, workspaceArtifactId);
+			Database.SqlQueryHelper.RemoveRecordFromQueue(masterDbConnection, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, ArtifactId, workspaceArtifactId);
 		}
 
 		public void InsertRecordIntoQueue(SqlConnection dbContext, int imagingSetSchedulerArtifactId, int workspaceArtifactId)
 		{
-			Database.SqlQueryHelper.InsertIntoJobQueue(dbContext, Constant.Tables.IMAIGNG_SET_SCHEDULER_QUEUE, imagingSetSchedulerArtifactId, workspaceArtifactId);
+			Database.SqlQueryHelper.InsertIntoJobQueue(dbContext, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, imagingSetSchedulerArtifactId, workspaceArtifactId);
 		}
 
 		public void Update(IServicesMgr svcMgr, ExecutionIdentity identity, int workspaceArtifactId, DateTime? lastRun, DateTime? nextRun, string messages, string status)

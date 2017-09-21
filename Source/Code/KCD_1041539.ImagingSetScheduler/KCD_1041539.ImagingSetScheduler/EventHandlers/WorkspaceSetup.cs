@@ -22,7 +22,7 @@ namespace KCD_1041539.ImagingSetScheduler.EventHandlers
 			try
 			{
 				var eddsDbContext = Helper.GetDBContext(-1);
-				sqlQueryHelper.CreateQueueTable(eddsDbContext, Constant.Tables.IMAIGNG_SET_SCHEDULER_QUEUE);
+				sqlQueryHelper.CreateQueueTable(eddsDbContext, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE);
 				sqlQueryHelper.CreateErrorLogTable(eddsDbContext);
 				sqlQueryHelper.UpdateAgentsToBeOnlyCreatedOnWebServer(eddsDbContext); 
 			}
