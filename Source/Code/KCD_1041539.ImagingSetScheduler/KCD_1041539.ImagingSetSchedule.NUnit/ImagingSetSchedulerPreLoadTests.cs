@@ -11,7 +11,6 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		#region Vars
 		SqlConnection MasterDbConnection;
 		SqlConnection WorkspaceDbConnection;
-		readonly int WorkspaceArtifactId = Connection.WorkspaceArtifactId;
 		#endregion
 
 		#region SetUp and Teardown
@@ -20,7 +19,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		{
 			Connection conn = new Connection();
 			MasterDbConnection = conn.GetDbConnection(-1);
-			WorkspaceDbConnection = conn.GetDbConnection(WorkspaceArtifactId);
+			WorkspaceDbConnection = conn.GetDbConnection(Connection.WorkspaceArtifactId);
 		}
 
 		[TestFixtureTearDown]

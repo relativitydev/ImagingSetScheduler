@@ -18,8 +18,6 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		ExecutionIdentity _identity;
 		SqlConnection _masterDBConnection;
 		SqlConnection _workspaceDBConnection;
-		int _workspaceArtifactID = Helper.Connection.WorkspaceArtifactId;
-		int _imagingSetScheuleArtifactID = Helper.Connection.ImagingSetSchedulerArtifactId;
 		#endregion
 
 		#region SetUp and Teardown
@@ -29,7 +27,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 			Connection conn = new Connection();
 
 			_masterDBConnection = conn.GetDbConnection(-1);
-			_workspaceDBConnection = conn.GetDbConnection(_workspaceArtifactID);
+			_workspaceDBConnection = conn.GetDbConnection(Connection.WorkspaceArtifactId);
 			_svcMgr = new Helper.ServiceManager(conn.RsapiUri, conn.GetRsapi());
 			_identity = Relativity.API.ExecutionIdentity.System;
 		}
@@ -55,7 +53,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 			DTOs.RDO result;
 
 			//act
-			result = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, _workspaceArtifactID, _imagingSetScheuleArtifactID);
+			result = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, Connection.WorkspaceArtifactId, Connection.ImagingSetSchedulerArtifactId);
 			Objects.ImagingSetScheduler imagingSetScheduler = new Objects.ImagingSetScheduler(result);
 
 			//assert
@@ -68,12 +66,12 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 			//arrange
 			IEnumerable<DTOs.RDO> imagingSetSchedulesToCheck;
 			DTOs.RDO result;
-			result = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, _workspaceArtifactID, _imagingSetScheuleArtifactID);
+			result = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, Connection.WorkspaceArtifactId, Connection.ImagingSetSchedulerArtifactId);
 			Objects.ImagingSetScheduler imagingSetScheduler = new Objects.ImagingSetScheduler(result);
-			imagingSetScheduler.Update(_svcMgr, _identity, _workspaceArtifactID, null, null, "", Constant.ImagingSetSchedulerStatus.COMPLETED_AT);
+			imagingSetScheduler.Update(_svcMgr, _identity, Connection.WorkspaceArtifactId, null, null, "", Constant.ImagingSetSchedulerStatus.COMPLETED_AT);
 
 			//act
-			imagingSetSchedulesToCheck = RSAPI.RetrieveAllImagingSetSchedulesNotWaiting(_svcMgr, _identity, _workspaceArtifactID);
+			imagingSetSchedulesToCheck = RSAPI.RetrieveAllImagingSetSchedulesNotWaiting(_svcMgr, _identity, Connection.WorkspaceArtifactId);
 
 			//assert
 			Assert.IsTrue(imagingSetSchedulesToCheck.ToList().Count > 0);
