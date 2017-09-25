@@ -17,8 +17,6 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		SqlConnection MasterDbConnection;
 		SqlConnection WorkspaceDbConnection;
 		Objects.ImagingSetScheduler ImagingSetScheduler;
-		readonly int WorkspaceArtifactId = Connection.WorkspaceArtifactId;
-		readonly int ImagingSetScheuleArtifactId = Connection.ImagingSetSchedulerArtifactId;
 		#endregion
 
 		#region SetUp and Teardown
@@ -30,8 +28,8 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 			SvcMgr = new ServiceManager(conn.RsapiUri, conn.GetRsapi());
 			Identity = ExecutionIdentity.System;
 			MasterDbConnection = conn.GetDbConnection(-1);
-			WorkspaceDbConnection = conn.GetDbConnection(WorkspaceArtifactId);
-			var imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(SvcMgr, Identity, WorkspaceArtifactId, ImagingSetScheuleArtifactId);
+			WorkspaceDbConnection = conn.GetDbConnection(Connection.WorkspaceArtifactId);
+			var imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(SvcMgr, Identity, Connection.WorkspaceArtifactId, Connection.ImagingSetSchedulerArtifactId);
 			ImagingSetScheduler = new Objects.ImagingSetScheduler(imagingSetSchedulerDto);
 		}
 
@@ -69,7 +67,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 			//arrange
 
 			//act
-			KCD_1041539.ImagingSetScheduler.Database.SqlQueryHelper.InsertIntoJobQueue(MasterDbConnection, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, ImagingSetScheduler.ArtifactId, WorkspaceArtifactId);
+			KCD_1041539.ImagingSetScheduler.Database.SqlQueryHelper.InsertIntoJobQueue(MasterDbConnection, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, ImagingSetScheduler.ArtifactId, Connection.WorkspaceArtifactId);
 			var dt = Query.GetTableRecordsFromQueue(MasterDbConnection, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE);
 
 			//assert

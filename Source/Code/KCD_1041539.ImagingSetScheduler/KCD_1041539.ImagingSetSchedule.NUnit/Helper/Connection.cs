@@ -12,7 +12,8 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 
 		public Uri RsapiUri { get; set; }
 
-		const string ServerName = "p-dv-vm-jkni-4";
+		const string ServerName = "p-dv-vm-changeme-1";
+		const string DbNamePrefix = "EDDS";
 		const string DbServerSuffix = "\\EDDSINSTANCE001"; // Probably leave blank if you're not running on a TestVM
 		const string RsapiUserName = "relativity.admin@kcura.com";
 		const string RsapiPassword = "Test1234!";
@@ -33,7 +34,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 
 		public SqlConnection GetDbConnection(int workspaceArtifactId)
 		{
-            string dbName = "EDDS";
+            string dbName = DbNamePrefix;
 
 			if (workspaceArtifactId > 0)
 			{
