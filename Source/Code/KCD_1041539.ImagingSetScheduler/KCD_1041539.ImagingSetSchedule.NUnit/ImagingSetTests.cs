@@ -32,11 +32,11 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 			SvcMgr = new Helper.ServiceManager(conn.RsapiUri, conn.GetRsapi());
 			Identity = ExecutionIdentity.System;
 			MasterDbConnection = conn.GetDbConnection(-1);
-			WorkspaceDbConnection = conn.GetDbConnection(Connection.WorkspaceArtifactId);
-			WorkspaceDbConnection = conn.GetDbConnection(Connection.WorkspaceArtifactId);
-			var imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(SvcMgr, Identity, Connection.WorkspaceArtifactId, Connection.ImagingSetSchedulerArtifactId);
+			WorkspaceDbConnection = conn.GetDbConnection(Connection.WORKSPACE_ARTIFACT_ID);
+			WorkspaceDbConnection = conn.GetDbConnection(Connection.WORKSPACE_ARTIFACT_ID);
+			var imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(SvcMgr, Identity, Connection.WORKSPACE_ARTIFACT_ID, Connection.IMAGING_SET_SCHEDULER_ARTIFACT_ID);
 			ImagingSetScheduler = new Objects.ImagingSetScheduler(imagingSetSchedulerDto);
-			var imagingSetDto = RSAPI.RetrieveSingleImagingSet(SvcMgr, Identity, Connection.WorkspaceArtifactId, ImagingSetScheduler.ImagingSetArtifactId);
+			var imagingSetDto = RSAPI.RetrieveSingleImagingSet(SvcMgr, Identity, Connection.WORKSPACE_ARTIFACT_ID, ImagingSetScheduler.ImagingSetArtifactId);
 
 			var eddsDbContext = new Mock<IDBContext>();
 			eddsDbContext.Setup(x => x.ExecuteSqlStatementAsScalar<Int32>(It.IsAny<string>(), It.IsAny<IEnumerable<SqlParameter>>())).Returns(9);
@@ -65,27 +65,11 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 			//arrange
 
 			//act
-			var imagingSetDto = RSAPI.RetrieveSingleImagingSet(SvcMgr, Identity, Connection.WorkspaceArtifactId, ImagingSetScheduler.ImagingSetArtifactId);
+			var imagingSetDto = RSAPI.RetrieveSingleImagingSet(SvcMgr, Identity, Connection.WORKSPACE_ARTIFACT_ID, ImagingSetScheduler.ImagingSetArtifactId);
 
 			//assert
 			Assert.IsTrue(imagingSetDto[Constant.Guids.Field.ImagingSet.IMAGING_PROFILE].ValueAsSingleObject.ArtifactID > 0);
 			Assert.IsFalse(String.IsNullOrEmpty(imagingSetDto[Constant.Guids.Field.ImagingSet.NAME].ValueAsFixedLengthText));
-		}
-
-
-		[Test]
-		public void UpdateImagingSetStatusTest()
-		{
-			//todo: old test. fix it for newer logic.
-
-			//arrange
-
-			//act
-			//ImagingSet.UpdateStatus(SvcMgr, Identity, WORKSPACE_ARTIFACT_ID, Constant.ImagingSetScheduleStatus.STATUS_WAITING);
-			//var status = Helper.Query.GetImagingSetStatus(ImagingSet.ArtifactId, WorkspaceDbConnection);
-
-			//assert
-			//Assert.AreEqual("Waiting", status);
 		}
 
 		#region ' Tests for API '

@@ -18,8 +18,8 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		SqlConnection MasterDbConnection;
 		SqlConnection WorkspaceDbConnection;
 		Objects.ImagingSetScheduler ImagingSetScheduler;
-		private const int WORKSPACE_ARTIFACT_ID = Connection.WorkspaceArtifactId;
-		private readonly int ImagingSetScheuleArtifactId = Connection.ImagingSetSchedulerArtifactId;
+		private const int WORKSPACE_ARTIFACT_ID = Connection.WORKSPACE_ARTIFACT_ID;
+		private readonly int ImagingSetScheuleArtifactId = Connection.IMAGING_SET_SCHEDULER_ARTIFACT_ID;
 		#endregion
 
 		#region SetUp and Teardown

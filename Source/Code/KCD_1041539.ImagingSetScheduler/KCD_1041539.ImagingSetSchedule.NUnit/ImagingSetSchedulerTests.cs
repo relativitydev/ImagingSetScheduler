@@ -31,7 +31,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 			_svcMgr = new Helper.ServiceManager(conn.RsapiUri, conn.GetRsapi());
 			_identity = Relativity.API.ExecutionIdentity.System;
 			_masterDBConnection = conn.GetDbConnection(-1);
-			_workspaceDBConnection = conn.GetDbConnection(Connection.WorkspaceArtifactId);
+			_workspaceDBConnection = conn.GetDbConnection(Connection.WORKSPACE_ARTIFACT_ID);
 		}
 
 		[TestFixtureTearDown]
@@ -52,7 +52,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		public void NewImagingSetSchedulerTest()
 		{
 			//arrange
-			DTOs.RDO imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, Connection.WorkspaceArtifactId, Connection.ImagingSetSchedulerArtifactId);
+			DTOs.RDO imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, Connection.WORKSPACE_ARTIFACT_ID, Connection.IMAGING_SET_SCHEDULER_ARTIFACT_ID);
 
 			//act
 			_imagingSetScheduler = new Objects.ImagingSetScheduler(imagingSetSchedulerDto);
@@ -72,7 +72,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		{
 			//arrange
 			DataTable dt;
-			DTOs.RDO imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, Connection.WorkspaceArtifactId, Connection.ImagingSetSchedulerArtifactId);
+			DTOs.RDO imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, Connection.WORKSPACE_ARTIFACT_ID, Connection.IMAGING_SET_SCHEDULER_ARTIFACT_ID);
 			_imagingSetScheduler = new Objects.ImagingSetScheduler(imagingSetSchedulerDto);
 			var expectedLastRun = DateTime.Now.ToUniversalTime();
 			_imagingSetScheduler.LastRunDate = expectedLastRun;
@@ -80,7 +80,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 			_imagingSetScheduler.NextRunDate = expectedNextRun;
 
 			//act
-			_imagingSetScheduler.Update(_svcMgr, _identity, Connection.WorkspaceArtifactId, _imagingSetScheduler.LastRunDate, _imagingSetScheduler.NextRunDate, "test message", "test status");
+			_imagingSetScheduler.Update(_svcMgr, _identity, Connection.WORKSPACE_ARTIFACT_ID, _imagingSetScheduler.LastRunDate, _imagingSetScheduler.NextRunDate, "test message", "test status");
 			dt = Helper.Query.GetImagingSetSchedulerRecord(_workspaceDBConnection, _imagingSetScheduler.ArtifactId);
 			DateTime actualLastRunDate = (DateTime)dt.Rows[0]["LastRun"];
 			DateTime actualNextRunDate = (DateTime)dt.Rows[0]["NextRun"];
@@ -97,12 +97,12 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		public void UpdateStatusAndMessageTest()
 		{
 			//arrange
-			DTOs.RDO imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, Connection.WorkspaceArtifactId, Connection.ImagingSetSchedulerArtifactId);
+			DTOs.RDO imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, Connection.WORKSPACE_ARTIFACT_ID, Connection.IMAGING_SET_SCHEDULER_ARTIFACT_ID);
 			_imagingSetScheduler = new Objects.ImagingSetScheduler(imagingSetSchedulerDto);
 			DateTimeFormatInfo fmt = (new CultureInfo("hr-HR")).DateTimeFormat;
 
 			//act
-			_imagingSetScheduler.Update(_svcMgr, _identity, Connection.WorkspaceArtifactId, null, null, "", Constant.ImagingSetSchedulerStatus.WAITING);
+			_imagingSetScheduler.Update(_svcMgr, _identity, Connection.WORKSPACE_ARTIFACT_ID, null, null, "", Constant.ImagingSetSchedulerStatus.WAITING);
 			DataTable dt = Helper.Query.GetImagingSetSchedulerRecord(_workspaceDBConnection, _imagingSetScheduler.ArtifactId);
 
 			//assert
@@ -114,7 +114,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		public void ConvertStringToDayOfWeekTest()
 		{
 			//arrange
-			DTOs.RDO imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, Connection.WorkspaceArtifactId, Connection.ImagingSetSchedulerArtifactId);
+			DTOs.RDO imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, Connection.WORKSPACE_ARTIFACT_ID, Connection.IMAGING_SET_SCHEDULER_ARTIFACT_ID);
 			_imagingSetScheduler = new Objects.ImagingSetScheduler(imagingSetSchedulerDto);
 
 			//act
@@ -140,12 +140,12 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		public void RemoveRecordFromQueueTest()
 		{
 			//arrange
-			DTOs.RDO imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, Connection.WorkspaceArtifactId, Connection.ImagingSetSchedulerArtifactId);
+			DTOs.RDO imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, Connection.WORKSPACE_ARTIFACT_ID, Connection.IMAGING_SET_SCHEDULER_ARTIFACT_ID);
 			_imagingSetScheduler = new Objects.ImagingSetScheduler(imagingSetSchedulerDto);
-			KCD_1041539.ImagingSetScheduler.Database.SqlQueryHelper.InsertIntoJobQueue(_masterDBConnection, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, _imagingSetScheduler.ArtifactId, Connection.WorkspaceArtifactId);
+			KCD_1041539.ImagingSetScheduler.Database.SqlQueryHelper.InsertIntoJobQueue(_masterDBConnection, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, _imagingSetScheduler.ArtifactId, Connection.WORKSPACE_ARTIFACT_ID);
 
 			//act
-			_imagingSetScheduler.RemoveRecordFromQueue(_imagingSetScheduler.ArtifactId, _masterDBConnection, Connection.WorkspaceArtifactId);
+			_imagingSetScheduler.RemoveRecordFromQueue(_imagingSetScheduler.ArtifactId, _masterDBConnection, Connection.WORKSPACE_ARTIFACT_ID);
 			DataTable dt = Helper.Query.GetTableRecordsFromQueue(_masterDBConnection, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE);
 
 			//assert

@@ -8,7 +8,7 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 		public const String AGENT_RESOURCE_SERVER_TYPE = "AgentResourceServerType";
 		public const String WEB_BACKGROUND_PROCESSING_SERVER_TYPE = "WebBackgroundProcessingServerType";
 		public const string IMAGING_SET_SCHEDULER_SUPPORTED_RELATIVITY_VERSION = "9.5.196.102";
-		public const string IMAGING_SET_SCHEDULER_SUPPORTED_IMAGING_APPLICATION_VERSION = "9.2.337.5";
+		public const string IMAGING_SET_SCHEDULER_SUPPORTED_IMAGING_APPLICATION_VERSION = "9.5.196.102";
 		public const string IMAGING_SET_SCHEDULER_APPLICATION_NAME = "Imaging Set Scheduler";
 		public const string IMAGING_APPLICATION_NAME = "Imaging";
 

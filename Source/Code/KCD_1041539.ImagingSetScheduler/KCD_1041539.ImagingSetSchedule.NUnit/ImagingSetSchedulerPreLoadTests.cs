@@ -19,7 +19,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		{
 			Connection conn = new Connection();
 			MasterDbConnection = conn.GetDbConnection(-1);
-			WorkspaceDbConnection = conn.GetDbConnection(Connection.WorkspaceArtifactId);
+			WorkspaceDbConnection = conn.GetDbConnection(Connection.WORKSPACE_ARTIFACT_ID);
 		}
 
 		[TestFixtureTearDown]

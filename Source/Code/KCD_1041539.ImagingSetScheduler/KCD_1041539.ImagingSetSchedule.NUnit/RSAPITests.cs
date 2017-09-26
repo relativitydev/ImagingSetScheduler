@@ -27,7 +27,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 			Connection conn = new Connection();
 
 			_masterDBConnection = conn.GetDbConnection(-1);
-			_workspaceDBConnection = conn.GetDbConnection(Connection.WorkspaceArtifactId);
+			_workspaceDBConnection = conn.GetDbConnection(Connection.WORKSPACE_ARTIFACT_ID);
 			_svcMgr = new Helper.ServiceManager(conn.RsapiUri, conn.GetRsapi());
 			_identity = Relativity.API.ExecutionIdentity.System;
 		}
@@ -53,7 +53,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 			DTOs.RDO result;
 
 			//act
-			result = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, Connection.WorkspaceArtifactId, Connection.ImagingSetSchedulerArtifactId);
+			result = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, Connection.WORKSPACE_ARTIFACT_ID, Connection.IMAGING_SET_SCHEDULER_ARTIFACT_ID);
 			Objects.ImagingSetScheduler imagingSetScheduler = new Objects.ImagingSetScheduler(result);
 
 			//assert
@@ -66,12 +66,12 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 			//arrange
 			IEnumerable<DTOs.RDO> imagingSetSchedulesToCheck;
 			DTOs.RDO result;
-			result = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, Connection.WorkspaceArtifactId, Connection.ImagingSetSchedulerArtifactId);
+			result = RSAPI.RetrieveSingleImagingSetScheduler(_svcMgr, _identity, Connection.WORKSPACE_ARTIFACT_ID, Connection.IMAGING_SET_SCHEDULER_ARTIFACT_ID);
 			Objects.ImagingSetScheduler imagingSetScheduler = new Objects.ImagingSetScheduler(result);
-			imagingSetScheduler.Update(_svcMgr, _identity, Connection.WorkspaceArtifactId, null, null, "", Constant.ImagingSetSchedulerStatus.COMPLETED_AT);
+			imagingSetScheduler.Update(_svcMgr, _identity, Connection.WORKSPACE_ARTIFACT_ID, null, null, "", Constant.ImagingSetSchedulerStatus.COMPLETED_AT);
 
 			//act
-			imagingSetSchedulesToCheck = RSAPI.RetrieveAllImagingSetSchedulesNotWaiting(_svcMgr, _identity, Connection.WorkspaceArtifactId);
+			imagingSetSchedulesToCheck = RSAPI.RetrieveAllImagingSetSchedulesNotWaiting(_svcMgr, _identity, Connection.WORKSPACE_ARTIFACT_ID);
 
 			//assert
 			Assert.IsTrue(imagingSetSchedulesToCheck.ToList().Count > 0);
