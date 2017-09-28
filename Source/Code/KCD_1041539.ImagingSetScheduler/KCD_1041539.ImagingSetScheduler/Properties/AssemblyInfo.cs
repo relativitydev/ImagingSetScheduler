@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("KCD_1041539.ImagingSetScheduler")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("kCura Custom Development")]
+[assembly: AssemblyCompany("Relativity ODA LLC")]
 [assembly: AssemblyProduct("KCD_1041539.ImagingSetScheduler")]
-[assembly: AssemblyCopyright("Copyright © kCura Corporation 2014")]
+[assembly: AssemblyCopyright("© Relativity")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

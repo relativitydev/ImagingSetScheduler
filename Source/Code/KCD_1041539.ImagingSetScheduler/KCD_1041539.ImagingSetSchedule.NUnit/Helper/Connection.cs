@@ -6,39 +6,41 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 {
 	class Connection
 	{
-		string ServerName { get; set; }
-		public Uri Rsapiuri { get; set; }
-		string RsapiUserName { get; set; }
-		string RsapiPassword { get; set; }
-		string DbUserName { get; set; }
-		string DbPassword { get; set; }
+		// Modify these constants to match your own testing environment
+		public const int WORKSPACE_ARTIFACT_ID = 1332098;
+		public const int IMAGING_SET_SCHEDULER_ARTIFACT_ID = 1040320;
+
+		public Uri RsapiUri { get; set; }
+
+		private const string _SERVER_NAME = "p-dv-vm-changeme-1";
+		private const string _DB_NAME_PREFIX = "EDDS";
+		private const string _DB_SERVER_SUFFIX = "\\EDDSINSTANCE001"; // Probably leave blank if you're not running on a TestVM
+		private const string _RSAPI_USER_NAME = "relativity.admin@kcura.com";
+		private const string _RSAPI_PASSWORD = "Test1234!";
+		private const string _DB_USER_NAME = "eddsdbo";
+		private const string _DB_PASSWORD = "MySqlPassword123"; // Possibly P@ssw0rd@1
 
 		public Connection()
 		{
-			ServerName = "cd-9-3-001"; //"dv-dsk-kyeak3-5.kcura.corp";
-			Rsapiuri = new Uri("http://" + ServerName + "/relativity.services/");
-			RsapiUserName = "relativity.admin@kcura.com";
-			RsapiPassword = "Test1234!";
-			DbUserName = "eddsdbo";
-			DbPassword = "P@ssw0rd@1";
-		}
+			RsapiUri = new Uri("http://" + _SERVER_NAME + "/relativity.services/");
+        }
 
 		public RSAPIClient GetRsapi()
 		{
-			RSAPIClient client = new RSAPIClient(Rsapiuri, new UsernamePasswordCredentials(RsapiUserName, RsapiPassword));
+			RSAPIClient client = new RSAPIClient(RsapiUri, new UsernamePasswordCredentials(_RSAPI_USER_NAME, _RSAPI_PASSWORD));
 			client.Login();
 			return client;
 		}
 
 		public SqlConnection GetDbConnection(int workspaceArtifactId)
 		{
-			string dbName = "EDDS";
+            string dbName = _DB_NAME_PREFIX;
 
 			if (workspaceArtifactId > 0)
 			{
 				dbName += workspaceArtifactId.ToString();
 			}
-			var connectionString = String.Format("Server={0};Database={1};User Id={2}; Password={3};", ServerName, dbName, DbUserName, DbPassword);
+			var connectionString = String.Format("Server={0}{1};Database={2};User Id={3}; Password={4};", _SERVER_NAME, _DB_SERVER_SUFFIX, dbName, _DB_USER_NAME, _DB_PASSWORD);
 			var sqlConnection = new SqlConnection(connectionString);
 			sqlConnection.Open();
 			return sqlConnection;

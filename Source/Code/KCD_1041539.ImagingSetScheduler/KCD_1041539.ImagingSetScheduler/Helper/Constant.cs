@@ -7,8 +7,8 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 		public const String RESOURCE_SERVER_TYPE = "ResourceServerType";
 		public const String AGENT_RESOURCE_SERVER_TYPE = "AgentResourceServerType";
 		public const String WEB_BACKGROUND_PROCESSING_SERVER_TYPE = "WebBackgroundProcessingServerType";
-		public const string IMAGING_SET_SCHEDULER_SUPPORTED_RELATIVITY_VERSION = "9.3.297.13";
-		public const string IMAGING_SET_SCHEDULER_SUPPORTED_IMAGING_APPLICATION_VERSION = "9.2.337.5";
+		public const string IMAGING_SET_SCHEDULER_SUPPORTED_RELATIVITY_VERSION = "9.5.196.102";
+		public const string IMAGING_SET_SCHEDULER_SUPPORTED_IMAGING_APPLICATION_VERSION = "9.5.196.102";
 		public const string IMAGING_SET_SCHEDULER_APPLICATION_NAME = "Imaging Set Scheduler";
 		public const string IMAGING_APPLICATION_NAME = "Imaging";
 
@@ -83,7 +83,7 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 
 		public class Tables
 		{
-			public const string IMAIGNG_SET_SCHEDULER_QUEUE = "KCD_1041539_ImagingSetScheduler_Queue";
+			public const string IMAGING_SET_SCHEDULER_QUEUE = "KCD_1041539_ImagingSetScheduler_Queue";
 			public const string ERROR_LOG = "KCD_1041539_ImagingSetScheduler_ErrorLog";
 			public const string IMAGING_JOB_TOKEN = "CustomApplicationAuthenticationToken";
 		}
@@ -127,7 +127,7 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 			public const string HIDING_IMAGES = "Hiding Images";
 			public const string RELEASING_IMAGES = "Releasing Images";
 
-			//below status's are for legacy imaging set code.
+			//below statuses are for legacy imaging set code.
 			public const string INITIALIZING = "initializing";
 		}
 

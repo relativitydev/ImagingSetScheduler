@@ -19,8 +19,8 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		SqlConnection MasterDbConnection;
 		SqlConnection WorkspaceDbConnection;
 		Objects.ImagingSetScheduler ImagingSetScheduler;
-		readonly int WorkspaceArtifactId = TestConstant.WORKSPACE_ARTIFACT_ID;
-		readonly int ImagingSetScheuleArtifactId = TestConstant.IMAGING_SET_SCHEDULER_ARTIFACT_ID;
+		readonly int WorkspaceArtifactId = Connection.WORKSPACE_ARTIFACT_ID;
+		readonly int ImagingSetScheuleArtifactId = Connection.IMAGING_SET_SCHEDULER_ARTIFACT_ID;
 		#endregion
 
 		#region SetUp and Teardown
@@ -29,7 +29,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		{
 			Connection conn = new Connection();
 
-			SvcMgr = new ServiceManager(conn.Rsapiuri, conn.GetRsapi());
+			SvcMgr = new ServiceManager(conn.RsapiUri, conn.GetRsapi());
 			Identity = ExecutionIdentity.System;
 			MasterDbConnection = conn.GetDbConnection(-1);
 			WorkspaceDbConnection = conn.GetDbConnection(WorkspaceArtifactId);

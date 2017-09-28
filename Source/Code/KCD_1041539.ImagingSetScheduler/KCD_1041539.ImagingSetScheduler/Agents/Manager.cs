@@ -49,7 +49,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 				RaiseMessage(errorMessages, 1);
 
 				var errorcontext = String.Format("{0}. \n\nStack Trace:{1}", AGENT_TYPE, ex);
-				sqlQueryHelper.InsertRowIntoErrorLog(eddsDbContext, 0, Constant.Tables.IMAIGNG_SET_SCHEDULER_QUEUE, 0, AgentID, errorcontext);
+				sqlQueryHelper.InsertRowIntoErrorLog(eddsDbContext, 0, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, 0, AgentID, errorcontext);
 			}
 
 			RaiseMessage("Agent execution finished.", 10);

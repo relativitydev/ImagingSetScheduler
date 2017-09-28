@@ -66,7 +66,7 @@ namespace KCD_1041539.ImagingSetScheduler.Objects
 			if (!isSubmitSuccess)
 			{
 				string errorContext = String.Format(
-					"{0} [WorkspaceArtifactId={1}], ImagingSetArtifactId={2}, UserArtifactId={3}]",
+					"{0} [WorkspaceArtifactId={1}, ImagingSetArtifactId={2}, UserArtifactId={3}]",
 					Constant.ErrorMessages.IMAGING_SET_FAIL,
 					workspaceArtifactId,
 					ArtifactId,
