@@ -129,15 +129,10 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 		{
 			try
 			{
-				var imagingSetRdo = RSAPI.RetrieveSingleImagingSet(svcMgr, identity, workspaceArtifactId, imagingSetScheduler.ImagingSetArtifactId);
-
-				//validate imaging set 
-				validator.ValidateImagingSet(imagingSetRdo);
-
-				var imagingSet = new Objects.ImagingSet(imagingSetRdo, imagingSetScheduler.CreatedByUserId, eddsDbContext);
+				var imagingSet = ImagingApiHelper.RetrieveSingleImagingSet(svcMgr, identity, workspaceArtifactId, imagingSetScheduler.ImagingSetArtifactId);
 
 				//check if the ImagingSet is currently running. If its running, skip current execution.
-				Boolean isImagingSetCurrentlyRunning = validator.VerifyIfImagingSetIsCurrentlyRunning(imagingSet);
+				bool isImagingSetCurrentlyRunning = validator.VerifyIfImagingSetIsCurrentlyRunning(imagingSet);
 				if (isImagingSetCurrentlyRunning)
 				{
 					imagingSetScheduler.SetToSkipped(svcMgr, identity, imagingSetScheduler.ArtifactId, workspaceArtifactId);
@@ -149,7 +144,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 				}
 				else
 				{
-					imagingSet.Run(Constant.SystemArtifactIdentifiers.SYS_ID_IMAGING_SET_JOB_TYPE_FULL, svcMgr, identity, workspaceArtifactId, eddsDbContext.GetConnection(), Helper.GetDBContext(workspaceArtifactId).GetConnection(), imagingSetScheduler.LockImagesForQc);
+					ImagingApiHelper.RunImagingSet(imagingSet, svcMgr, identity, workspaceArtifactId, imagingSetScheduler.LockImagesForQc, imagingSetScheduler.CreatedByUserId);
 
 					imagingSetScheduler.SetToComplete(svcMgr, identity, imagingSetScheduler.ArtifactId, workspaceArtifactId);
 

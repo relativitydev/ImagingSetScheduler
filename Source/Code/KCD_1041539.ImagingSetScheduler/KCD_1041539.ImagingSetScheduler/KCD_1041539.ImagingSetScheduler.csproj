@@ -25,6 +25,8 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
     <PlatformTarget>x64</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\recommendedandbasicrules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,6 +36,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BCrypt.Net, Version=0.1.5073.29922, Culture=neutral, PublicKeyToken=6bcd409ee6bc9292, processorArchitecture=MSIL">
@@ -140,6 +143,9 @@
       <HintPath>..\packages\Relativity.Authentication.Interfaces.9.5.259.2\lib\net462\Relativity.Authentication.Interfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Relativity.Imaging.Services.Interfaces">
+      <HintPath>binaries\Relativity.Imaging.Services.Interfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Relativity.Logging.Interfaces, Version=9.4.300.6, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Relativity.Logging.Interfaces.9.4.300\lib\net45\Relativity.Logging.Interfaces.dll</HintPath>
       <Private>True</Private>
@@ -200,11 +206,11 @@
     <Compile Include="EventHandlers\PreInstallValidation.cs" />
     <Compile Include="EventHandlers\RemoveFromQueue.cs" />
     <Compile Include="EventHandlers\SetNextRunDate.cs" />
-    <Compile Include="Helper\CapiHelper.cs" />
     <Compile Include="Helper\Constant.cs" />
     <Compile Include="Agents\Worker.cs" />
     <Compile Include="Helper\CustomExceptions.cs" />
     <Compile Include="Helper\ExceptionMessageFormatter.cs" />
+    <Compile Include="Helper\ImagingApiHelper.cs" />
     <Compile Include="Helper\ImagingSetHandlerQueries.cs" />
     <Compile Include="Helper\ImagingSetStatusDTO.cs" />
     <Compile Include="Helper\Response.cs" />
@@ -212,7 +218,6 @@
     <Compile Include="Helper\ServiceUrlHelper.cs" />
     <Compile Include="Helper\Validator.cs" />
     <Compile Include="Interfaces\IValidator.cs" />
-    <Compile Include="Objects\ImagingSet.cs" />
     <Compile Include="Objects\ImagingSetScheduler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EventHandlers\ValidateTimeFormat.cs" />

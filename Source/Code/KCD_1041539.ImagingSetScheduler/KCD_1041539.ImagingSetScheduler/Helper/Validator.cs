@@ -4,6 +4,7 @@ using KCD_1041539.ImagingSetScheduler.Database;
 using KCD_1041539.ImagingSetScheduler.Interfaces;
 using Relativity.API;
 using DTOs = kCura.Relativity.Client.DTOs;
+using Relativity.Imaging.Services.Interfaces;
 
 namespace KCD_1041539.ImagingSetScheduler.Helper
 {
@@ -16,26 +17,6 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 			SqlQueryHelper = new SqlQueryHelper();
 		}
 
-		public void ValidateImagingSet(DTOs.RDO imagingSetRdo)
-		{
-			String nameField = imagingSetRdo[Constant.Guids.Field.ImagingSet.NAME].ValueAsFixedLengthText;
-			if (nameField == null)
-			{
-				throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set - Name field is NULL.");
-			}
-
-			DTOs.Artifact dataSourceField = imagingSetRdo[Constant.Guids.Field.ImagingSet.DATA_SOURCE].ValueAsSingleObject;
-			if (dataSourceField == null)
-			{
-				throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set - Data Source field is NULL.");
-			}
-
-			DTOs.Artifact imagingProfileField = imagingSetRdo[Constant.Guids.Field.ImagingSet.IMAGING_PROFILE].ValueAsSingleObject;
-			if (imagingProfileField == null)
-			{
-				throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set - Imaging Profile field is NULL.");
-			}
-		}
 
 		public void ValidateImagingSetScheduler(DTOs.RDO imagingSetSchedulerRdo)
 		{
@@ -134,13 +115,14 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 			return true;
 		}
 
-		public bool VerifyIfImagingSetIsCurrentlyRunning(Objects.ImagingSet imagingSet)
+		//TODO#Bill: test this
+		public bool VerifyIfImagingSetIsCurrentlyRunning(ImagingSet imagingSet)
 		{
-			if (imagingSet.Status == Constant.ImagingSetStatus.STAGING
-					|| imagingSet.Status == Constant.ImagingSetStatus.COMPLETED_WITH_ERRORS
-					|| imagingSet.Status == Constant.ImagingSetStatus.COMPLETED
-					|| imagingSet.Status == Constant.ImagingSetStatus.STOPPED_BY_USER
-					|| imagingSet.Status == Constant.ImagingSetStatus.ERROR_JOB_FAILED)
+			if (imagingSet.Status.Status == Constant.ImagingSetStatus.STAGING
+					|| imagingSet.Status.Status == Constant.ImagingSetStatus.COMPLETED_WITH_ERRORS
+					|| imagingSet.Status.Status == Constant.ImagingSetStatus.COMPLETED
+					|| imagingSet.Status.Status == Constant.ImagingSetStatus.STOPPED_BY_USER
+					|| imagingSet.Status.Status == Constant.ImagingSetStatus.ERROR_JOB_FAILED)
 			{
 				return false;
 			}
