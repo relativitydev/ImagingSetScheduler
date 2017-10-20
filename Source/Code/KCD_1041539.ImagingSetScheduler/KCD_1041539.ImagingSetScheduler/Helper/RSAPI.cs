@@ -144,7 +144,6 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 			}
 		}
 
-		//TODO#Bill: typo
 		public static bool DoesWorkspaceExists(IServicesMgr svcMgr, ExecutionIdentity identity, int workspaceArtifactId)
 		{
 			if (workspaceArtifactId < 1)

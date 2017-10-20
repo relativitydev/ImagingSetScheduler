@@ -115,7 +115,6 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 			return true;
 		}
 
-		//TODO#Bill: test this
 		public bool VerifyIfImagingSetIsCurrentlyRunning(ImagingSet imagingSet)
 		{
 			if (imagingSet.Status.Status == Constant.ImagingSetStatus.STAGING

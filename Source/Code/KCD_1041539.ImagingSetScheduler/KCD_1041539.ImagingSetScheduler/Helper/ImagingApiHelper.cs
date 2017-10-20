@@ -1,6 +1,7 @@
 ﻿using Relativity.API;
 using Relativity.Imaging.Services.Interfaces;
 using System;
+using System.Threading.Tasks;
 
 namespace KCD_1041539.ImagingSetScheduler.Helper
 {
@@ -16,14 +17,14 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 		/// <param name="identity">the <see cref="ExecutionIdentity"/>to create proxies with</param>
 		/// <param name="workspaceArtifactId">the artifactId of the workspace the set is located in</param
 		/// <param name="imagingSetArtifactId">artifact Id of the ImagingSet to retrieve</param>
-		/// <returns>a <see cref="ImagingSet"/></returns>
-		public static ImagingSet RetrieveSingleImagingSet(IServicesMgr svcMgr, ExecutionIdentity identity, int workspaceArtifactId, int imagingSetArtifactId)
+		/// <returns>a <see cref="Task{ImagingSet}"/></returns>
+		public static async Task<ImagingSet> RetrieveSingleImagingSetAsync(IServicesMgr svcMgr, ExecutionIdentity identity, int workspaceArtifactId, int imagingSetArtifactId)
 		{
 			try
 			{
 				using (IImagingSetManager imagingSetManager = svcMgr.CreateProxy<IImagingSetManager>(identity))
 				{
-					return imagingSetManager.ReadAsync(imagingSetArtifactId, workspaceArtifactId).GetAwaiter().GetResult();
+					return await imagingSetManager.ReadAsync(imagingSetArtifactId, workspaceArtifactId).ConfigureAwait(false);
 				}
 			}
 			catch (Exception ex)
@@ -35,7 +36,6 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 			}
 		}
 
-		//TODO#Bill: Possible to use the lastEnabledOnQC field here if we get confirmation for how it's supposed to behave
 		/// <summary>
 		/// Run an imaging set with the given parameters
 		/// </summary>
@@ -45,27 +45,14 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 		/// <param name="workspaceArtifactId">the artifactId of the workspace the set is located in</param>
 		/// <param name="lockImagesForQc">if true, will hide images for QC</param>
 		/// <param name="userSubmissionId">the artifactId for the user who created the ImagingSetScheduler RDO being executed</param>
-		public static void RunImagingSet(ImagingSet imagingSet, IServicesMgr svcMgr, ExecutionIdentity identity, int workspaceArtifactId, bool lockImagesForQc, int userSubmissionId)
+		public static async Task RunImagingSetAsync(ImagingSet imagingSet, IServicesMgr svcMgr, ExecutionIdentity identity, int workspaceArtifactId, bool lockImagesForQc, int userSubmissionId)
 		{
 			try
 			{
-				if (lockImagesForQc)
-				{
-					using (IImagingSetManager imagingSetManager = svcMgr.CreateProxy<IImagingSetManager>(identity))
-					{
-						imagingSetManager.HideImagingSetAsync(new ImagingSetRef { ArtifactID = imagingSet.ArtifactID, Name = imagingSet.Name }, workspaceArtifactId).GetAwaiter().GetResult();
-					}
-				}
-				else
-				{
-					using (IImagingSetManager imagingSetManager = svcMgr.CreateProxy<IImagingSetManager>(identity))
-					{
-						imagingSetManager.ReleaseImagingSetAsync(new ImagingSetRef { ArtifactID = imagingSet.ArtifactID, Name = imagingSet.Name }, workspaceArtifactId).GetAwaiter().GetResult();
-					}
-				}
+				//TODO#Critical: implement QC fix
 				using (IImagingJobManager imagingJobManger = svcMgr.CreateProxy<IImagingJobManager>(identity))
 				{
-					imagingJobManger.RunImagingSetAsync(new ImagingJob { ImagingSetId = imagingSet.ArtifactID, WorkspaceId = workspaceArtifactId }).GetAwaiter().GetResult();
+					await imagingJobManger.RunImagingSetAsync(new ImagingJob { ImagingSetId = imagingSet.ArtifactID, WorkspaceId = workspaceArtifactId }).ConfigureAwait(false);
 				}
 			}
 			catch (Exception ex)
