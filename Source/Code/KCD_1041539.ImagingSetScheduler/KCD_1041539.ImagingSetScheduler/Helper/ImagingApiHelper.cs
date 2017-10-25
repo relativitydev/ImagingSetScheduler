@@ -49,10 +49,9 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 		{
 			try
 			{
-				//TODO#Critical: implement QC fix
 				using (IImagingJobManager imagingJobManger = svcMgr.CreateProxy<IImagingJobManager>(identity))
 				{
-					await imagingJobManger.RunImagingSetAsync(new ImagingJob { ImagingSetId = imagingSet.ArtifactID, WorkspaceId = workspaceArtifactId }).ConfigureAwait(false);
+					await imagingJobManger.RunImagingSetAsync(new ImagingJob { ImagingSetId = imagingSet.ArtifactID, WorkspaceId = workspaceArtifactId, QcEnabled = lockImagesForQc }).ConfigureAwait(false);
 				}
 			}
 			catch (Exception ex)
