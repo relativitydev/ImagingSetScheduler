@@ -1,0 +1,2526 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ArtifactViewFields>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001687</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>ArtifactID</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001688</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>Edit</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001692</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>Frequency</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001691</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>ImagingSet</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001700</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>ImagingSetImageCompletion</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001701</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>ImagingSetImageQCReviewStatus</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001702</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>ImagingSetLastRunError</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001699</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>ImagingSetStatus</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001695</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>LastRun</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001694</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>LockImagesforQC</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001697</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>Messages</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001690</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>Name</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001696</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>NextRun</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001689</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>AccessControlListIsInherited</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001698</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>Status</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001685</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>SystemCreatedBy</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001683</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>SystemCreatedOn</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001686</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>SystemLastModifiedBy</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001684</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>SystemLastModifiedOn</ColumnName>
+    </ArtifactViewField>
+    <ArtifactViewField>
+      <ArtifactViewFieldId>1001693</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
+      <ColumnName>Time</ColumnName>
+    </ArtifactViewField>
+  </ArtifactViewFields>
+  <Assemblies>
+    <Assembly>
+      <ArtifactId>1153461</ArtifactId>
+      <Keywords />
+      <Name>KCD_1041539.ImagingSetScheduler.dll</Name>
+      <Notes />
+    </Assembly>
+    <Assembly>
+      <ArtifactId>1153462</ArtifactId>
+      <Keywords />
+      <Name>Relativity.Imaging.Services.Interfaces.dll</Name>
+      <Notes />
+    </Assembly>
+  </Assemblies>
+  <ResourceFiles />
+  <ExternalTabs />
+  <ExtractionDate>2018-01-22T19:02:24.8737522Z</ExtractionDate>
+  <Guid>6be2880a-d951-4a98-a6fe-4a84835d3d06</Guid>
+  <Name>Imaging Set Scheduler</Name>
+  <Objects>
+    <Object>
+      <ActiveSyncs />
+      <ArtifactId>1036732</ArtifactId>
+      <DescriptorArtifactTypeId>1000018</DescriptorArtifactTypeId>
+      <Fields />
+      <Guid>c6fac105-3493-4551-b956-4757066e622f</Guid>
+      <KeyWords />
+      <Layouts />
+      <Name>Imaging Profile</Name>
+      <Notes />
+      <ObjectRules />
+      <MassOperations />
+      <ParentArtifactTypeId>8</ParentArtifactTypeId>
+      <EnableShapshotAuditing>true</EnableShapshotAuditing>
+      <SamplingEnabled>false</SamplingEnabled>
+      <PersistentListsEnabled>false</PersistentListsEnabled>
+      <PivotEnabled>true</PivotEnabled>
+      <CopyInstancesOnCaseCreation>true</CopyInstancesOnCaseCreation>
+      <CopyInstancesOnParentCopy>false</CopyInstancesOnParentCopy>
+      <SystemFields>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1036724</ArtifactId>
+          <ArtifactViewFieldId>1000825</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>System Created On</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000018</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>2</FieldTypeId>
+          <FilterType>CustomOnly</FilterType>
+          <FormatString>g</FormatString>
+          <FriendlyName />
+          <Guids>1354ed2d-3de1-4c5b-8e84-b127cd6e73a9</Guids>
+          <Guid>1354ed2d-3de1-4c5b-8e84-b127cd6e73a9</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>true</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>false</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength xsi:nil="true" />
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+        </SystemField>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1036725</ArtifactId>
+          <ArtifactViewFieldId>1000826</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>System Last Modified On</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000018</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>2</FieldTypeId>
+          <FilterType>CustomOnly</FilterType>
+          <FormatString>g</FormatString>
+          <FriendlyName />
+          <Guids>95773859-eab6-4040-af05-504f045109f8</Guids>
+          <Guid>95773859-eab6-4040-af05-504f045109f8</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>true</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>false</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength xsi:nil="true" />
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+        </SystemField>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1036726</ArtifactId>
+          <ArtifactViewFieldId>1000827</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>System Created By</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000018</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>0</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>9b5b074e-9c0e-4a4d-bb18-95cbdbc332de</Guids>
+          <Guid>9b5b074e-9c0e-4a4d-bb18-95cbdbc332de</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>true</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>false</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength>255</MaxLength>
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+        </SystemField>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1036727</ArtifactId>
+          <ArtifactViewFieldId>1000828</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>System Last Modified By</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000018</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>0</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>2caa393f-fd3c-4eed-b6d6-f5fc78de252c</Guids>
+          <Guid>2caa393f-fd3c-4eed-b6d6-f5fc78de252c</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>true</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>false</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength>255</MaxLength>
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+        </SystemField>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1036728</ArtifactId>
+          <ArtifactViewFieldId>1000829</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Artifact ID</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000018</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>1</FieldTypeId>
+          <FilterType>CustomOnly</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>76710861-cb69-4292-b848-9e7806730617</Guids>
+          <Guid>76710861-cb69-4292-b848-9e7806730617</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>true</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>false</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength>255</MaxLength>
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+        </SystemField>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1036729</ArtifactId>
+          <ArtifactViewFieldId>1000832</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Name</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000018</FieldArtifactTypeId>
+          <FieldCategoryId>2</FieldCategoryId>
+          <FieldTypeId>0</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>a4f377f9-de22-4df3-a890-d080eacf6394</Guids>
+          <Guid>a4f377f9-de22-4df3-a890-d080eacf6394</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>true</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>true</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>true</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength>255</MaxLength>
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>true</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+        </SystemField>
+      </SystemFields>
+      <SystemLayouts />
+      <SystemViews />
+      <Views />
+      <ApplicationVersion>1.3.0.2</ApplicationVersion>
+    </Object>
+    <Object>
+      <ActiveSyncs />
+      <ArtifactId>1036752</ArtifactId>
+      <DescriptorArtifactTypeId>1000019</DescriptorArtifactTypeId>
+      <Fields>
+        <Field>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1036754</ArtifactId>
+          <ArtifactViewFieldId>1000851</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId>15</AssociativeArtifactTypeId>
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Data Source</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000019</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>10</FieldTypeId>
+          <FilterType>None</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>a539ff48-8418-44fc-b9dd-26152c01f112</Guids>
+          <Guid>a539ff48-8418-44fc-b9dd-26152c01f112</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>true</IsRemovable>
+          <IsRequired>true</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength xsi:nil="true" />
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>true</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>1.3.0.2</ApplicationVersion>
+        </Field>
+        <Field>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1036755</ArtifactId>
+          <ArtifactViewFieldId>1000852</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId>1000018</AssociativeArtifactTypeId>
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Imaging Profile</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000019</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>10</FieldTypeId>
+          <FilterType>None</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>4011a9db-625f-4553-9e9e-3cfc42488b5f</Guids>
+          <Guid>4011a9db-625f-4553-9e9e-3cfc42488b5f</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>true</IsRemovable>
+          <IsRequired>true</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength xsi:nil="true" />
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>true</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>1.3.0.2</ApplicationVersion>
+        </Field>
+      </Fields>
+      <Guid>ba574e88-7408-4434-a688-2324ecfc769e</Guid>
+      <KeyWords />
+      <Layouts />
+      <Name>Imaging Set</Name>
+      <Notes />
+      <ObjectRules />
+      <MassOperations />
+      <ParentArtifactTypeId>8</ParentArtifactTypeId>
+      <EnableShapshotAuditing>true</EnableShapshotAuditing>
+      <SamplingEnabled>false</SamplingEnabled>
+      <PersistentListsEnabled>false</PersistentListsEnabled>
+      <PivotEnabled>true</PivotEnabled>
+      <CopyInstancesOnCaseCreation>false</CopyInstancesOnCaseCreation>
+      <CopyInstancesOnParentCopy>false</CopyInstancesOnParentCopy>
+      <SystemFields>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1036744</ArtifactId>
+          <ArtifactViewFieldId>1000843</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>System Created On</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000019</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>2</FieldTypeId>
+          <FilterType>CustomOnly</FilterType>
+          <FormatString>g</FormatString>
+          <FriendlyName />
+          <Guids>4a081449-3ebb-494f-bed4-bf16919c3f1b</Guids>
+          <Guid>4a081449-3ebb-494f-bed4-bf16919c3f1b</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>true</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>false</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength xsi:nil="true" />
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+        </SystemField>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1036745</ArtifactId>
+          <ArtifactViewFieldId>1000844</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>System Last Modified On</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000019</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>2</FieldTypeId>
+          <FilterType>CustomOnly</FilterType>
+          <FormatString>g</FormatString>
+          <FriendlyName />
+          <Guids>bbfb4048-a72e-48e0-98f9-dccc77fbcee5</Guids>
+          <Guid>bbfb4048-a72e-48e0-98f9-dccc77fbcee5</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>true</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>false</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength xsi:nil="true" />
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+        </SystemField>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1036746</ArtifactId>
+          <ArtifactViewFieldId>1000845</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>System Created By</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000019</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>0</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>0a463101-8149-49ef-ab0f-e8c9ea94041c</Guids>
+          <Guid>0a463101-8149-49ef-ab0f-e8c9ea94041c</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>true</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>false</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength>255</MaxLength>
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+        </SystemField>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1036747</ArtifactId>
+          <ArtifactViewFieldId>1000846</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>System Last Modified By</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000019</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>0</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>956162f6-4503-424e-860c-52962380174e</Guids>
+          <Guid>956162f6-4503-424e-860c-52962380174e</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>true</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>false</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength>255</MaxLength>
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+        </SystemField>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1036748</ArtifactId>
+          <ArtifactViewFieldId>1000847</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Artifact ID</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000019</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>1</FieldTypeId>
+          <FilterType>CustomOnly</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>adeacacd-10ff-499b-948e-6a6fa84d43d9</Guids>
+          <Guid>adeacacd-10ff-499b-948e-6a6fa84d43d9</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>true</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>false</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength>255</MaxLength>
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+        </SystemField>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1036749</ArtifactId>
+          <ArtifactViewFieldId>1000850</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Name</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000019</FieldArtifactTypeId>
+          <FieldCategoryId>2</FieldCategoryId>
+          <FieldTypeId>0</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>0876b4e6-8bf7-48a4-851b-a6a2a208d6cc</Guids>
+          <Guid>0876b4e6-8bf7-48a4-851b-a6a2a208d6cc</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>true</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>true</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>true</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength>255</MaxLength>
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>2.0.0.16</ApplicationVersion>
+        </SystemField>
+      </SystemFields>
+      <SystemLayouts />
+      <SystemViews />
+      <Views />
+      <ApplicationVersion>0.0.0.1</ApplicationVersion>
+    </Object>
+    <Object>
+      <ActiveSyncs>
+        <ActiveSync>
+          <Id>1042642</Id>
+          <ArtifactTypeId>1000049</ArtifactTypeId>
+          <AssemblyArtifactId>1153461</AssemblyArtifactId>
+          <ClassName>KCD_1041539.ImagingSetScheduler.EventHandlers.ValidateTimeFormat</ClassName>
+          <Description>Validates the format of the time field on the imaging set scheduler when it's saved.</Description>
+          <ExecutionType>1</ExecutionType>
+          <Guid>10baee41-ec68-4d9e-a618-fa338c678954</Guid>
+          <SyncDll>KCD_1041539.ImagingSetScheduler</SyncDll>
+          <ApplicationVersion>4.0.0.3</ApplicationVersion>
+        </ActiveSync>
+        <ActiveSync>
+          <Id>1042643</Id>
+          <ArtifactTypeId>1000049</ArtifactTypeId>
+          <AssemblyArtifactId>1153461</AssemblyArtifactId>
+          <ClassName>KCD_1041539.ImagingSetScheduler.EventHandlers.SetNextRunDate</ClassName>
+          <Description>Sets the next run date.</Description>
+          <ExecutionType>1</ExecutionType>
+          <Guid>ced0db5d-7804-44d7-b35f-2d55d219b0b6</Guid>
+          <SyncDll>KCD_1041539.ImagingSetScheduler</SyncDll>
+          <ApplicationVersion>4.0.0.3</ApplicationVersion>
+        </ActiveSync>
+        <ActiveSync>
+          <Id>1042644</Id>
+          <ArtifactTypeId>1000049</ArtifactTypeId>
+          <AssemblyArtifactId>1153461</AssemblyArtifactId>
+          <ClassName>KCD_1041539.ImagingSetScheduler.EventHandlers.RemoveFromQueue</ClassName>
+          <Description>Removes record from the queue upon deletion.</Description>
+          <ExecutionType>3</ExecutionType>
+          <Guid>b158f5c7-9e39-457e-8d2f-0b44b08f3a58</Guid>
+          <SyncDll>KCD_1041539.ImagingSetScheduler</SyncDll>
+          <ApplicationVersion>4.0.0.3</ApplicationVersion>
+        </ActiveSync>
+        <ActiveSync>
+          <Id>1042645</Id>
+          <ArtifactTypeId>1000049</ArtifactTypeId>
+          <AssemblyArtifactId>1153461</AssemblyArtifactId>
+          <ClassName>KCD_1041539.ImagingSetScheduler.EventHandlers.ImagingSetSchedulerPreLoad</ClassName>
+          <Description>Loads the current Imaging Set statuses for the associated Imaging Set Scheduler object.</Description>
+          <ExecutionType>5</ExecutionType>
+          <Guid>074db683-4039-464f-a4eb-f3aa168aff74</Guid>
+          <SyncDll>KCD_1041539.ImagingSetScheduler</SyncDll>
+          <ApplicationVersion>4.0.0.3</ApplicationVersion>
+        </ActiveSync>
+      </ActiveSyncs>
+      <ArtifactId>1042640</ArtifactId>
+      <DescriptorArtifactTypeId>1000049</DescriptorArtifactTypeId>
+      <Fields>
+        <Field>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1042646</ArtifactId>
+          <ArtifactViewFieldId>1001691</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId>1000019</AssociativeArtifactTypeId>
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Imaging Set</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>10</FieldTypeId>
+          <FilterType>None</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>5de74965-b185-46ef-984a-d1b18f1781c0</Guids>
+          <Guid>5de74965-b185-46ef-984a-d1b18f1781c0</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>true</IsRemovable>
+          <IsRequired>true</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength xsi:nil="true" />
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>true</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>true</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>0.0.0.1</ApplicationVersion>
+        </Field>
+        <Field>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1042647</ArtifactId>
+          <ArtifactViewFieldId>1001692</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes>
+            <Code>
+              <ArtifactId>1042648</ArtifactId>
+              <Guid>532a3b0d-f0ee-4f5c-9516-e7f698e62b27</Guid>
+              <IsActive>true</IsActive>
+              <Keywords />
+              <Name>Sunday</Name>
+              <Notes />
+              <OIHiliteStyleID>3</OIHiliteStyleID>
+              <Order>5</Order>
+              <ParentArtifactId>1003663</ParentArtifactId>
+              <ParentIsCode>false</ParentIsCode>
+              <UpdateInSearchEngine>false</UpdateInSearchEngine>
+              <ApplicationVersion>0.0.0.1</ApplicationVersion>
+            </Code>
+            <Code>
+              <ArtifactId>1042649</ArtifactId>
+              <Guid>392e052e-ec84-45fd-a15b-c0af073273b6</Guid>
+              <IsActive>true</IsActive>
+              <Keywords />
+              <Name>Monday</Name>
+              <Notes />
+              <OIHiliteStyleID>3</OIHiliteStyleID>
+              <Order>10</Order>
+              <ParentArtifactId>1003663</ParentArtifactId>
+              <ParentIsCode>false</ParentIsCode>
+              <UpdateInSearchEngine>false</UpdateInSearchEngine>
+              <ApplicationVersion>0.0.0.1</ApplicationVersion>
+            </Code>
+            <Code>
+              <ArtifactId>1042650</ArtifactId>
+              <Guid>04863e57-33cd-46e0-b0e0-ab2308af6388</Guid>
+              <IsActive>true</IsActive>
+              <Keywords />
+              <Name>Tuesday</Name>
+              <Notes />
+              <OIHiliteStyleID>3</OIHiliteStyleID>
+              <Order>20</Order>
+              <ParentArtifactId>1003663</ParentArtifactId>
+              <ParentIsCode>false</ParentIsCode>
+              <UpdateInSearchEngine>false</UpdateInSearchEngine>
+              <ApplicationVersion>0.0.0.1</ApplicationVersion>
+            </Code>
+            <Code>
+              <ArtifactId>1042651</ArtifactId>
+              <Guid>6a544774-d0cd-4f18-8ad0-33fe4291667a</Guid>
+              <IsActive>true</IsActive>
+              <Keywords />
+              <Name>Wednesday</Name>
+              <Notes />
+              <OIHiliteStyleID>3</OIHiliteStyleID>
+              <Order>30</Order>
+              <ParentArtifactId>1003663</ParentArtifactId>
+              <ParentIsCode>false</ParentIsCode>
+              <UpdateInSearchEngine>false</UpdateInSearchEngine>
+              <ApplicationVersion>0.0.0.1</ApplicationVersion>
+            </Code>
+            <Code>
+              <ArtifactId>1042652</ArtifactId>
+              <Guid>ae22f86f-d703-469a-9d93-8ba4b8636a42</Guid>
+              <IsActive>true</IsActive>
+              <Keywords />
+              <Name>Thursday</Name>
+              <Notes />
+              <OIHiliteStyleID>3</OIHiliteStyleID>
+              <Order>40</Order>
+              <ParentArtifactId>1003663</ParentArtifactId>
+              <ParentIsCode>false</ParentIsCode>
+              <UpdateInSearchEngine>false</UpdateInSearchEngine>
+              <ApplicationVersion>0.0.0.1</ApplicationVersion>
+            </Code>
+            <Code>
+              <ArtifactId>1042653</ArtifactId>
+              <Guid>7f6f9f4e-a76b-4202-a7a1-643168c799ca</Guid>
+              <IsActive>true</IsActive>
+              <Keywords />
+              <Name>Friday</Name>
+              <Notes />
+              <OIHiliteStyleID>3</OIHiliteStyleID>
+              <Order>50</Order>
+              <ParentArtifactId>1003663</ParentArtifactId>
+              <ParentIsCode>false</ParentIsCode>
+              <UpdateInSearchEngine>false</UpdateInSearchEngine>
+              <ApplicationVersion>0.0.0.1</ApplicationVersion>
+            </Code>
+            <Code>
+              <ArtifactId>1042654</ArtifactId>
+              <Guid>c7e2341d-9af6-4925-aa00-695678979ea1</Guid>
+              <IsActive>true</IsActive>
+              <Keywords />
+              <Name>Saturday</Name>
+              <Notes />
+              <OIHiliteStyleID>3</OIHiliteStyleID>
+              <Order>60</Order>
+              <ParentArtifactId>1003663</ParentArtifactId>
+              <ParentIsCode>false</ParentIsCode>
+              <UpdateInSearchEngine>false</UpdateInSearchEngine>
+              <ApplicationVersion>0.0.0.1</ApplicationVersion>
+            </Code>
+          </Codes>
+          <CodeTypeId>1000152</CodeTypeId>
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Frequency</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>8</FieldTypeId>
+          <FilterType>Choice</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>8e0278d2-93a8-40de-a82e-c4d3e96a2c2e</Guids>
+          <Guid>8e0278d2-93a8-40de-a82e-c4d3e96a2c2e</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior>true</OverlayBehavior>
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>true</IsRemovable>
+          <IsRequired>true</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength xsi:nil="true" />
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>true</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>true</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>true</AutoAddChoices>
+          <ApplicationVersion>0.0.0.1</ApplicationVersion>
+        </Field>
+        <Field>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1042655</ArtifactId>
+          <ArtifactViewFieldId>1001693</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Time</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>0</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>df57565b-3685-439d-91c1-091678f507f9</Guids>
+          <Guid>df57565b-3685-439d-91c1-091678f507f9</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>true</IsRemovable>
+          <IsRequired>true</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength>255</MaxLength>
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>true</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>true</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>0.0.0.1</ApplicationVersion>
+        </Field>
+        <Field>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1042656</ArtifactId>
+          <ArtifactViewFieldId>1001694</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Lock Images for QC</DisplayName>
+          <DisplayValueFalse>No</DisplayValueFalse>
+          <DisplayValueTrue>Yes</DisplayValueTrue>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>3</FieldTypeId>
+          <FilterType>Boolean</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>11fdd822-ce72-4540-bef9-78d9e7b8a673</Guids>
+          <Guid>11fdd822-ce72-4540-bef9-78d9e7b8a673</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>true</IsRemovable>
+          <IsRequired>true</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength xsi:nil="true" />
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>true</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>true</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>0.0.0.1</ApplicationVersion>
+        </Field>
+        <Field>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1042657</ArtifactId>
+          <ArtifactViewFieldId>1001695</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Last Run</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>2</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString>g</FormatString>
+          <FriendlyName />
+          <Guids>107355c0-0625-48c2-b477-225a74dd9a7d</Guids>
+          <Guid>107355c0-0625-48c2-b477-225a74dd9a7d</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>true</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength xsi:nil="true" />
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>true</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>true</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>0.0.0.1</ApplicationVersion>
+        </Field>
+        <Field>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1042658</ArtifactId>
+          <ArtifactViewFieldId>1001696</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Next Run</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>2</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString>g</FormatString>
+          <FriendlyName />
+          <Guids>284c4ad2-a4ca-4415-9247-09618c68d0ad</Guids>
+          <Guid>284c4ad2-a4ca-4415-9247-09618c68d0ad</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>true</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength xsi:nil="true" />
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>true</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>true</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>0.0.0.1</ApplicationVersion>
+        </Field>
+        <Field>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1042659</ArtifactId>
+          <ArtifactViewFieldId>1001697</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Messages</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>4</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>43ef59a3-11ac-465a-86f3-4412b1b97099</Guids>
+          <Guid>43ef59a3-11ac-465a-86f3-4412b1b97099</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>true</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>false</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength xsi:nil="true" />
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>true</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>true</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>0.0.0.1</ApplicationVersion>
+        </Field>
+        <Field>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1042660</ArtifactId>
+          <ArtifactViewFieldId>1001698</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Status</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>0</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>83900565-62a0-48fb-88b0-bbf08ec351e1</Guids>
+          <Guid>83900565-62a0-48fb-88b0-bbf08ec351e1</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>true</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength>255</MaxLength>
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>true</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>true</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>0.0.0.4</ApplicationVersion>
+        </Field>
+        <Field>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1042661</ArtifactId>
+          <ArtifactViewFieldId>1001699</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Imaging Set: Status</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>0</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>b88fab5e-9068-4580-ad9d-39cf37282b36</Guids>
+          <Guid>b88fab5e-9068-4580-ad9d-39cf37282b36</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>true</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength>255</MaxLength>
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>true</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>true</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>1.1.0.1</ApplicationVersion>
+        </Field>
+        <Field>
+          <AllowHTML>true</AllowHTML>
+          <ArtifactId>1042662</ArtifactId>
+          <ArtifactViewFieldId>1001700</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Imaging Set: Image Completion</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>0</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>0dd44f75-5d5d-409f-a840-7301faa5fc74</Guids>
+          <Guid>0dd44f75-5d5d-409f-a840-7301faa5fc74</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>true</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength>255</MaxLength>
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>true</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>true</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>1.1.0.1</ApplicationVersion>
+        </Field>
+        <Field>
+          <AllowHTML>true</AllowHTML>
+          <ArtifactId>1042663</ArtifactId>
+          <ArtifactViewFieldId>1001701</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Imaging Set: Image QC Review Status</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>0</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>623ee11c-983a-4dcd-b930-00677c4d3692</Guids>
+          <Guid>623ee11c-983a-4dcd-b930-00677c4d3692</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>true</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength>255</MaxLength>
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>true</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>true</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>1.1.0.1</ApplicationVersion>
+        </Field>
+        <Field>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1042664</ArtifactId>
+          <ArtifactViewFieldId>1001702</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Imaging Set: Last Run Error</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>4</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>4ef1abfa-a28d-4e76-8dd0-35610ac1d366</Guids>
+          <Guid>4ef1abfa-a28d-4e76-8dd0-35610ac1d366</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>true</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>false</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength xsi:nil="true" />
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>true</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>true</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>1.1.0.1</ApplicationVersion>
+        </Field>
+      </Fields>
+      <Guid>45c9feb9-43d8-43fe-a216-85b1f062b0a7</Guid>
+      <KeyWords />
+      <Layouts>
+        <Layout>
+          <OverwriteProtection>true</OverwriteProtection>
+          <ArtifactId>1042666</ArtifactId>
+          <Categories>
+            <Category>
+              <CategoryId>1000435</CategoryId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <Order>0</Order>
+              <Title>Imaging Set Details</Title>
+              <Collapsible>false</Collapsible>
+              <DefaultCollapsed>false</DefaultCollapsed>
+              <TabbedDisplay>0</TabbedDisplay>
+              <ParentCategory xsi:nil="true" />
+              <Type>0</Type>
+            </Category>
+            <Category>
+              <CategoryId>1000436</CategoryId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <Order>100</Order>
+              <Title>History</Title>
+              <Collapsible>false</Collapsible>
+              <DefaultCollapsed>false</DefaultCollapsed>
+              <TabbedDisplay>0</TabbedDisplay>
+              <ParentCategory xsi:nil="true" />
+              <Type>0</Type>
+            </Category>
+            <Category>
+              <CategoryId>1000437</CategoryId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <Order>200</Order>
+              <Title>Detailed Messages</Title>
+              <Collapsible>true</Collapsible>
+              <DefaultCollapsed>false</DefaultCollapsed>
+              <TabbedDisplay>0</TabbedDisplay>
+              <ParentCategory xsi:nil="true" />
+              <Type>0</Type>
+            </Category>
+            <Category>
+              <CategoryId>1000438</CategoryId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <Order>300</Order>
+              <Title>Imaging Set</Title>
+              <Collapsible>false</Collapsible>
+              <DefaultCollapsed>false</DefaultCollapsed>
+              <TabbedDisplay>0</TabbedDisplay>
+              <ParentCategory xsi:nil="true" />
+              <Type>0</Type>
+            </Category>
+          </Categories>
+          <Guid>267e7887-8985-4be1-bf17-cdc4eef3c33b</Guid>
+          <Keywords />
+          <LayoutArtifactTypeId>1000049</LayoutArtifactTypeId>
+          <LayoutFields>
+            <LayoutField>
+              <CategoryId>1000435</CategoryId>
+              <ColSpan>2</ColSpan>
+              <Column>1</Column>
+              <FieldArtifactId>1042637</FieldArtifactId>
+              <FieldDisplayTypeId>0</FieldDisplayTypeId>
+              <FullTextFieldHeight xsi:nil="true" />
+              <IsReadOnly>false</IsReadOnly>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <Order>1</Order>
+              <PickerViewArtifactId xsi:nil="true" />
+              <RepeatColumn>0</RepeatColumn>
+              <Row>1</Row>
+              <Rows>0</Rows>
+              <ShowNameColumn>true</ShowNameColumn>
+            </LayoutField>
+            <LayoutField>
+              <CategoryId>1000435</CategoryId>
+              <ColSpan>2</ColSpan>
+              <Column>1</Column>
+              <FieldArtifactId>1042646</FieldArtifactId>
+              <FieldDisplayTypeId>25</FieldDisplayTypeId>
+              <FullTextFieldHeight xsi:nil="true" />
+              <IsReadOnly>false</IsReadOnly>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <Order>10</Order>
+              <PickerViewArtifactId xsi:nil="true" />
+              <RepeatColumn>0</RepeatColumn>
+              <Row>1</Row>
+              <Rows>1</Rows>
+              <ShowNameColumn>true</ShowNameColumn>
+            </LayoutField>
+            <LayoutField>
+              <CategoryId>1000435</CategoryId>
+              <ColSpan>2</ColSpan>
+              <Column>1</Column>
+              <FieldArtifactId>1042647</FieldArtifactId>
+              <FieldDisplayTypeId>10</FieldDisplayTypeId>
+              <FullTextFieldHeight xsi:nil="true" />
+              <IsReadOnly>false</IsReadOnly>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <Order>20</Order>
+              <PickerViewArtifactId xsi:nil="true" />
+              <RepeatColumn>0</RepeatColumn>
+              <Row>1</Row>
+              <Rows>1</Rows>
+              <ShowNameColumn>true</ShowNameColumn>
+            </LayoutField>
+            <LayoutField>
+              <CategoryId>1000435</CategoryId>
+              <ColSpan>2</ColSpan>
+              <Column>1</Column>
+              <FieldArtifactId>1042655</FieldArtifactId>
+              <FieldDisplayTypeId>0</FieldDisplayTypeId>
+              <FullTextFieldHeight xsi:nil="true" />
+              <IsReadOnly>false</IsReadOnly>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <NameValue>Time (in 24-hour format)</NameValue>
+              <Order>30</Order>
+              <PickerViewArtifactId xsi:nil="true" />
+              <RepeatColumn>0</RepeatColumn>
+              <Row>1</Row>
+              <Rows>1</Rows>
+              <ShowNameColumn>true</ShowNameColumn>
+            </LayoutField>
+            <LayoutField>
+              <CategoryId>1000435</CategoryId>
+              <ColSpan>2</ColSpan>
+              <Column>1</Column>
+              <FieldArtifactId>1042656</FieldArtifactId>
+              <FieldDisplayTypeId>9</FieldDisplayTypeId>
+              <FullTextFieldHeight xsi:nil="true" />
+              <IsReadOnly>false</IsReadOnly>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <Order>50</Order>
+              <PickerViewArtifactId xsi:nil="true" />
+              <RepeatColumn>0</RepeatColumn>
+              <Row>1</Row>
+              <Rows>1</Rows>
+              <ShowNameColumn>true</ShowNameColumn>
+            </LayoutField>
+            <LayoutField>
+              <CategoryId>1000436</CategoryId>
+              <ColSpan>1</ColSpan>
+              <Column>1</Column>
+              <FieldArtifactId>1042657</FieldArtifactId>
+              <FieldDisplayTypeId>6</FieldDisplayTypeId>
+              <FullTextFieldHeight xsi:nil="true" />
+              <IsReadOnly>true</IsReadOnly>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <Order>20</Order>
+              <PickerViewArtifactId xsi:nil="true" />
+              <RepeatColumn>0</RepeatColumn>
+              <Row>1</Row>
+              <Rows>1</Rows>
+              <ShowNameColumn>true</ShowNameColumn>
+            </LayoutField>
+            <LayoutField>
+              <CategoryId>1000436</CategoryId>
+              <ColSpan>1</ColSpan>
+              <Column>2</Column>
+              <FieldArtifactId>1042658</FieldArtifactId>
+              <FieldDisplayTypeId>6</FieldDisplayTypeId>
+              <FullTextFieldHeight xsi:nil="true" />
+              <IsReadOnly>true</IsReadOnly>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <Order>20</Order>
+              <PickerViewArtifactId xsi:nil="true" />
+              <RepeatColumn>0</RepeatColumn>
+              <Row>1</Row>
+              <Rows>1</Rows>
+              <ShowNameColumn>true</ShowNameColumn>
+            </LayoutField>
+            <LayoutField>
+              <CategoryId>1000436</CategoryId>
+              <ColSpan>2</ColSpan>
+              <Column>1</Column>
+              <FieldArtifactId>1042660</FieldArtifactId>
+              <FieldDisplayTypeId>0</FieldDisplayTypeId>
+              <FullTextFieldHeight xsi:nil="true" />
+              <IsReadOnly>true</IsReadOnly>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <Order>10</Order>
+              <PickerViewArtifactId xsi:nil="true" />
+              <RepeatColumn>0</RepeatColumn>
+              <Row>2</Row>
+              <Rows>1</Rows>
+              <ShowNameColumn>true</ShowNameColumn>
+            </LayoutField>
+            <LayoutField>
+              <CategoryId>1000437</CategoryId>
+              <ColSpan>2</ColSpan>
+              <Column>1</Column>
+              <FieldArtifactId>1042659</FieldArtifactId>
+              <FieldDisplayTypeId>1</FieldDisplayTypeId>
+              <FullTextFieldHeight xsi:nil="true" />
+              <IsReadOnly>true</IsReadOnly>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <Order>20</Order>
+              <PickerViewArtifactId xsi:nil="true" />
+              <RepeatColumn>0</RepeatColumn>
+              <Row>2</Row>
+              <Rows>10</Rows>
+              <ShowNameColumn>false</ShowNameColumn>
+            </LayoutField>
+            <LayoutField>
+              <CategoryId>1000438</CategoryId>
+              <ColSpan>2</ColSpan>
+              <Column>1</Column>
+              <FieldArtifactId>1042661</FieldArtifactId>
+              <FieldDisplayTypeId>0</FieldDisplayTypeId>
+              <FullTextFieldHeight xsi:nil="true" />
+              <IsReadOnly>true</IsReadOnly>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <Order>10</Order>
+              <PickerViewArtifactId xsi:nil="true" />
+              <RepeatColumn>0</RepeatColumn>
+              <Row>2</Row>
+              <Rows>10</Rows>
+              <ShowNameColumn>true</ShowNameColumn>
+            </LayoutField>
+            <LayoutField>
+              <CategoryId>1000438</CategoryId>
+              <ColSpan>2</ColSpan>
+              <Column>1</Column>
+              <FieldArtifactId>1042662</FieldArtifactId>
+              <FieldDisplayTypeId>0</FieldDisplayTypeId>
+              <FullTextFieldHeight xsi:nil="true" />
+              <IsReadOnly>true</IsReadOnly>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <Order>20</Order>
+              <PickerViewArtifactId xsi:nil="true" />
+              <RepeatColumn>0</RepeatColumn>
+              <Row>2</Row>
+              <Rows>10</Rows>
+              <ShowNameColumn>true</ShowNameColumn>
+            </LayoutField>
+            <LayoutField>
+              <CategoryId>1000438</CategoryId>
+              <ColSpan>2</ColSpan>
+              <Column>1</Column>
+              <FieldArtifactId>1042663</FieldArtifactId>
+              <FieldDisplayTypeId>0</FieldDisplayTypeId>
+              <FullTextFieldHeight xsi:nil="true" />
+              <IsReadOnly>true</IsReadOnly>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <Order>30</Order>
+              <PickerViewArtifactId xsi:nil="true" />
+              <RepeatColumn>0</RepeatColumn>
+              <Row>2</Row>
+              <Rows>10</Rows>
+              <ShowNameColumn>true</ShowNameColumn>
+            </LayoutField>
+            <LayoutField>
+              <CategoryId>1000438</CategoryId>
+              <ColSpan>2</ColSpan>
+              <Column>1</Column>
+              <FieldArtifactId>1042664</FieldArtifactId>
+              <FieldDisplayTypeId>1</FieldDisplayTypeId>
+              <FullTextFieldHeight xsi:nil="true" />
+              <IsReadOnly>true</IsReadOnly>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
+              <Order>40</Order>
+              <PickerViewArtifactId xsi:nil="true" />
+              <RepeatColumn>0</RepeatColumn>
+              <Row>2</Row>
+              <Rows>10</Rows>
+              <ShowNameColumn>true</ShowNameColumn>
+            </LayoutField>
+          </LayoutFields>
+          <LayoutTexts />
+          <LayoutViews />
+          <Name>Imaging Set Scheduler Layout</Name>
+          <Notes />
+          <Order>0</Order>
+          <ApplicationVersion>1.1.0.1</ApplicationVersion>
+        </Layout>
+      </Layouts>
+      <Name>Imaging Set Scheduler</Name>
+      <Notes />
+      <ObjectRules>
+        <ObjectRule>
+          <Name>Hide Mass Actions</Name>
+          <Action>&lt;action&gt;&lt;listoptions&gt;&lt;showMassCopy&gt;False&lt;/showMassCopy&gt;&lt;showMassEdit&gt;False&lt;/showMassEdit&gt;&lt;showMassReplace&gt;False&lt;/showMassReplace&gt;&lt;showMassTally&gt;False&lt;/showMassTally&gt;&lt;/listoptions&gt;&lt;/action&gt;</Action>
+          <ArtifactTypeID>1000049</ArtifactTypeID>
+          <FieldArtifactID>0</FieldArtifactID>
+          <Guid>897efacd-a7e8-4546-89e0-ad4ac675280b</Guid>
+          <ObjectRuleID>1042667</ObjectRuleID>
+          <Operator />
+          <Type>MassActionVisibility</Type>
+          <Value>&lt;value /&gt;</Value>
+          <ApplicationVersion>1.0.0.5</ApplicationVersion>
+        </ObjectRule>
+        <ObjectRule>
+          <Name>Frequency Disable All Options</Name>
+          <Action>&lt;action&gt;&lt;choiceAddLinkVisibility&gt;&lt;showAdd&gt;False&lt;/showAdd&gt;&lt;showDelete&gt;False&lt;/showDelete&gt;&lt;showRename&gt;False&lt;/showRename&gt;&lt;/choiceAddLinkVisibility&gt;&lt;/action&gt;</Action>
+          <ArtifactTypeID>1000049</ArtifactTypeID>
+          <FieldArtifactID>1042647</FieldArtifactID>
+          <Guid>2dac8fab-5197-48b1-8e20-180475463d3f</Guid>
+          <ObjectRuleID>1042668</ObjectRuleID>
+          <Operator />
+          <Type>ChoiceAddLinkVisibility</Type>
+          <Value>&lt;value /&gt;</Value>
+          <ApplicationVersion>2.0.0.22</ApplicationVersion>
+        </ObjectRule>
+      </ObjectRules>
+      <MassOperations />
+      <ParentArtifactTypeId>8</ParentArtifactTypeId>
+      <EnableShapshotAuditing>true</EnableShapshotAuditing>
+      <SamplingEnabled>true</SamplingEnabled>
+      <PersistentListsEnabled>false</PersistentListsEnabled>
+      <PivotEnabled>true</PivotEnabled>
+      <CopyInstancesOnCaseCreation>false</CopyInstancesOnCaseCreation>
+      <CopyInstancesOnParentCopy>false</CopyInstancesOnParentCopy>
+      <SystemFields>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1042632</ArtifactId>
+          <ArtifactViewFieldId>1001683</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>System Created On</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>2</FieldTypeId>
+          <FilterType>CustomOnly</FilterType>
+          <FormatString>g</FormatString>
+          <FriendlyName />
+          <Guids>f33ee292-d387-409b-a847-da707197e786</Guids>
+          <Guid>f33ee292-d387-409b-a847-da707197e786</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>true</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>false</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength xsi:nil="true" />
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>1.0.0.10</ApplicationVersion>
+        </SystemField>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1042633</ArtifactId>
+          <ArtifactViewFieldId>1001684</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>System Last Modified On</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>2</FieldTypeId>
+          <FilterType>CustomOnly</FilterType>
+          <FormatString>g</FormatString>
+          <FriendlyName />
+          <Guids>9bd9e02d-b68b-4496-a86b-2f76c21e2946</Guids>
+          <Guid>9bd9e02d-b68b-4496-a86b-2f76c21e2946</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>true</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>false</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength xsi:nil="true" />
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>1.0.0.10</ApplicationVersion>
+        </SystemField>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1042634</ArtifactId>
+          <ArtifactViewFieldId>1001685</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>System Created By</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>0</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>0de625e7-0c5f-4c37-b38a-c0e5f1cb9fe6</Guids>
+          <Guid>0de625e7-0c5f-4c37-b38a-c0e5f1cb9fe6</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>true</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>false</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength>255</MaxLength>
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>1.0.0.10</ApplicationVersion>
+        </SystemField>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1042635</ArtifactId>
+          <ArtifactViewFieldId>1001686</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>System Last Modified By</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>0</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>1e5be1c9-ba33-4b27-9f5b-ad64ea43cbe6</Guids>
+          <Guid>1e5be1c9-ba33-4b27-9f5b-ad64ea43cbe6</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>true</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>false</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength>255</MaxLength>
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>1.0.0.10</ApplicationVersion>
+        </SystemField>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1042636</ArtifactId>
+          <ArtifactViewFieldId>1001687</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Artifact ID</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>0</FieldCategoryId>
+          <FieldTypeId>1</FieldTypeId>
+          <FilterType>CustomOnly</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>7ddb988c-5e5b-4123-bf42-b80a8543d8a6</Guids>
+          <Guid>7ddb988c-5e5b-4123-bf42-b80a8543d8a6</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>true</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>false</IsEditable>
+          <IsGroupByEnabled>false</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>false</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>false</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength xsi:nil="true" />
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>false</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>1.0.0.10</ApplicationVersion>
+        </SystemField>
+        <SystemField>
+          <AllowHTML>false</AllowHTML>
+          <ArtifactId>1042637</ArtifactId>
+          <ArtifactViewFieldId>1001690</ArtifactViewFieldId>
+          <AssociativeArtifactTypeId xsi:nil="true" />
+          <Codes />
+          <CodeTypeId xsi:nil="true" />
+          <ConnectorFieldArtifactId xsi:nil="true" />
+          <DisplayName>Name</DisplayName>
+          <DisplayValueFalse />
+          <DisplayValueTrue />
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
+          <FieldCategoryId>2</FieldCategoryId>
+          <FieldTypeId>0</FieldTypeId>
+          <FilterType>Search</FilterType>
+          <FormatString />
+          <FriendlyName />
+          <Guids>bed4644c-3144-44b1-a3bb-c7808182b417</Guids>
+          <Guid>bed4644c-3144-44b1-a3bb-c7808182b417</Guid>
+          <ImportBehavior xsi:nil="true" />
+          <EnableDataGrid>false</EnableDataGrid>
+          <OverlayBehavior xsi:nil="true" />
+          <IsAdditionalFileField>false</IsAdditionalFileField>
+          <IsArtifactBaseField>false</IsArtifactBaseField>
+          <IsAvailableInChoiceTree>false</IsAvailableInChoiceTree>
+          <IsAvailableToAssociativeObjects>false</IsAvailableToAssociativeObjects>
+          <IsEditable>true</IsEditable>
+          <IsGroupByEnabled>true</IsGroupByEnabled>
+          <IsIndexEnabled>false</IsIndexEnabled>
+          <IsLinked>true</IsLinked>
+          <IsRemovable>false</IsRemovable>
+          <IsRequired>true</IsRequired>
+          <IsSortable>true</IsSortable>
+          <IsVisible>true</IsVisible>
+          <Keywords />
+          <LinkType>false</LinkType>
+          <MaxLength>255</MaxLength>
+          <Notes />
+          <RelationalIndexViewArtifactID xsi:nil="true" />
+          <SourceFieldArtifactId xsi:nil="true" />
+          <UseUnicodeEncoding>true</UseUnicodeEncoding>
+          <Width />
+          <Wrapping>false</Wrapping>
+          <AllowPivot>false</AllowPivot>
+          <AllowGroupBy>false</AllowGroupBy>
+          <AvailableInViewer>false</AvailableInViewer>
+          <PopupPickerView xsi:nil="true" />
+          <FieldTreeView xsi:nil="true" />
+          <SiblingFieldArtifactID xsi:nil="true" />
+          <AutoAddChoices>false</AutoAddChoices>
+          <ApplicationVersion>1.0.0.10</ApplicationVersion>
+        </SystemField>
+      </SystemFields>
+      <SystemLayouts />
+      <SystemViews />
+      <Tab>
+        <ArtifactId>1042641</ArtifactId>
+        <DisplayOrder>0</DisplayOrder>
+        <Guid>956546bd-7ba4-4214-9512-bfab2faf3904</Guid>
+        <IsDefault>false</IsDefault>
+        <Name>Imaging Set Scheduler</Name>
+        <ObjectArtifactTypeId>1000049</ObjectArtifactTypeId>
+        <ParentArtifactId>1042631</ParentArtifactId>
+        <TabDisplay>0</TabDisplay>
+        <Visible>true</Visible>
+        <ApplicationVersion>5.0.0.1</ApplicationVersion>
+      </Tab>
+      <Views>
+        <View>
+          <ArtifactId>1042665</ArtifactId>
+          <ArtifactTypeId>1000049</ArtifactTypeId>
+          <AvailableInObjectTab>true</AvailableInObjectTab>
+          <Guid>1d6006c6-de92-486f-aba2-2281ada1b5b6</Guid>
+          <IsRelationalIndexView>false</IsRelationalIndexView>
+          <IsReport>false</IsReport>
+          <IsVisible>true</IsVisible>
+          <IsManualRerun>false</IsManualRerun>
+          <Keywords />
+          <Name>All Imaging Set Schedulers</Name>
+          <Notes />
+          <Order>1</Order>
+          <QueryHint />
+          <RenderLinks>true</RenderLinks>
+          <Type>Admin Update</Type>
+          <ViewByFamily>0</ViewByFamily>
+          <ViewCriteria />
+          <ViewFields>
+            <ViewField>
+              <ArtifactViewFieldId>1001688</ArtifactViewFieldId>
+              <IsEditable>false</IsEditable>
+              <Order>0</Order>
+            </ViewField>
+            <ViewField>
+              <ArtifactViewFieldId>1001687</ArtifactViewFieldId>
+              <IsEditable>false</IsEditable>
+              <Order>1</Order>
+            </ViewField>
+            <ViewField>
+              <ArtifactViewFieldId>1001690</ArtifactViewFieldId>
+              <IsEditable>false</IsEditable>
+              <Order>2</Order>
+            </ViewField>
+            <ViewField>
+              <ArtifactViewFieldId>1001691</ArtifactViewFieldId>
+              <IsEditable>false</IsEditable>
+              <Order>3</Order>
+            </ViewField>
+            <ViewField>
+              <ArtifactViewFieldId>1001692</ArtifactViewFieldId>
+              <IsEditable>false</IsEditable>
+              <Order>4</Order>
+            </ViewField>
+            <ViewField>
+              <ArtifactViewFieldId>1001693</ArtifactViewFieldId>
+              <IsEditable>false</IsEditable>
+              <Order>5</Order>
+            </ViewField>
+            <ViewField>
+              <ArtifactViewFieldId>1001694</ArtifactViewFieldId>
+              <IsEditable>false</IsEditable>
+              <Order>6</Order>
+            </ViewField>
+            <ViewField>
+              <ArtifactViewFieldId>1001695</ArtifactViewFieldId>
+              <IsEditable>false</IsEditable>
+              <Order>7</Order>
+            </ViewField>
+            <ViewField>
+              <ArtifactViewFieldId>1001696</ArtifactViewFieldId>
+              <IsEditable>false</IsEditable>
+              <Order>8</Order>
+            </ViewField>
+            <ViewField>
+              <ArtifactViewFieldId>1001698</ArtifactViewFieldId>
+              <IsEditable>false</IsEditable>
+              <Order>9</Order>
+            </ViewField>
+          </ViewFields>
+          <ViewOrders />
+          <VisualizationType>0</VisualizationType>
+          <ThreadMethod xsi:nil="true" />
+          <PayloadArtifactViewFieldId xsi:nil="true" />
+          <DisplayArtifactViewFieldId xsi:nil="true" />
+          <GroupDefinitionArtifactViewFieldID xsi:nil="true" />
+          <ApplicationVersion>0.0.0.5</ApplicationVersion>
+          <DashboardArtifactID xsi:nil="true" />
+        </View>
+      </Views>
+      <ApplicationVersion>0.0.0.1</ApplicationVersion>
+    </Object>
+  </Objects>
+  <ParentTabs />
+  <RelativityVersion>9.5.394.37</RelativityVersion>
+  <Version>5.0.0.2</Version>
+  <TabDisplay>true</TabDisplay>
+  <OriginSignature>3a968916-08e6-4346-baed-ff617c4f2f9e</OriginSignature>
+  <MasterScripts />
+  <ApplicationScripts />
+  <CustomPages />
+  <AgentTypes>
+    <AgentType>
+      <ArtifactId>1042629</ArtifactId>
+      <Guid>f5e3fd48-38c2-457f-acbf-5618a30e2957</Guid>
+      <ApplicationVersion>5.0.0.1</ApplicationVersion>
+      <AgentTypeName>KCD_1041539 - Imaging Set Scheduler Manager</AgentTypeName>
+      <FullNameSpace>KCD_1041539.ImagingSetScheduler.Agents.Manager</FullNameSpace>
+      <DefaultInterval>60</DefaultInterval>
+      <DefaultLogging>1</DefaultLogging>
+      <MinInstanceEnvironment>0</MinInstanceEnvironment>
+      <MaxInstanceEnvironment>1</MaxInstanceEnvironment>
+      <MinInstanceServer>0</MinInstanceServer>
+      <MaxInstanceServer>0</MaxInstanceServer>
+      <MinInstanceResourcePool>0</MinInstanceResourcePool>
+      <MaxInstanceResourcePool>0</MaxInstanceResourcePool>
+      <AssemblyArtifactID>0</AssemblyArtifactID>
+      <AgentDll>KCD_1041539.ImagingSetScheduler.dll</AgentDll>
+      <Keywords />
+      <Notes />
+      <Description />
+    </AgentType>
+    <AgentType>
+      <ArtifactId>1042630</ArtifactId>
+      <Guid>f596e9e3-5a28-408b-9faa-334f35de94a0</Guid>
+      <ApplicationVersion>5.0.0.1</ApplicationVersion>
+      <AgentTypeName>KCD_1041539 - Imaging Set Scheduler Worker</AgentTypeName>
+      <FullNameSpace>KCD_1041539.ImagingSetScheduler.Agents.Worker</FullNameSpace>
+      <DefaultInterval>5</DefaultInterval>
+      <DefaultLogging>1</DefaultLogging>
+      <MinInstanceEnvironment>0</MinInstanceEnvironment>
+      <MaxInstanceEnvironment>0</MaxInstanceEnvironment>
+      <MinInstanceServer>0</MinInstanceServer>
+      <MaxInstanceServer>0</MaxInstanceServer>
+      <MinInstanceResourcePool>0</MinInstanceResourcePool>
+      <MaxInstanceResourcePool>0</MaxInstanceResourcePool>
+      <AssemblyArtifactID>0</AssemblyArtifactID>
+      <AgentDll>KCD_1041539.ImagingSetScheduler.dll</AgentDll>
+      <Keywords />
+      <Notes />
+      <Description />
+    </AgentType>
+  </AgentTypes>
+  <IsRelativityApplication>true</IsRelativityApplication>
+  <InstallEventHandlers>
+    <InstallEventHandler>
+      <ArtifactId>1042627</ArtifactId>
+      <AssemblyArtifactId>1153461</AssemblyArtifactId>
+      <Name>KCD_1041539.ImagingSetScheduler.EventHandlers.PreInstallValidation</Name>
+      <Guid>56bef27d-a34e-4acc-9d5b-a9fe4dc79f03</Guid>
+      <Guids>4502fdcf-d5cb-47c4-bd79-22101c194ce9</Guids>
+      <ExecutionType>7</ExecutionType>
+      <Order>10</Order>
+      <AssemblyName>KCD_1041539.ImagingSetScheduler.dll</AssemblyName>
+      <ApplicationVersion>5.0.0.1</ApplicationVersion>
+      <RunTarget>0</RunTarget>
+    </InstallEventHandler>
+    <InstallEventHandler>
+      <ArtifactId>1042628</ArtifactId>
+      <AssemblyArtifactId>1153461</AssemblyArtifactId>
+      <Name>KCD_1041539.ImagingSetScheduler.EventHandlers.WorkspaceSetup</Name>
+      <Guid>2d010208-044b-417d-aa94-445336f69f93</Guid>
+      <Guids>c47b1dbe-bb4d-4e58-ac1e-4b1552f6557c</Guids>
+      <ExecutionType>8</ExecutionType>
+      <Order>10</Order>
+      <AssemblyName>KCD_1041539.ImagingSetScheduler.dll</AssemblyName>
+      <ApplicationVersion>5.0.0.1</ApplicationVersion>
+      <RunTarget>0</RunTarget>
+    </InstallEventHandler>
+  </InstallEventHandlers>
+  <SavedSearches />
+  <SearchContainers />
+  <SearchProviders />
+  <EnvironmentVariables>
+    <SearchAsConditionCriteriaID>1000471</SearchAsConditionCriteriaID>
+    <FullTextAll>1000182</FullTextAll>
+  </EnvironmentVariables>
+  <GlobalApplication>false</GlobalApplication>
+  <RelativityScriptIds />
+  <ViewIds>
+    <Id>1042665</Id>
+  </ViewIds>
+  <DashboardIds />
+  <LayoutIds>
+    <Id>1042666</Id>
+  </LayoutIds>
+  <FieldIds>
+    <Id>1036749</Id>
+    <Id>1036754</Id>
+    <Id>1036755</Id>
+    <Id>1042632</Id>
+    <Id>1042633</Id>
+    <Id>1042634</Id>
+    <Id>1042635</Id>
+    <Id>1042636</Id>
+    <Id>1042637</Id>
+    <Id>1042646</Id>
+    <Id>1042647</Id>
+    <Id>1042655</Id>
+    <Id>1042656</Id>
+    <Id>1042657</Id>
+    <Id>1042658</Id>
+    <Id>1042659</Id>
+    <Id>1042660</Id>
+    <Id>1042661</Id>
+    <Id>1042662</Id>
+    <Id>1042663</Id>
+    <Id>1042664</Id>
+  </FieldIds>
+  <ChoiceIds>
+    <Id>1042648</Id>
+    <Id>1042649</Id>
+    <Id>1042650</Id>
+    <Id>1042651</Id>
+    <Id>1042652</Id>
+    <Id>1042653</Id>
+    <Id>1042654</Id>
+  </ChoiceIds>
+  <ObjectTypeIds>
+    <Id>1036732</Id>
+    <Id>1036752</Id>
+    <Id>1042640</Id>
+  </ObjectTypeIds>
+  <TabIds>
+    <Id>1042641</Id>
+  </TabIds>
+  <CustomPageIds />
+  <Locked>true</Locked>
+</Application>

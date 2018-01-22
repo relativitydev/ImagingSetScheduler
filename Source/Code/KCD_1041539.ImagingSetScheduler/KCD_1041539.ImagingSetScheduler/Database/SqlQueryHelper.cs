@@ -148,21 +148,6 @@ namespace KCD_1041539.ImagingSetScheduler.Database
 			return retVal;
 		}
 
-		public void InsertImagingJobAuthenticationToken(IDBContext eddsDbContext, string token)
-		{
-			String sql = String.Format(@"
-				INSERT INTO [EDDSDBO].[{0}]([Token])
-				VALUES(@token)
-				", Constant.Tables.IMAGING_JOB_TOKEN);
-
-			var sqlParams = new List<SqlParameter>
-			{
-				new SqlParameter("@token", SqlDbType.NVarChar) { Value = token }
-			};
-
-			eddsDbContext.ExecuteNonQuerySQLStatement(sql, sqlParams);
-		}
-
 		public void UpdateAgentsToBeOnlyCreatedOnWebServer(IDBContext eddsDbContext)
 		{
 			//Get CodeTypeID for RESOURCE_SERVER_TYPE

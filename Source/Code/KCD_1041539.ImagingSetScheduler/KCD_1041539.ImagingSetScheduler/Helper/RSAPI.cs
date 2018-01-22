@@ -4,6 +4,7 @@ using System.Linq;
 using kCura.Relativity.Client;
 using DTOs = kCura.Relativity.Client.DTOs;
 using Relativity.API;
+using Relativity.Imaging.Services.Interfaces;
 
 namespace KCD_1041539.ImagingSetScheduler.Helper
 {
@@ -89,54 +90,6 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 			{
 				var errorContext = String.Format("An error occured when retrieving all Imaging Set Scheduler's in a workspace. [WorkspaceArtifactId: {0}]",
 					workspaceArtifactId);
-				throw new CustomExceptions.ImagingSetSchedulerException(errorContext, ex);
-			}
-		}
-
-		public static DTOs.RDO RetrieveSingleImagingSet(IServicesMgr svcMgr, ExecutionIdentity identity, int workspaceArtifactId, int imagingSetArtifactId)
-		{
-			if (workspaceArtifactId < 0)
-			{
-				throw new ArgumentException(Constant.ErrorMessages.WORKSPACE_ARTIFACT_ID_CANNOT_BE_NEGATIVE);
-			}
-
-			if (imagingSetArtifactId < 0)
-			{
-				throw new ArgumentException(Constant.ErrorMessages.IMAGING_SET_ARTIFACT_ID_CANNOT_BE_NEGATIVE);
-			}
-
-			try
-			{
-				DTOs.RDO retVal;
-
-				using (IRSAPIClient client = svcMgr.CreateProxy<IRSAPIClient>(identity))
-				{
-					client.APIOptions.WorkspaceID = workspaceArtifactId;
-
-					Response<IEnumerable<DTOs.RDO>> res = RetrieveImagingSet(client, imagingSetArtifactId);
-					if (res.Success)
-					{
-						if (res.Results == null || !res.Results.Any())
-						{
-							var errorContext = String.Format("{2}. [WorkspaceArtifactId: {0}, ImagingSetArtifactId: {1}]", workspaceArtifactId, imagingSetArtifactId, Constant.ErrorMessages.IMAGING_SET_DOES_NOT_EXIST);
-							throw new CustomExceptions.ImagingSetSchedulerException(errorContext);
-						}
-
-						retVal = res.Results.First();
-					}
-					else
-					{
-						throw new CustomExceptions.ImagingSetSchedulerException(res.Message);
-					}
-				}
-
-				return retVal;
-			}
-			catch (Exception ex)
-			{
-				var errorContext = String.Format("An error occured when retrieving Imaging Set [WorkspaceArtifactId: {0}, ImagingSetArtifactId: {1}]",
-					workspaceArtifactId,
-					imagingSetArtifactId);
 				throw new CustomExceptions.ImagingSetSchedulerException(errorContext, ex);
 			}
 		}

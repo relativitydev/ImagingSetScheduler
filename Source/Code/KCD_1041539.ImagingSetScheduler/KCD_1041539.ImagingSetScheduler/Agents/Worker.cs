@@ -5,6 +5,7 @@ using KCD_1041539.ImagingSetScheduler.Helper;
 using System.Data.SqlClient;
 using KCD_1041539.ImagingSetScheduler.Database;
 using KCD_1041539.ImagingSetScheduler.Interfaces;
+using System.Threading.Tasks;
 
 namespace KCD_1041539.ImagingSetScheduler.Agents
 {
@@ -92,7 +93,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				RaiseMessage(String.Format("Submitting imaging set scheduler job [ImagingSetSchedulerArtifactID={0} WorkspaceArtifactId={1}]", imagingSetSchedulerArtifactId, workspaceArtifactId), 10);
 
-				SubmitImagingSetToRun(imagingSetScheduler, workspaceArtifactId, svcMgr, identity, eddsDbContext, validator);
+				SubmitImagingSetToRunAsync(imagingSetScheduler, workspaceArtifactId, svcMgr, identity, eddsDbContext, validator).GetAwaiter().GetResult();
 			}
 			catch (Exception ex)
 			{
@@ -125,19 +126,14 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			SqlQueryHelper.SetErrorMessage(dbContext, errorMessage, Constant.ImagingSetSchedulerStatus.COMPLETE_WITH_ERRORS, imagingSetArtifactId);
 		}
 
-		public void SubmitImagingSetToRun(Objects.ImagingSetScheduler imagingSetScheduler, int workspaceArtifactId, IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext, IValidator validator)
+		public async Task SubmitImagingSetToRunAsync(Objects.ImagingSetScheduler imagingSetScheduler, int workspaceArtifactId, IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext, IValidator validator)
 		{
 			try
 			{
-				var imagingSetRdo = RSAPI.RetrieveSingleImagingSet(svcMgr, identity, workspaceArtifactId, imagingSetScheduler.ImagingSetArtifactId);
-
-				//validate imaging set 
-				validator.ValidateImagingSet(imagingSetRdo);
-
-				var imagingSet = new Objects.ImagingSet(imagingSetRdo, imagingSetScheduler.CreatedByUserId, eddsDbContext);
+				var imagingSet = await ImagingApiHelper.RetrieveSingleImagingSetAsync(svcMgr, identity, workspaceArtifactId, imagingSetScheduler.ImagingSetArtifactId).ConfigureAwait(false);
 
 				//check if the ImagingSet is currently running. If its running, skip current execution.
-				Boolean isImagingSetCurrentlyRunning = validator.VerifyIfImagingSetIsCurrentlyRunning(imagingSet);
+				bool isImagingSetCurrentlyRunning = validator.VerifyIfImagingSetIsCurrentlyRunning(imagingSet);
 				if (isImagingSetCurrentlyRunning)
 				{
 					imagingSetScheduler.SetToSkipped(svcMgr, identity, imagingSetScheduler.ArtifactId, workspaceArtifactId);
@@ -149,7 +145,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 				}
 				else
 				{
-					imagingSet.Run(Constant.SystemArtifactIdentifiers.SYS_ID_IMAGING_SET_JOB_TYPE_FULL, svcMgr, identity, workspaceArtifactId, eddsDbContext.GetConnection(), Helper.GetDBContext(workspaceArtifactId).GetConnection(), imagingSetScheduler.LockImagesForQc);
+					await ImagingApiHelper.RunImagingSetAsync(imagingSet, svcMgr, identity, workspaceArtifactId, imagingSetScheduler.LockImagesForQc, imagingSetScheduler.CreatedByUserId).ConfigureAwait(false);
 
 					imagingSetScheduler.SetToComplete(svcMgr, identity, imagingSetScheduler.ArtifactId, workspaceArtifactId);
 

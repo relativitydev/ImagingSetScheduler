@@ -18,7 +18,7 @@ namespace KCD_1041539.ImagingSetScheduler.EventHandlers
 
 			try
 			{
-				var imagingSetScheduler = new Objects.ImagingSetScheduler(ActiveArtifact, ActiveUser.ArtifactID);
+				var imagingSetScheduler = new Objects.ImagingSetScheduler(ActiveArtifact, Helper.GetAuthenticationManager().UserInfo.ArtifactID);
 
 				imagingSetScheduler.GetNextRunDate(imagingSetScheduler.FrequencyList, DateTime.Now, imagingSetScheduler.Time);
 				ActiveArtifact.Fields[Constant.Guids.Field.ImagingSetScheduler.NEXT_RUN.ToString()].Value.Value = imagingSetScheduler.NextRunDate;
