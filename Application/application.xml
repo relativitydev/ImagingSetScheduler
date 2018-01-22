@@ -2,115 +2,115 @@
 <Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ArtifactViewFields>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001582</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001687</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>ArtifactID</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001583</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001688</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>Edit</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001587</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001692</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>Frequency</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001586</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001691</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>ImagingSet</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001595</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001700</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>ImagingSetImageCompletion</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001596</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001701</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>ImagingSetImageQCReviewStatus</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001597</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001702</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>ImagingSetLastRunError</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001594</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001699</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>ImagingSetStatus</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001590</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001695</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>LastRun</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001589</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001694</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>LockImagesforQC</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001592</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001697</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>Messages</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001585</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001690</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>Name</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001591</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001696</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>NextRun</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001584</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001689</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>AccessControlListIsInherited</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001593</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001698</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>Status</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001580</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001685</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>SystemCreatedBy</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001578</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001683</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>SystemCreatedOn</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001581</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001686</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>SystemLastModifiedBy</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001579</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001684</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>SystemLastModifiedOn</ColumnName>
     </ArtifactViewField>
     <ArtifactViewField>
-      <ArtifactViewFieldId>1001588</ArtifactViewFieldId>
-      <ArtifactTypeId>1000042</ArtifactTypeId>
+      <ArtifactViewFieldId>1001693</ArtifactViewFieldId>
+      <ArtifactTypeId>1000049</ArtifactTypeId>
       <ColumnName>Time</ColumnName>
     </ArtifactViewField>
   </ArtifactViewFields>
   <Assemblies>
     <Assembly>
-      <ArtifactId>1018358</ArtifactId>
+      <ArtifactId>1153461</ArtifactId>
       <Keywords />
       <Name>KCD_1041539.ImagingSetScheduler.dll</Name>
       <Notes />
     </Assembly>
     <Assembly>
-      <ArtifactId>1018707</ArtifactId>
+      <ArtifactId>1153462</ArtifactId>
       <Keywords />
       <Name>Relativity.Imaging.Services.Interfaces.dll</Name>
       <Notes />
@@ -118,7 +118,7 @@
   </Assemblies>
   <ResourceFiles />
   <ExternalTabs />
-  <ExtractionDate>2017-10-19T20:41:16.0174645Z</ExtractionDate>
+  <ExtractionDate>2018-01-22T19:02:24.8737522Z</ExtractionDate>
   <Guid>6be2880a-d951-4a98-a6fe-4a84835d3d06</Guid>
   <Name>Imaging Set Scheduler</Name>
   <Objects>
@@ -895,9 +895,9 @@
     <Object>
       <ActiveSyncs>
         <ActiveSync>
-          <Id>1039349</Id>
-          <ArtifactTypeId>1000042</ArtifactTypeId>
-          <AssemblyArtifactId>1018358</AssemblyArtifactId>
+          <Id>1042642</Id>
+          <ArtifactTypeId>1000049</ArtifactTypeId>
+          <AssemblyArtifactId>1153461</AssemblyArtifactId>
           <ClassName>KCD_1041539.ImagingSetScheduler.EventHandlers.ValidateTimeFormat</ClassName>
           <Description>Validates the format of the time field on the imaging set scheduler when it's saved.</Description>
           <ExecutionType>1</ExecutionType>
@@ -906,9 +906,9 @@
           <ApplicationVersion>4.0.0.3</ApplicationVersion>
         </ActiveSync>
         <ActiveSync>
-          <Id>1039350</Id>
-          <ArtifactTypeId>1000042</ArtifactTypeId>
-          <AssemblyArtifactId>1018358</AssemblyArtifactId>
+          <Id>1042643</Id>
+          <ArtifactTypeId>1000049</ArtifactTypeId>
+          <AssemblyArtifactId>1153461</AssemblyArtifactId>
           <ClassName>KCD_1041539.ImagingSetScheduler.EventHandlers.SetNextRunDate</ClassName>
           <Description>Sets the next run date.</Description>
           <ExecutionType>1</ExecutionType>
@@ -917,9 +917,9 @@
           <ApplicationVersion>4.0.0.3</ApplicationVersion>
         </ActiveSync>
         <ActiveSync>
-          <Id>1039351</Id>
-          <ArtifactTypeId>1000042</ArtifactTypeId>
-          <AssemblyArtifactId>1018358</AssemblyArtifactId>
+          <Id>1042644</Id>
+          <ArtifactTypeId>1000049</ArtifactTypeId>
+          <AssemblyArtifactId>1153461</AssemblyArtifactId>
           <ClassName>KCD_1041539.ImagingSetScheduler.EventHandlers.RemoveFromQueue</ClassName>
           <Description>Removes record from the queue upon deletion.</Description>
           <ExecutionType>3</ExecutionType>
@@ -928,9 +928,9 @@
           <ApplicationVersion>4.0.0.3</ApplicationVersion>
         </ActiveSync>
         <ActiveSync>
-          <Id>1039352</Id>
-          <ArtifactTypeId>1000042</ArtifactTypeId>
-          <AssemblyArtifactId>1018358</AssemblyArtifactId>
+          <Id>1042645</Id>
+          <ArtifactTypeId>1000049</ArtifactTypeId>
+          <AssemblyArtifactId>1153461</AssemblyArtifactId>
           <ClassName>KCD_1041539.ImagingSetScheduler.EventHandlers.ImagingSetSchedulerPreLoad</ClassName>
           <Description>Loads the current Imaging Set statuses for the associated Imaging Set Scheduler object.</Description>
           <ExecutionType>5</ExecutionType>
@@ -939,13 +939,13 @@
           <ApplicationVersion>4.0.0.3</ApplicationVersion>
         </ActiveSync>
       </ActiveSyncs>
-      <ArtifactId>1039347</ArtifactId>
-      <DescriptorArtifactTypeId>1000042</DescriptorArtifactTypeId>
+      <ArtifactId>1042640</ArtifactId>
+      <DescriptorArtifactTypeId>1000049</DescriptorArtifactTypeId>
       <Fields>
         <Field>
           <AllowHTML>false</AllowHTML>
-          <ArtifactId>1039353</ArtifactId>
-          <ArtifactViewFieldId>1001586</ArtifactViewFieldId>
+          <ArtifactId>1042646</ArtifactId>
+          <ArtifactViewFieldId>1001691</ArtifactViewFieldId>
           <AssociativeArtifactTypeId>1000019</AssociativeArtifactTypeId>
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -953,7 +953,7 @@
           <DisplayName>Imaging Set</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>10</FieldTypeId>
           <FilterType>None</FilterType>
@@ -996,12 +996,12 @@
         </Field>
         <Field>
           <AllowHTML>false</AllowHTML>
-          <ArtifactId>1039354</ArtifactId>
-          <ArtifactViewFieldId>1001587</ArtifactViewFieldId>
+          <ArtifactId>1042647</ArtifactId>
+          <ArtifactViewFieldId>1001692</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes>
             <Code>
-              <ArtifactId>1039355</ArtifactId>
+              <ArtifactId>1042648</ArtifactId>
               <Guid>532a3b0d-f0ee-4f5c-9516-e7f698e62b27</Guid>
               <IsActive>true</IsActive>
               <Keywords />
@@ -1015,7 +1015,7 @@
               <ApplicationVersion>0.0.0.1</ApplicationVersion>
             </Code>
             <Code>
-              <ArtifactId>1039356</ArtifactId>
+              <ArtifactId>1042649</ArtifactId>
               <Guid>392e052e-ec84-45fd-a15b-c0af073273b6</Guid>
               <IsActive>true</IsActive>
               <Keywords />
@@ -1029,7 +1029,7 @@
               <ApplicationVersion>0.0.0.1</ApplicationVersion>
             </Code>
             <Code>
-              <ArtifactId>1039357</ArtifactId>
+              <ArtifactId>1042650</ArtifactId>
               <Guid>04863e57-33cd-46e0-b0e0-ab2308af6388</Guid>
               <IsActive>true</IsActive>
               <Keywords />
@@ -1043,7 +1043,7 @@
               <ApplicationVersion>0.0.0.1</ApplicationVersion>
             </Code>
             <Code>
-              <ArtifactId>1039358</ArtifactId>
+              <ArtifactId>1042651</ArtifactId>
               <Guid>6a544774-d0cd-4f18-8ad0-33fe4291667a</Guid>
               <IsActive>true</IsActive>
               <Keywords />
@@ -1057,7 +1057,7 @@
               <ApplicationVersion>0.0.0.1</ApplicationVersion>
             </Code>
             <Code>
-              <ArtifactId>1039359</ArtifactId>
+              <ArtifactId>1042652</ArtifactId>
               <Guid>ae22f86f-d703-469a-9d93-8ba4b8636a42</Guid>
               <IsActive>true</IsActive>
               <Keywords />
@@ -1071,7 +1071,7 @@
               <ApplicationVersion>0.0.0.1</ApplicationVersion>
             </Code>
             <Code>
-              <ArtifactId>1039360</ArtifactId>
+              <ArtifactId>1042653</ArtifactId>
               <Guid>7f6f9f4e-a76b-4202-a7a1-643168c799ca</Guid>
               <IsActive>true</IsActive>
               <Keywords />
@@ -1085,7 +1085,7 @@
               <ApplicationVersion>0.0.0.1</ApplicationVersion>
             </Code>
             <Code>
-              <ArtifactId>1039361</ArtifactId>
+              <ArtifactId>1042654</ArtifactId>
               <Guid>c7e2341d-9af6-4925-aa00-695678979ea1</Guid>
               <IsActive>true</IsActive>
               <Keywords />
@@ -1099,12 +1099,12 @@
               <ApplicationVersion>0.0.0.1</ApplicationVersion>
             </Code>
           </Codes>
-          <CodeTypeId>1000147</CodeTypeId>
+          <CodeTypeId>1000152</CodeTypeId>
           <ConnectorFieldArtifactId xsi:nil="true" />
           <DisplayName>Frequency</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>8</FieldTypeId>
           <FilterType>Choice</FilterType>
@@ -1147,8 +1147,8 @@
         </Field>
         <Field>
           <AllowHTML>false</AllowHTML>
-          <ArtifactId>1039362</ArtifactId>
-          <ArtifactViewFieldId>1001588</ArtifactViewFieldId>
+          <ArtifactId>1042655</ArtifactId>
+          <ArtifactViewFieldId>1001693</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -1156,7 +1156,7 @@
           <DisplayName>Time</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>0</FieldTypeId>
           <FilterType>Search</FilterType>
@@ -1199,8 +1199,8 @@
         </Field>
         <Field>
           <AllowHTML>false</AllowHTML>
-          <ArtifactId>1039363</ArtifactId>
-          <ArtifactViewFieldId>1001589</ArtifactViewFieldId>
+          <ArtifactId>1042656</ArtifactId>
+          <ArtifactViewFieldId>1001694</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -1208,7 +1208,7 @@
           <DisplayName>Lock Images for QC</DisplayName>
           <DisplayValueFalse>No</DisplayValueFalse>
           <DisplayValueTrue>Yes</DisplayValueTrue>
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>3</FieldTypeId>
           <FilterType>Boolean</FilterType>
@@ -1251,8 +1251,8 @@
         </Field>
         <Field>
           <AllowHTML>false</AllowHTML>
-          <ArtifactId>1039364</ArtifactId>
-          <ArtifactViewFieldId>1001590</ArtifactViewFieldId>
+          <ArtifactId>1042657</ArtifactId>
+          <ArtifactViewFieldId>1001695</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -1260,7 +1260,7 @@
           <DisplayName>Last Run</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>2</FieldTypeId>
           <FilterType>Search</FilterType>
@@ -1303,8 +1303,8 @@
         </Field>
         <Field>
           <AllowHTML>false</AllowHTML>
-          <ArtifactId>1039365</ArtifactId>
-          <ArtifactViewFieldId>1001591</ArtifactViewFieldId>
+          <ArtifactId>1042658</ArtifactId>
+          <ArtifactViewFieldId>1001696</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -1312,7 +1312,7 @@
           <DisplayName>Next Run</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>2</FieldTypeId>
           <FilterType>Search</FilterType>
@@ -1355,8 +1355,8 @@
         </Field>
         <Field>
           <AllowHTML>false</AllowHTML>
-          <ArtifactId>1039366</ArtifactId>
-          <ArtifactViewFieldId>1001592</ArtifactViewFieldId>
+          <ArtifactId>1042659</ArtifactId>
+          <ArtifactViewFieldId>1001697</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -1364,7 +1364,7 @@
           <DisplayName>Messages</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>4</FieldTypeId>
           <FilterType>Search</FilterType>
@@ -1407,8 +1407,8 @@
         </Field>
         <Field>
           <AllowHTML>false</AllowHTML>
-          <ArtifactId>1039367</ArtifactId>
-          <ArtifactViewFieldId>1001593</ArtifactViewFieldId>
+          <ArtifactId>1042660</ArtifactId>
+          <ArtifactViewFieldId>1001698</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -1416,7 +1416,7 @@
           <DisplayName>Status</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>0</FieldTypeId>
           <FilterType>Search</FilterType>
@@ -1459,8 +1459,8 @@
         </Field>
         <Field>
           <AllowHTML>false</AllowHTML>
-          <ArtifactId>1039368</ArtifactId>
-          <ArtifactViewFieldId>1001594</ArtifactViewFieldId>
+          <ArtifactId>1042661</ArtifactId>
+          <ArtifactViewFieldId>1001699</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -1468,7 +1468,7 @@
           <DisplayName>Imaging Set: Status</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>0</FieldTypeId>
           <FilterType>Search</FilterType>
@@ -1511,8 +1511,8 @@
         </Field>
         <Field>
           <AllowHTML>true</AllowHTML>
-          <ArtifactId>1039369</ArtifactId>
-          <ArtifactViewFieldId>1001595</ArtifactViewFieldId>
+          <ArtifactId>1042662</ArtifactId>
+          <ArtifactViewFieldId>1001700</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -1520,7 +1520,7 @@
           <DisplayName>Imaging Set: Image Completion</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>0</FieldTypeId>
           <FilterType>Search</FilterType>
@@ -1563,8 +1563,8 @@
         </Field>
         <Field>
           <AllowHTML>true</AllowHTML>
-          <ArtifactId>1039370</ArtifactId>
-          <ArtifactViewFieldId>1001596</ArtifactViewFieldId>
+          <ArtifactId>1042663</ArtifactId>
+          <ArtifactViewFieldId>1001701</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -1572,7 +1572,7 @@
           <DisplayName>Imaging Set: Image QC Review Status</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>0</FieldTypeId>
           <FilterType>Search</FilterType>
@@ -1615,8 +1615,8 @@
         </Field>
         <Field>
           <AllowHTML>false</AllowHTML>
-          <ArtifactId>1039371</ArtifactId>
-          <ArtifactViewFieldId>1001597</ArtifactViewFieldId>
+          <ArtifactId>1042664</ArtifactId>
+          <ArtifactViewFieldId>1001702</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -1624,7 +1624,7 @@
           <DisplayName>Imaging Set: Last Run Error</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>4</FieldTypeId>
           <FilterType>Search</FilterType>
@@ -1671,11 +1671,11 @@
       <Layouts>
         <Layout>
           <OverwriteProtection>true</OverwriteProtection>
-          <ArtifactId>1039373</ArtifactId>
+          <ArtifactId>1042666</ArtifactId>
           <Categories>
             <Category>
-              <CategoryId>1001287</CategoryId>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <CategoryId>1000435</CategoryId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <Order>0</Order>
               <Title>Imaging Set Details</Title>
               <Collapsible>false</Collapsible>
@@ -1685,8 +1685,8 @@
               <Type>0</Type>
             </Category>
             <Category>
-              <CategoryId>1001288</CategoryId>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <CategoryId>1000436</CategoryId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <Order>100</Order>
               <Title>History</Title>
               <Collapsible>false</Collapsible>
@@ -1696,8 +1696,8 @@
               <Type>0</Type>
             </Category>
             <Category>
-              <CategoryId>1001289</CategoryId>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <CategoryId>1000437</CategoryId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <Order>200</Order>
               <Title>Detailed Messages</Title>
               <Collapsible>true</Collapsible>
@@ -1707,8 +1707,8 @@
               <Type>0</Type>
             </Category>
             <Category>
-              <CategoryId>1001290</CategoryId>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <CategoryId>1000438</CategoryId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <Order>300</Order>
               <Title>Imaging Set</Title>
               <Collapsible>false</Collapsible>
@@ -1720,17 +1720,17 @@
           </Categories>
           <Guid>267e7887-8985-4be1-bf17-cdc4eef3c33b</Guid>
           <Keywords />
-          <LayoutArtifactTypeId>1000042</LayoutArtifactTypeId>
+          <LayoutArtifactTypeId>1000049</LayoutArtifactTypeId>
           <LayoutFields>
             <LayoutField>
-              <CategoryId>1001287</CategoryId>
+              <CategoryId>1000435</CategoryId>
               <ColSpan>2</ColSpan>
               <Column>1</Column>
-              <FieldArtifactId>1039344</FieldArtifactId>
+              <FieldArtifactId>1042637</FieldArtifactId>
               <FieldDisplayTypeId>0</FieldDisplayTypeId>
               <FullTextFieldHeight xsi:nil="true" />
               <IsReadOnly>false</IsReadOnly>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <Order>1</Order>
               <PickerViewArtifactId xsi:nil="true" />
               <RepeatColumn>0</RepeatColumn>
@@ -1739,14 +1739,14 @@
               <ShowNameColumn>true</ShowNameColumn>
             </LayoutField>
             <LayoutField>
-              <CategoryId>1001287</CategoryId>
+              <CategoryId>1000435</CategoryId>
               <ColSpan>2</ColSpan>
               <Column>1</Column>
-              <FieldArtifactId>1039353</FieldArtifactId>
+              <FieldArtifactId>1042646</FieldArtifactId>
               <FieldDisplayTypeId>25</FieldDisplayTypeId>
               <FullTextFieldHeight xsi:nil="true" />
               <IsReadOnly>false</IsReadOnly>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <Order>10</Order>
               <PickerViewArtifactId xsi:nil="true" />
               <RepeatColumn>0</RepeatColumn>
@@ -1755,14 +1755,14 @@
               <ShowNameColumn>true</ShowNameColumn>
             </LayoutField>
             <LayoutField>
-              <CategoryId>1001287</CategoryId>
+              <CategoryId>1000435</CategoryId>
               <ColSpan>2</ColSpan>
               <Column>1</Column>
-              <FieldArtifactId>1039354</FieldArtifactId>
+              <FieldArtifactId>1042647</FieldArtifactId>
               <FieldDisplayTypeId>10</FieldDisplayTypeId>
               <FullTextFieldHeight xsi:nil="true" />
               <IsReadOnly>false</IsReadOnly>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <Order>20</Order>
               <PickerViewArtifactId xsi:nil="true" />
               <RepeatColumn>0</RepeatColumn>
@@ -1771,14 +1771,14 @@
               <ShowNameColumn>true</ShowNameColumn>
             </LayoutField>
             <LayoutField>
-              <CategoryId>1001287</CategoryId>
+              <CategoryId>1000435</CategoryId>
               <ColSpan>2</ColSpan>
               <Column>1</Column>
-              <FieldArtifactId>1039362</FieldArtifactId>
+              <FieldArtifactId>1042655</FieldArtifactId>
               <FieldDisplayTypeId>0</FieldDisplayTypeId>
               <FullTextFieldHeight xsi:nil="true" />
               <IsReadOnly>false</IsReadOnly>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <NameValue>Time (in 24-hour format)</NameValue>
               <Order>30</Order>
               <PickerViewArtifactId xsi:nil="true" />
@@ -1788,14 +1788,14 @@
               <ShowNameColumn>true</ShowNameColumn>
             </LayoutField>
             <LayoutField>
-              <CategoryId>1001287</CategoryId>
+              <CategoryId>1000435</CategoryId>
               <ColSpan>2</ColSpan>
               <Column>1</Column>
-              <FieldArtifactId>1039363</FieldArtifactId>
+              <FieldArtifactId>1042656</FieldArtifactId>
               <FieldDisplayTypeId>9</FieldDisplayTypeId>
               <FullTextFieldHeight xsi:nil="true" />
               <IsReadOnly>false</IsReadOnly>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <Order>50</Order>
               <PickerViewArtifactId xsi:nil="true" />
               <RepeatColumn>0</RepeatColumn>
@@ -1804,14 +1804,14 @@
               <ShowNameColumn>true</ShowNameColumn>
             </LayoutField>
             <LayoutField>
-              <CategoryId>1001288</CategoryId>
+              <CategoryId>1000436</CategoryId>
               <ColSpan>1</ColSpan>
               <Column>1</Column>
-              <FieldArtifactId>1039364</FieldArtifactId>
+              <FieldArtifactId>1042657</FieldArtifactId>
               <FieldDisplayTypeId>6</FieldDisplayTypeId>
               <FullTextFieldHeight xsi:nil="true" />
               <IsReadOnly>true</IsReadOnly>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <Order>20</Order>
               <PickerViewArtifactId xsi:nil="true" />
               <RepeatColumn>0</RepeatColumn>
@@ -1820,14 +1820,14 @@
               <ShowNameColumn>true</ShowNameColumn>
             </LayoutField>
             <LayoutField>
-              <CategoryId>1001288</CategoryId>
+              <CategoryId>1000436</CategoryId>
               <ColSpan>1</ColSpan>
               <Column>2</Column>
-              <FieldArtifactId>1039365</FieldArtifactId>
+              <FieldArtifactId>1042658</FieldArtifactId>
               <FieldDisplayTypeId>6</FieldDisplayTypeId>
               <FullTextFieldHeight xsi:nil="true" />
               <IsReadOnly>true</IsReadOnly>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <Order>20</Order>
               <PickerViewArtifactId xsi:nil="true" />
               <RepeatColumn>0</RepeatColumn>
@@ -1836,14 +1836,14 @@
               <ShowNameColumn>true</ShowNameColumn>
             </LayoutField>
             <LayoutField>
-              <CategoryId>1001288</CategoryId>
+              <CategoryId>1000436</CategoryId>
               <ColSpan>2</ColSpan>
               <Column>1</Column>
-              <FieldArtifactId>1039367</FieldArtifactId>
+              <FieldArtifactId>1042660</FieldArtifactId>
               <FieldDisplayTypeId>0</FieldDisplayTypeId>
               <FullTextFieldHeight xsi:nil="true" />
               <IsReadOnly>true</IsReadOnly>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <Order>10</Order>
               <PickerViewArtifactId xsi:nil="true" />
               <RepeatColumn>0</RepeatColumn>
@@ -1852,14 +1852,14 @@
               <ShowNameColumn>true</ShowNameColumn>
             </LayoutField>
             <LayoutField>
-              <CategoryId>1001289</CategoryId>
+              <CategoryId>1000437</CategoryId>
               <ColSpan>2</ColSpan>
               <Column>1</Column>
-              <FieldArtifactId>1039366</FieldArtifactId>
+              <FieldArtifactId>1042659</FieldArtifactId>
               <FieldDisplayTypeId>1</FieldDisplayTypeId>
               <FullTextFieldHeight xsi:nil="true" />
               <IsReadOnly>true</IsReadOnly>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <Order>20</Order>
               <PickerViewArtifactId xsi:nil="true" />
               <RepeatColumn>0</RepeatColumn>
@@ -1868,14 +1868,14 @@
               <ShowNameColumn>false</ShowNameColumn>
             </LayoutField>
             <LayoutField>
-              <CategoryId>1001290</CategoryId>
+              <CategoryId>1000438</CategoryId>
               <ColSpan>2</ColSpan>
               <Column>1</Column>
-              <FieldArtifactId>1039368</FieldArtifactId>
+              <FieldArtifactId>1042661</FieldArtifactId>
               <FieldDisplayTypeId>0</FieldDisplayTypeId>
               <FullTextFieldHeight xsi:nil="true" />
               <IsReadOnly>true</IsReadOnly>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <Order>10</Order>
               <PickerViewArtifactId xsi:nil="true" />
               <RepeatColumn>0</RepeatColumn>
@@ -1884,14 +1884,14 @@
               <ShowNameColumn>true</ShowNameColumn>
             </LayoutField>
             <LayoutField>
-              <CategoryId>1001290</CategoryId>
+              <CategoryId>1000438</CategoryId>
               <ColSpan>2</ColSpan>
               <Column>1</Column>
-              <FieldArtifactId>1039369</FieldArtifactId>
+              <FieldArtifactId>1042662</FieldArtifactId>
               <FieldDisplayTypeId>0</FieldDisplayTypeId>
               <FullTextFieldHeight xsi:nil="true" />
               <IsReadOnly>true</IsReadOnly>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <Order>20</Order>
               <PickerViewArtifactId xsi:nil="true" />
               <RepeatColumn>0</RepeatColumn>
@@ -1900,14 +1900,14 @@
               <ShowNameColumn>true</ShowNameColumn>
             </LayoutField>
             <LayoutField>
-              <CategoryId>1001290</CategoryId>
+              <CategoryId>1000438</CategoryId>
               <ColSpan>2</ColSpan>
               <Column>1</Column>
-              <FieldArtifactId>1039370</FieldArtifactId>
+              <FieldArtifactId>1042663</FieldArtifactId>
               <FieldDisplayTypeId>0</FieldDisplayTypeId>
               <FullTextFieldHeight xsi:nil="true" />
               <IsReadOnly>true</IsReadOnly>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <Order>30</Order>
               <PickerViewArtifactId xsi:nil="true" />
               <RepeatColumn>0</RepeatColumn>
@@ -1916,14 +1916,14 @@
               <ShowNameColumn>true</ShowNameColumn>
             </LayoutField>
             <LayoutField>
-              <CategoryId>1001290</CategoryId>
+              <CategoryId>1000438</CategoryId>
               <ColSpan>2</ColSpan>
               <Column>1</Column>
-              <FieldArtifactId>1039371</FieldArtifactId>
+              <FieldArtifactId>1042664</FieldArtifactId>
               <FieldDisplayTypeId>1</FieldDisplayTypeId>
               <FullTextFieldHeight xsi:nil="true" />
               <IsReadOnly>true</IsReadOnly>
-              <LayoutArtifactId>1039373</LayoutArtifactId>
+              <LayoutArtifactId>1042666</LayoutArtifactId>
               <Order>40</Order>
               <PickerViewArtifactId xsi:nil="true" />
               <RepeatColumn>0</RepeatColumn>
@@ -1946,10 +1946,10 @@
         <ObjectRule>
           <Name>Hide Mass Actions</Name>
           <Action>&lt;action&gt;&lt;listoptions&gt;&lt;showMassCopy&gt;False&lt;/showMassCopy&gt;&lt;showMassEdit&gt;False&lt;/showMassEdit&gt;&lt;showMassReplace&gt;False&lt;/showMassReplace&gt;&lt;showMassTally&gt;False&lt;/showMassTally&gt;&lt;/listoptions&gt;&lt;/action&gt;</Action>
-          <ArtifactTypeID>1000042</ArtifactTypeID>
+          <ArtifactTypeID>1000049</ArtifactTypeID>
           <FieldArtifactID>0</FieldArtifactID>
           <Guid>897efacd-a7e8-4546-89e0-ad4ac675280b</Guid>
-          <ObjectRuleID>1039374</ObjectRuleID>
+          <ObjectRuleID>1042667</ObjectRuleID>
           <Operator />
           <Type>MassActionVisibility</Type>
           <Value>&lt;value /&gt;</Value>
@@ -1958,10 +1958,10 @@
         <ObjectRule>
           <Name>Frequency Disable All Options</Name>
           <Action>&lt;action&gt;&lt;choiceAddLinkVisibility&gt;&lt;showAdd&gt;False&lt;/showAdd&gt;&lt;showDelete&gt;False&lt;/showDelete&gt;&lt;showRename&gt;False&lt;/showRename&gt;&lt;/choiceAddLinkVisibility&gt;&lt;/action&gt;</Action>
-          <ArtifactTypeID>1000042</ArtifactTypeID>
-          <FieldArtifactID>1039354</FieldArtifactID>
+          <ArtifactTypeID>1000049</ArtifactTypeID>
+          <FieldArtifactID>1042647</FieldArtifactID>
           <Guid>2dac8fab-5197-48b1-8e20-180475463d3f</Guid>
-          <ObjectRuleID>1039375</ObjectRuleID>
+          <ObjectRuleID>1042668</ObjectRuleID>
           <Operator />
           <Type>ChoiceAddLinkVisibility</Type>
           <Value>&lt;value /&gt;</Value>
@@ -1979,8 +1979,8 @@
       <SystemFields>
         <SystemField>
           <AllowHTML>false</AllowHTML>
-          <ArtifactId>1039339</ArtifactId>
-          <ArtifactViewFieldId>1001578</ArtifactViewFieldId>
+          <ArtifactId>1042632</ArtifactId>
+          <ArtifactViewFieldId>1001683</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -1988,7 +1988,7 @@
           <DisplayName>System Created On</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>2</FieldTypeId>
           <FilterType>CustomOnly</FilterType>
@@ -2031,8 +2031,8 @@
         </SystemField>
         <SystemField>
           <AllowHTML>false</AllowHTML>
-          <ArtifactId>1039340</ArtifactId>
-          <ArtifactViewFieldId>1001579</ArtifactViewFieldId>
+          <ArtifactId>1042633</ArtifactId>
+          <ArtifactViewFieldId>1001684</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -2040,7 +2040,7 @@
           <DisplayName>System Last Modified On</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>2</FieldTypeId>
           <FilterType>CustomOnly</FilterType>
@@ -2083,8 +2083,8 @@
         </SystemField>
         <SystemField>
           <AllowHTML>false</AllowHTML>
-          <ArtifactId>1039341</ArtifactId>
-          <ArtifactViewFieldId>1001580</ArtifactViewFieldId>
+          <ArtifactId>1042634</ArtifactId>
+          <ArtifactViewFieldId>1001685</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -2092,7 +2092,7 @@
           <DisplayName>System Created By</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>0</FieldTypeId>
           <FilterType>Search</FilterType>
@@ -2135,8 +2135,8 @@
         </SystemField>
         <SystemField>
           <AllowHTML>false</AllowHTML>
-          <ArtifactId>1039342</ArtifactId>
-          <ArtifactViewFieldId>1001581</ArtifactViewFieldId>
+          <ArtifactId>1042635</ArtifactId>
+          <ArtifactViewFieldId>1001686</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -2144,7 +2144,7 @@
           <DisplayName>System Last Modified By</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>0</FieldTypeId>
           <FilterType>Search</FilterType>
@@ -2187,8 +2187,8 @@
         </SystemField>
         <SystemField>
           <AllowHTML>false</AllowHTML>
-          <ArtifactId>1039343</ArtifactId>
-          <ArtifactViewFieldId>1001582</ArtifactViewFieldId>
+          <ArtifactId>1042636</ArtifactId>
+          <ArtifactViewFieldId>1001687</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -2196,7 +2196,7 @@
           <DisplayName>Artifact ID</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>0</FieldCategoryId>
           <FieldTypeId>1</FieldTypeId>
           <FilterType>CustomOnly</FilterType>
@@ -2239,8 +2239,8 @@
         </SystemField>
         <SystemField>
           <AllowHTML>false</AllowHTML>
-          <ArtifactId>1039344</ArtifactId>
-          <ArtifactViewFieldId>1001585</ArtifactViewFieldId>
+          <ArtifactId>1042637</ArtifactId>
+          <ArtifactViewFieldId>1001690</ArtifactViewFieldId>
           <AssociativeArtifactTypeId xsi:nil="true" />
           <Codes />
           <CodeTypeId xsi:nil="true" />
@@ -2248,7 +2248,7 @@
           <DisplayName>Name</DisplayName>
           <DisplayValueFalse />
           <DisplayValueTrue />
-          <FieldArtifactTypeId>1000042</FieldArtifactTypeId>
+          <FieldArtifactTypeId>1000049</FieldArtifactTypeId>
           <FieldCategoryId>2</FieldCategoryId>
           <FieldTypeId>0</FieldTypeId>
           <FilterType>Search</FilterType>
@@ -2293,21 +2293,21 @@
       <SystemLayouts />
       <SystemViews />
       <Tab>
-        <ArtifactId>1039348</ArtifactId>
+        <ArtifactId>1042641</ArtifactId>
         <DisplayOrder>0</DisplayOrder>
         <Guid>956546bd-7ba4-4214-9512-bfab2faf3904</Guid>
         <IsDefault>false</IsDefault>
         <Name>Imaging Set Scheduler</Name>
-        <ObjectArtifactTypeId>1000042</ObjectArtifactTypeId>
-        <ParentArtifactId>1039338</ParentArtifactId>
+        <ObjectArtifactTypeId>1000049</ObjectArtifactTypeId>
+        <ParentArtifactId>1042631</ParentArtifactId>
         <TabDisplay>0</TabDisplay>
         <Visible>true</Visible>
-        <ApplicationVersion>4.0.0.3</ApplicationVersion>
+        <ApplicationVersion>5.0.0.1</ApplicationVersion>
       </Tab>
       <Views>
         <View>
-          <ArtifactId>1039372</ArtifactId>
-          <ArtifactTypeId>1000042</ArtifactTypeId>
+          <ArtifactId>1042665</ArtifactId>
+          <ArtifactTypeId>1000049</ArtifactTypeId>
           <AvailableInObjectTab>true</AvailableInObjectTab>
           <Guid>1d6006c6-de92-486f-aba2-2281ada1b5b6</Guid>
           <IsRelationalIndexView>false</IsRelationalIndexView>
@@ -2325,52 +2325,52 @@
           <ViewCriteria />
           <ViewFields>
             <ViewField>
-              <ArtifactViewFieldId>1001583</ArtifactViewFieldId>
+              <ArtifactViewFieldId>1001688</ArtifactViewFieldId>
               <IsEditable>false</IsEditable>
               <Order>0</Order>
             </ViewField>
             <ViewField>
-              <ArtifactViewFieldId>1001582</ArtifactViewFieldId>
+              <ArtifactViewFieldId>1001687</ArtifactViewFieldId>
               <IsEditable>false</IsEditable>
               <Order>1</Order>
             </ViewField>
             <ViewField>
-              <ArtifactViewFieldId>1001585</ArtifactViewFieldId>
+              <ArtifactViewFieldId>1001690</ArtifactViewFieldId>
               <IsEditable>false</IsEditable>
               <Order>2</Order>
             </ViewField>
             <ViewField>
-              <ArtifactViewFieldId>1001586</ArtifactViewFieldId>
+              <ArtifactViewFieldId>1001691</ArtifactViewFieldId>
               <IsEditable>false</IsEditable>
               <Order>3</Order>
             </ViewField>
             <ViewField>
-              <ArtifactViewFieldId>1001587</ArtifactViewFieldId>
+              <ArtifactViewFieldId>1001692</ArtifactViewFieldId>
               <IsEditable>false</IsEditable>
               <Order>4</Order>
             </ViewField>
             <ViewField>
-              <ArtifactViewFieldId>1001588</ArtifactViewFieldId>
+              <ArtifactViewFieldId>1001693</ArtifactViewFieldId>
               <IsEditable>false</IsEditable>
               <Order>5</Order>
             </ViewField>
             <ViewField>
-              <ArtifactViewFieldId>1001589</ArtifactViewFieldId>
+              <ArtifactViewFieldId>1001694</ArtifactViewFieldId>
               <IsEditable>false</IsEditable>
               <Order>6</Order>
             </ViewField>
             <ViewField>
-              <ArtifactViewFieldId>1001590</ArtifactViewFieldId>
+              <ArtifactViewFieldId>1001695</ArtifactViewFieldId>
               <IsEditable>false</IsEditable>
               <Order>7</Order>
             </ViewField>
             <ViewField>
-              <ArtifactViewFieldId>1001591</ArtifactViewFieldId>
+              <ArtifactViewFieldId>1001696</ArtifactViewFieldId>
               <IsEditable>false</IsEditable>
               <Order>8</Order>
             </ViewField>
             <ViewField>
-              <ArtifactViewFieldId>1001593</ArtifactViewFieldId>
+              <ArtifactViewFieldId>1001698</ArtifactViewFieldId>
               <IsEditable>false</IsEditable>
               <Order>9</Order>
             </ViewField>
@@ -2389,18 +2389,18 @@
     </Object>
   </Objects>
   <ParentTabs />
-  <RelativityVersion>9.5.0.0</RelativityVersion>
-  <Version>4.0.0.13</Version>
+  <RelativityVersion>9.5.394.37</RelativityVersion>
+  <Version>5.0.0.2</Version>
   <TabDisplay>true</TabDisplay>
-  <OriginSignature>8c7a9628-259c-4e26-82c1-447814654121</OriginSignature>
+  <OriginSignature>3a968916-08e6-4346-baed-ff617c4f2f9e</OriginSignature>
   <MasterScripts />
   <ApplicationScripts />
   <CustomPages />
   <AgentTypes>
     <AgentType>
-      <ArtifactId>1039336</ArtifactId>
+      <ArtifactId>1042629</ArtifactId>
       <Guid>f5e3fd48-38c2-457f-acbf-5618a30e2957</Guid>
-      <ApplicationVersion>4.0.0.3</ApplicationVersion>
+      <ApplicationVersion>5.0.0.1</ApplicationVersion>
       <AgentTypeName>KCD_1041539 - Imaging Set Scheduler Manager</AgentTypeName>
       <FullNameSpace>KCD_1041539.ImagingSetScheduler.Agents.Manager</FullNameSpace>
       <DefaultInterval>60</DefaultInterval>
@@ -2418,9 +2418,9 @@
       <Description />
     </AgentType>
     <AgentType>
-      <ArtifactId>1039337</ArtifactId>
+      <ArtifactId>1042630</ArtifactId>
       <Guid>f596e9e3-5a28-408b-9faa-334f35de94a0</Guid>
-      <ApplicationVersion>4.0.0.3</ApplicationVersion>
+      <ApplicationVersion>5.0.0.1</ApplicationVersion>
       <AgentTypeName>KCD_1041539 - Imaging Set Scheduler Worker</AgentTypeName>
       <FullNameSpace>KCD_1041539.ImagingSetScheduler.Agents.Worker</FullNameSpace>
       <DefaultInterval>5</DefaultInterval>
@@ -2441,27 +2441,27 @@
   <IsRelativityApplication>true</IsRelativityApplication>
   <InstallEventHandlers>
     <InstallEventHandler>
-      <ArtifactId>1040081</ArtifactId>
-      <AssemblyArtifactId>1018358</AssemblyArtifactId>
+      <ArtifactId>1042627</ArtifactId>
+      <AssemblyArtifactId>1153461</AssemblyArtifactId>
       <Name>KCD_1041539.ImagingSetScheduler.EventHandlers.PreInstallValidation</Name>
       <Guid>56bef27d-a34e-4acc-9d5b-a9fe4dc79f03</Guid>
       <Guids>4502fdcf-d5cb-47c4-bd79-22101c194ce9</Guids>
       <ExecutionType>7</ExecutionType>
       <Order>10</Order>
       <AssemblyName>KCD_1041539.ImagingSetScheduler.dll</AssemblyName>
-      <ApplicationVersion>4.0.0.3</ApplicationVersion>
+      <ApplicationVersion>5.0.0.1</ApplicationVersion>
       <RunTarget>0</RunTarget>
     </InstallEventHandler>
     <InstallEventHandler>
-      <ArtifactId>1040082</ArtifactId>
-      <AssemblyArtifactId>1018358</AssemblyArtifactId>
+      <ArtifactId>1042628</ArtifactId>
+      <AssemblyArtifactId>1153461</AssemblyArtifactId>
       <Name>KCD_1041539.ImagingSetScheduler.EventHandlers.WorkspaceSetup</Name>
       <Guid>2d010208-044b-417d-aa94-445336f69f93</Guid>
       <Guids>c47b1dbe-bb4d-4e58-ac1e-4b1552f6557c</Guids>
       <ExecutionType>8</ExecutionType>
       <Order>10</Order>
       <AssemblyName>KCD_1041539.ImagingSetScheduler.dll</AssemblyName>
-      <ApplicationVersion>4.0.0.3</ApplicationVersion>
+      <ApplicationVersion>5.0.0.1</ApplicationVersion>
       <RunTarget>0</RunTarget>
     </InstallEventHandler>
   </InstallEventHandlers>
@@ -2475,51 +2475,51 @@
   <GlobalApplication>false</GlobalApplication>
   <RelativityScriptIds />
   <ViewIds>
-    <Id>1039372</Id>
+    <Id>1042665</Id>
   </ViewIds>
   <DashboardIds />
   <LayoutIds>
-    <Id>1039373</Id>
+    <Id>1042666</Id>
   </LayoutIds>
   <FieldIds>
     <Id>1036749</Id>
     <Id>1036754</Id>
     <Id>1036755</Id>
-    <Id>1039339</Id>
-    <Id>1039340</Id>
-    <Id>1039341</Id>
-    <Id>1039342</Id>
-    <Id>1039343</Id>
-    <Id>1039344</Id>
-    <Id>1039353</Id>
-    <Id>1039354</Id>
-    <Id>1039362</Id>
-    <Id>1039363</Id>
-    <Id>1039364</Id>
-    <Id>1039365</Id>
-    <Id>1039366</Id>
-    <Id>1039367</Id>
-    <Id>1039368</Id>
-    <Id>1039369</Id>
-    <Id>1039370</Id>
-    <Id>1039371</Id>
+    <Id>1042632</Id>
+    <Id>1042633</Id>
+    <Id>1042634</Id>
+    <Id>1042635</Id>
+    <Id>1042636</Id>
+    <Id>1042637</Id>
+    <Id>1042646</Id>
+    <Id>1042647</Id>
+    <Id>1042655</Id>
+    <Id>1042656</Id>
+    <Id>1042657</Id>
+    <Id>1042658</Id>
+    <Id>1042659</Id>
+    <Id>1042660</Id>
+    <Id>1042661</Id>
+    <Id>1042662</Id>
+    <Id>1042663</Id>
+    <Id>1042664</Id>
   </FieldIds>
   <ChoiceIds>
-    <Id>1039355</Id>
-    <Id>1039356</Id>
-    <Id>1039357</Id>
-    <Id>1039358</Id>
-    <Id>1039359</Id>
-    <Id>1039360</Id>
-    <Id>1039361</Id>
+    <Id>1042648</Id>
+    <Id>1042649</Id>
+    <Id>1042650</Id>
+    <Id>1042651</Id>
+    <Id>1042652</Id>
+    <Id>1042653</Id>
+    <Id>1042654</Id>
   </ChoiceIds>
   <ObjectTypeIds>
     <Id>1036732</Id>
     <Id>1036752</Id>
-    <Id>1039347</Id>
+    <Id>1042640</Id>
   </ObjectTypeIds>
   <TabIds>
-    <Id>1039348</Id>
+    <Id>1042641</Id>
   </TabIds>
   <CustomPageIds />
   <Locked>true</Locked>

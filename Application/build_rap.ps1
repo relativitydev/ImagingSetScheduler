@@ -1,6 +1,6 @@
 # This will build a new RAP and increment the minor (last) version number.
 # If a major version number (or the app) is modified place new app.xml in this directory
-# Usage: .\build_rap.ps1 Debug [or Release]
+# Usage: build the solution in VS, then .\build_rap.ps1 Debug [or Release]
 param(
     [string]$build
 )
@@ -16,9 +16,9 @@ $minorNumber++
 $versionNumbers[3] = [convert]::ToString($minorNumber)
 $node.InnerText = $versionNumbers -join '.'
 $xml.Save("$pwd\application.xml")
-$dllPath = "..\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler\bin\" + $build + "\"
-$appDll = $dllpath + "KCD_1041539.ImagingSetScheduler.dll"
-$imagingDlls = $dllpath + "Relativity.Imaging.Services.Interfaces.dll"
+$dllPath = "..\Source\Code\KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler"
+$appDll = $dllpath + "\bin\" + $build + "\KCD_1041539.ImagingSetScheduler.dll"
+$imagingDlls = $dllpath + "\binaries\Relativity.Imaging.Services.Interfaces.dll"
 New-Item rapFolder -type directory
 New-Item rapFolder\assemblies -type directory
 Copy-Item $appDll rapFolder\assemblies
