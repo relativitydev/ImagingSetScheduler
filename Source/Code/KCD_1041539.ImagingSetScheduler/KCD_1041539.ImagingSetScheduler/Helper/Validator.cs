@@ -117,11 +117,15 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 
 		public bool VerifyIfImagingSetIsCurrentlyRunning(ImagingSet imagingSet)
 		{
-			if (imagingSet.Status.Status == Constant.ImagingSetStatus.STAGING
-					|| imagingSet.Status.Status == Constant.ImagingSetStatus.COMPLETED_WITH_ERRORS
-					|| imagingSet.Status.Status == Constant.ImagingSetStatus.COMPLETED
-					|| imagingSet.Status.Status == Constant.ImagingSetStatus.STOPPED_BY_USER
-					|| imagingSet.Status.Status == Constant.ImagingSetStatus.ERROR_JOB_FAILED)
+			if (string.Equals(imagingSet.Status.Status, Constant.ImagingSetStatus.STAGING
+, StringComparison.CurrentCultureIgnoreCase)
+                    || string.Equals(imagingSet.Status.Status, Constant.ImagingSetStatus.COMPLETED_WITH_ERRORS
+, StringComparison.CurrentCultureIgnoreCase)
+                    || string.Equals(imagingSet.Status.Status, Constant.ImagingSetStatus.COMPLETED
+, StringComparison.CurrentCultureIgnoreCase)
+                    || string.Equals(imagingSet.Status.Status, Constant.ImagingSetStatus.STOPPED_BY_USER
+, StringComparison.CurrentCultureIgnoreCase)
+                    || string.Equals(imagingSet.Status.Status, Constant.ImagingSetStatus.ERROR_JOB_FAILED, StringComparison.CurrentCultureIgnoreCase))
 			{
 				return false;
 			}

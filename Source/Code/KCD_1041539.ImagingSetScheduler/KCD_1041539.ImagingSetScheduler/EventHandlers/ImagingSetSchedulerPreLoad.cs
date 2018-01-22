@@ -57,13 +57,13 @@ namespace KCD_1041539.ImagingSetScheduler.EventHandlers
 				else
 				{
 					//Imaging Set: Image Completion
-					if (status.Equals(Constant.ImagingSetStatus.PROCESSING_BUILDING_TABLES)
-						|| status.Equals(Constant.ImagingSetStatus.STAGING)
-						|| status.Equals(Constant.ImagingSetStatus.WAITING)
-						|| status.Equals(Constant.ImagingSetStatus.STOPPING)
-						|| status.Equals(Constant.ImagingSetStatus.STOPPED_BY_USER)
+					if (status.Equals(Constant.ImagingSetStatus.PROCESSING_BUILDING_TABLES, StringComparison.CurrentCultureIgnoreCase)
+						|| status.Equals(Constant.ImagingSetStatus.STAGING, StringComparison.CurrentCultureIgnoreCase)
+						|| status.Equals(Constant.ImagingSetStatus.WAITING, StringComparison.CurrentCultureIgnoreCase)
+						|| status.Equals(Constant.ImagingSetStatus.STOPPING, StringComparison.CurrentCultureIgnoreCase)
+						|| status.Equals(Constant.ImagingSetStatus.STOPPED_BY_USER, StringComparison.CurrentCultureIgnoreCase)
 						|| status.Equals(string.Empty)
-						|| status.Equals(Constant.ImagingSetStatus.INITIALIZING))
+						|| status.Equals(Constant.ImagingSetStatus.INITIALIZING, StringComparison.CurrentCultureIgnoreCase))
 					{
 						ActiveArtifact.Fields[Constant.Guids.Field.ImagingSetScheduler.IMAGINGSET_IMAGE_COMPLETION.ToString()].Value.Value = "";
 					}
