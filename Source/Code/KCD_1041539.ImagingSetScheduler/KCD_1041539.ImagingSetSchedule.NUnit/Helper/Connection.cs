@@ -7,15 +7,15 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 	class Connection
 	{
 		// Modify these constants to match your own testing environment
-		public const int WORKSPACE_ARTIFACT_ID = 1018362;
-		public const int IMAGING_SET_SCHEDULER_ARTIFACT_ID = 1040066;
+		public const int WORKSPACE_ARTIFACT_ID = 1037229;
+		public const int IMAGING_SET_SCHEDULER_ARTIFACT_ID = 1042985;
 
 		public Uri RsapiUri { get; set; }
 
-		private const string _SERVER_NAME = "p-dv-vm-bill-7.kcura.corp";
+		private const string _SERVER_NAME = "YOUR-VM-1.kcura.corp";
 		private const string _DB_NAME_PREFIX = "EDDS";
 		private const string _DB_SERVER_SUFFIX = "\\EDDSINSTANCE001"; // Probably leave blank if you're not running on a TestVM
-		private const string _RSAPI_USER_NAME = "relativity.admin@kcura.com";
+		private const string _RSAPI_USER_NAME = "relativity.admin@relativity.com";
 		private const string _RSAPI_PASSWORD = "Test1234!";
 		private const string _DB_USER_NAME = "eddsdbo";
 		private const string _DB_PASSWORD = "MySqlPassword123"; // Possibly P@ssw0rd@1
