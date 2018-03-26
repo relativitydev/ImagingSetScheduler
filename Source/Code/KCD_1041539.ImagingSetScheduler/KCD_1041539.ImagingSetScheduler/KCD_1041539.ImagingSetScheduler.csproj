@@ -132,7 +132,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Relativity.API, Version=9.5.259.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Relativity.API.9.5.259.2\lib\net462\Relativity.API.dll</HintPath>
+      <HintPath>..\packages\Relativity.API.9.5.259.2\lib\Relativity.API.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Relativity.Authentication, Version=9.5.259.2, Culture=neutral, processorArchitecture=MSIL">
