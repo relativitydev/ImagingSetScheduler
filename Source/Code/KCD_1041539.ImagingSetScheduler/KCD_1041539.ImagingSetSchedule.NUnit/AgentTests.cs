@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using Objects = KCD_1041539.ImagingSetScheduler.Objects;
 using KCD_1041539.ImagingSetScheduler.Helper;
 using System;
+using kCura.Data.RowDataGateway;
 using KCD_1041539.ImagingSetSchedule.NUnit.Helper;
 
 namespace KCD_1041539.ImagingSetSchedule.NUnit
@@ -14,8 +15,8 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		#region Vars
 		IServicesMgr SvcMgr;
 		ExecutionIdentity Identity;
-		SqlConnection MasterDbConnection;
-		SqlConnection WorkspaceDbConnection;
+		IDBContext MasterDbConnection;
+		IDBContext WorkspaceDbConnection;
 		Objects.ImagingSetScheduler ImagingSetScheduler;
 		#endregion
 
@@ -27,8 +28,8 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 
 			SvcMgr = new ServiceManager(conn.RsapiUri, conn.GetRsapi());
 			Identity = ExecutionIdentity.System;
-			MasterDbConnection = conn.GetDbConnection(-1);
-			WorkspaceDbConnection = conn.GetDbConnection(Connection.WORKSPACE_ARTIFACT_ID);
+			MasterDbConnection = conn.GetDbContext(-1);
+			WorkspaceDbConnection = conn.GetDbContext(Connection.WORKSPACE_ARTIFACT_ID);
 			var imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(SvcMgr, Identity, Connection.WORKSPACE_ARTIFACT_ID, Connection.IMAGING_SET_SCHEDULER_ARTIFACT_ID);
 			ImagingSetScheduler = new Objects.ImagingSetScheduler(imagingSetSchedulerDto);
 		}
@@ -37,15 +38,6 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		protected void TestFixtureTeardown()
 		{
 			Query.RemoveKcdQueueRecords(MasterDbConnection);
-			try
-			{
-				MasterDbConnection.Close();
-				WorkspaceDbConnection.Close();
-			}
-			catch (Exception)
-			{
-				//do nothing
-			}
 		}
 		#endregion
 

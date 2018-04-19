@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Data.SqlClient;
+using kCura.Data.RowDataGateway;
 using kCura.Relativity.Client;
+using Relativity.API;
 
 namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 {
 	class Connection
 	{
 		// Modify these constants to match your own testing environment
-		public const int WORKSPACE_ARTIFACT_ID = 1037229;
-		public const int IMAGING_SET_SCHEDULER_ARTIFACT_ID = 1042985;
+		public const int WORKSPACE_ARTIFACT_ID = 1084798;
+		public const int IMAGING_SET_SCHEDULER_ARTIFACT_ID = 1045235;
 
 		public Uri RsapiUri { get; set; }
 
-		private const string _SERVER_NAME = "YOUR-VM-1.kcura.corp";
+		private const string _SERVER_NAME = "p-dv-vm-sjar-3.kcura.corp";
 		private const string _DB_NAME_PREFIX = "EDDS";
 		private const string _DB_SERVER_SUFFIX = "\\EDDSINSTANCE001"; // Probably leave blank if you're not running on a TestVM
 		private const string _RSAPI_USER_NAME = "relativity.admin@relativity.com";
@@ -32,7 +34,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 			return client;
 		}
 
-		public SqlConnection GetDbConnection(int workspaceArtifactId)
+		public IDBContext GetDbContext(int workspaceArtifactId)
 		{
             string dbName = _DB_NAME_PREFIX;
 
@@ -40,10 +42,10 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 			{
 				dbName += workspaceArtifactId.ToString();
 			}
-			var connectionString = String.Format("Server={0}{1};Database={2};User Id={3}; Password={4};", _SERVER_NAME, _DB_SERVER_SUFFIX, dbName, _DB_USER_NAME, _DB_PASSWORD);
-			var sqlConnection = new SqlConnection(connectionString);
-			sqlConnection.Open();
-			return sqlConnection;
+			
+			BaseContext baseContext = new Context(_SERVER_NAME+_DB_SERVER_SUFFIX, dbName, _DB_USER_NAME, _DB_PASSWORD);
+			IDBContext context = new DBContext(baseContext);
+			return context;
 		}
 
 	}
