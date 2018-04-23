@@ -25,13 +25,12 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 			ExecutionIdentity identity = ExecutionIdentity.System;
 			var sqlQueryHelper = new SqlQueryHelper();
-			SqlConnection eddsSqlConnection = eddsDbContext.GetConnection();
-
+			
 			try
 			{
 				RaiseMessage("Retrieving next imaging set scheduler in waiting status", 10);
 
-				var nextJob = SqlQueryHelper.RetrieveNextJobInQueue(eddsSqlConnection, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE);
+				var nextJob = SqlQueryHelper.RetrieveNextJobInQueue(eddsDbContext, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE);
 
 				if (nextJob != null && nextJob.Rows.Count > 0 && nextJob.Rows[0]["ImagingSetSchedulerArtifactId"].ToString() != "")
 				{
@@ -101,7 +100,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				if (imagingSetSchedulerArtifactId > 0 && workspaceArtifactId > 0)
 				{
-					SetError(Helper.GetDBContext(workspaceArtifactId).GetConnection(), errorMessages, imagingSetSchedulerArtifactId);
+					SetError(Helper.GetDBContext(workspaceArtifactId), errorMessages, imagingSetSchedulerArtifactId);
 				}
 
 				RaiseMessage(errorMessages, 1);
@@ -121,9 +120,9 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			}
 		}
 
-		public void SetError(SqlConnection dbContext, string errorMessage, int imagingSetArtifactId)
+		public void SetError(IDBContext workspaceDbContext, string errorMessage, int imagingSetArtifactId)
 		{
-			SqlQueryHelper.SetErrorMessage(dbContext, errorMessage, Constant.ImagingSetSchedulerStatus.COMPLETE_WITH_ERRORS, imagingSetArtifactId);
+			SqlQueryHelper.SetErrorMessage(workspaceDbContext, errorMessage, Constant.ImagingSetSchedulerStatus.COMPLETE_WITH_ERRORS, imagingSetArtifactId);
 		}
 
 		public async Task SubmitImagingSetToRunAsync(Objects.ImagingSetScheduler imagingSetScheduler, int workspaceArtifactId, IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext, IValidator validator)
@@ -167,7 +166,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			}
 			finally
 			{
-				imagingSetScheduler.RemoveRecordFromQueue(imagingSetScheduler.ArtifactId, eddsDbContext.GetConnection(), workspaceArtifactId);
+				imagingSetScheduler.RemoveRecordFromQueue(imagingSetScheduler.ArtifactId, eddsDbContext, workspaceArtifactId);
 			}
 		}
 	}

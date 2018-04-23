@@ -16,8 +16,6 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		#region Vars
 		IServicesMgr SvcMgr;
 		ExecutionIdentity Identity;
-		SqlConnection MasterDbConnection;
-		SqlConnection WorkspaceDbConnection;
 		Objects.ImagingSetScheduler ImagingSetScheduler;
 		readonly int WorkspaceArtifactId = Connection.WORKSPACE_ARTIFACT_ID;
 		readonly int ImagingSetScheuleArtifactId = Connection.IMAGING_SET_SCHEDULER_ARTIFACT_ID;
@@ -31,25 +29,10 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 
 			SvcMgr = new ServiceManager(conn.RsapiUri, conn.GetRsapi());
 			Identity = ExecutionIdentity.System;
-			MasterDbConnection = conn.GetDbConnection(-1);
-			WorkspaceDbConnection = conn.GetDbConnection(WorkspaceArtifactId);
 			var imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(SvcMgr, Identity, WorkspaceArtifactId, ImagingSetScheuleArtifactId);
 			ImagingSetScheduler = new Objects.ImagingSetScheduler(imagingSetSchedulerDto);
 		}
-
-		[TestFixtureTearDown]
-		protected void TestFixtureTeardown()
-		{
-			try
-			{
-				MasterDbConnection.Close();
-				WorkspaceDbConnection.Close();
-			}
-			catch (Exception)
-			{
-				//do nothing
-			}
-		}
+		
 		#endregion
 
 		[Test]

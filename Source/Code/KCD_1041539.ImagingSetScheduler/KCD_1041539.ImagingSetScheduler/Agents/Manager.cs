@@ -29,7 +29,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			try
 			{
 				RaiseMessage("Retrieving all workspaces where application is installed", 10);
-				var workspaceDataTable = RetrieveApplicationWorkspaces(eddsDbContext.GetConnection());
+				var workspaceDataTable = RetrieveApplicationWorkspaces(eddsDbContext);
 
 				if (workspaceDataTable.Rows.Count > 0)
 				{
@@ -112,7 +112,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				if (currentImagingSetSchedulerArtifactId > 0 && workspaceArtifactId > 0)
 				{
-					SetError(Helper.GetDBContext(workspaceArtifactId).GetConnection(), errorMessages, currentImagingSetSchedulerArtifactId);
+					SetError(Helper.GetDBContext(workspaceArtifactId), errorMessages, currentImagingSetSchedulerArtifactId);
 				}
 
 				RaiseMessage(errorMessages, 1);
@@ -132,14 +132,14 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			}
 		}
 
-		public DataTable RetrieveApplicationWorkspaces(SqlConnection dbContext)
+		public DataTable RetrieveApplicationWorkspaces(IDBContext eddsDbContext)
 		{
-			return SqlQueryHelper.RetrieveApplicationWorkspaces(dbContext);
+			return SqlQueryHelper.RetrieveApplicationWorkspaces(eddsDbContext);
 		}
 
-		public void SetError(SqlConnection dbContext, string errorMessage, int imagingSetArtifactId)
+		public void SetError(IDBContext workspaceDbContext, string errorMessage, int imagingSetArtifactId)
 		{
-			SqlQueryHelper.SetErrorMessage(dbContext, errorMessage, Constant.ImagingSetSchedulerStatus.MANAGER_ERROR, imagingSetArtifactId);
+			SqlQueryHelper.SetErrorMessage(workspaceDbContext, errorMessage, Constant.ImagingSetSchedulerStatus.MANAGER_ERROR, imagingSetArtifactId);
 		}
 
 		public void InsertIntoKcdQueue(DTOs.RDO imagingSetSchedulerRdo, IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext, int workspaceArtifactId)
@@ -150,7 +150,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				RaiseMessage(String.Format("Checking to see if the imaging set schedule is ready to run [ImagingSetSchedulerArtifactID={0} WorkspaceArtifactID={1}]", imagingSetScheduler.ArtifactId, workspaceArtifactId), 10);
 
-				imagingSetScheduler.InsertRecordIntoQueue(eddsDbContext.GetConnection(), imagingSetScheduler.ArtifactId, workspaceArtifactId);
+				imagingSetScheduler.InsertRecordIntoQueue(eddsDbContext, imagingSetScheduler.ArtifactId, workspaceArtifactId);
 
 				imagingSetScheduler.Update(svcMgr, identity, workspaceArtifactId, null, null, "", Constant.ImagingSetSchedulerStatus.WAITING);
 
@@ -162,7 +162,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				if (imagingSetSchedulerRdo.ArtifactID > 0 && workspaceArtifactId > 0)
 				{
-					SetError(Helper.GetDBContext(workspaceArtifactId).GetConnection(), errorMessages, imagingSetSchedulerRdo.ArtifactID);
+					SetError(Helper.GetDBContext(workspaceArtifactId), errorMessages, imagingSetSchedulerRdo.ArtifactID);
 				}
 
 				RaiseMessage(errorMessages, 1);

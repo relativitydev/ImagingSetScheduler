@@ -17,8 +17,8 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 		#region Vars
 		IServicesMgr _svcMgr;
 		ExecutionIdentity _identity;
-		SqlConnection _masterDBConnection;
-		SqlConnection _workspaceDBConnection;
+		IDBContext _masterDBConnection;
+		IDBContext _workspaceDBConnection;
 		Objects.ImagingSetScheduler _imagingSetScheduler;
 		#endregion
 
@@ -30,22 +30,10 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 
 			_svcMgr = new Helper.ServiceManager(conn.RsapiUri, conn.GetRsapi());
 			_identity = Relativity.API.ExecutionIdentity.System;
-			_masterDBConnection = conn.GetDbConnection(-1);
-			_workspaceDBConnection = conn.GetDbConnection(Connection.WORKSPACE_ARTIFACT_ID);
+			_masterDBConnection = conn.GetDbContext(-1);
+			_workspaceDBConnection = conn.GetDbContext(Connection.WORKSPACE_ARTIFACT_ID);
 		}
 
-		[TestFixtureTearDown]
-		protected void TestFixtureTeardown()
-		{
-			try
-			{
-				_masterDBConnection.Close();
-				_workspaceDBConnection.Close();
-			}
-			catch(Exception)
-			{
-			}
-		}
 		#endregion
 
 		[Test]

@@ -9,9 +9,8 @@ namespace KCD_1041539.ImagingSetScheduler.Database
 {
 	public class SqlQueryHelper
 	{
-		public static DataTable RetrieveApplicationWorkspaces(SqlConnection dbContext)
+		public static DataTable RetrieveApplicationWorkspaces(IDBContext eddsDbContext)
 		{
-			DataTable dt = new DataTable();
 			string sql = @"
 				DECLARE @appArtifactID INT 
 				SET @appArtifactID = (SELECT ArtifactId FROM [EDDSDBO].[ArtifactGuid] WITH(NOLOCK) WHERE ArtifactGuid = @appGuid)
@@ -28,28 +27,30 @@ namespace KCD_1041539.ImagingSetScheduler.Database
 				ORDER BY A.CreatedOn
 				";
 
-			var command = dbContext.CreateCommand();
-			command.CommandText = sql;
-			command.Parameters.Add(new SqlParameter("@appGuid", Constant.Guids.Application.IMAGING_SET_SCHEDULER));
-			var dataAdapter = new SqlDataAdapter(command);
-			dataAdapter.Fill(dt);
+			IEnumerable<SqlParameter> sqlParameters = new List<SqlParameter>
+			{
+				new SqlParameter("@appGuid", Constant.Guids.Application.IMAGING_SET_SCHEDULER)
+			};
 
-			return dt;
+			DataTable result = eddsDbContext.ExecuteSqlStatementAsDataTable(sql, sqlParameters);
+			return result;
 		}
 
-		public static void SetErrorMessage(SqlConnection dbContext, string errorMessage, string status, int imagingSetSchedulerArtifactId)
+		public static void SetErrorMessage(IDBContext workspaceDbContext, string errorMessage, string status, int imagingSetSchedulerArtifactId)
 		{
 			string sql = @"UPDATE ImagingSetScheduler 
 						SET Messages = @error,
 							Status = @status
-						WHERE ArtifactId = @imagingSetSchedulerArtifactId
-						";
-			var command = dbContext.CreateCommand();
-			command.CommandText = sql;
-			command.Parameters.Add(new SqlParameter("@error", errorMessage));
-			command.Parameters.Add(new SqlParameter("@status", status));
-			command.Parameters.Add(new SqlParameter("@imagingSetSchedulerArtifactId", imagingSetSchedulerArtifactId));
-			command.ExecuteNonQuery();
+						WHERE ArtifactId = @imagingSetSchedulerArtifactId";
+
+			IEnumerable<SqlParameter> sqlParameters = new List<SqlParameter>
+			{
+				new SqlParameter("@error", errorMessage),
+				new SqlParameter("@status", status),
+				new SqlParameter("@imagingSetSchedulerArtifactId", imagingSetSchedulerArtifactId)
+			};
+
+			workspaceDbContext.ExecuteNonQuerySQLStatement(sql, sqlParameters);
 		}
 
 		public void CreateQueueTable(IDBContext eddsDbContext, string tableName)
@@ -68,9 +69,8 @@ namespace KCD_1041539.ImagingSetScheduler.Database
 			eddsDbContext.ExecuteNonQuerySQLStatement(sql);
 		}
 
-		public static DataTable RetrieveNextJobInQueue(SqlConnection dbContext, string tableName)
+		public static DataTable RetrieveNextJobInQueue(IDBContext eddsDbContext, string tableName)
 		{
-			DataTable dt = new DataTable();
 			string sql = String.Format(@"SET NOCOUNT ON
 										BEGIN TRAN
 											DECLARE @ImagingSetSchedulerArtifactId INT
@@ -94,15 +94,12 @@ namespace KCD_1041539.ImagingSetScheduler.Database
 											@ImagingSetSchedulerArtifactId ImagingSetSchedulerArtifactId, 
 											@workspaceArtifactID WorkspaceArtifactID
 						", tableName);
-			var command = dbContext.CreateCommand();
-			command.CommandText = sql;
-			var dataAdapter = new SqlDataAdapter(command);
-			dataAdapter.Fill(dt);
 
-			return dt;
+			DataTable result = eddsDbContext.ExecuteSqlStatementAsDataTable(sql);
+			return result;
 		}
 
-		public static void RemoveRecordFromQueue(SqlConnection dbContext, string tableName, int imagingSetSchedulerArtifactId, int workspaceArtifactId)
+		public static void RemoveRecordFromQueue(IDBContext eddsDbContext, string tableName, int imagingSetSchedulerArtifactId, int workspaceArtifactId)
 		{
 			string sql = String.Format(@"IF NOT OBJECT_ID('EDDSDBO.{0}') IS NULL BEGIN
 									DELETE FROM EDDSDBO.{0} 
@@ -110,42 +107,30 @@ namespace KCD_1041539.ImagingSetScheduler.Database
 										AND WorkspaceArtifactID = @workspaceArtifactID
 								END
 						", tableName);
-			var command = dbContext.CreateCommand();
-			command.CommandText = sql;
-			command.Parameters.Add(new SqlParameter("@ImagingSetSchedulerArtifactId", imagingSetSchedulerArtifactId));
-			command.Parameters.Add(new SqlParameter("@workspaceArtifactID", workspaceArtifactId));
-			command.ExecuteNonQuery();
+
+			IEnumerable<SqlParameter> sqlParameters = new List<SqlParameter>
+			{
+				new SqlParameter("@ImagingSetSchedulerArtifactId", imagingSetSchedulerArtifactId),
+				new SqlParameter("@workspaceArtifactID", workspaceArtifactId)
+			};
+
+			eddsDbContext.ExecuteNonQuerySQLStatement(sql, sqlParameters);
 		}
 
-		public static void InsertIntoJobQueue(SqlConnection dbContext, string tableName, int imagingSetSchedulerArtifactId, int workspaceArtifactId)
+		public static void InsertIntoJobQueue(IDBContext eddsDbContext, string tableName, int imagingSetSchedulerArtifactId, int workspaceArtifactId)
 		{
 			string sql = String.Format(@"INSERT INTO EDDSDBO.{0}
 									(ImagingSetSchedulerArtifactId, WorkspaceArtifactID, Priority, CreatedOn) 
 									VALUES(@ImagingSetSchedulerArtifactId,@workspaceArtifactID,1,GetUTCDate())
 						", tableName);
-			var command = dbContext.CreateCommand();
-			command.CommandText = sql;
-			command.Parameters.Add(new SqlParameter("@ImagingSetSchedulerArtifactId", imagingSetSchedulerArtifactId));
-			command.Parameters.Add(new SqlParameter("@workspaceArtifactID", workspaceArtifactId));
-			command.ExecuteNonQuery();
-		}
 
-		public static int RetrieveSystemArtifactId(SqlConnection dbContext, string systemIdentifier)
-		{
-			DataTable dt = new DataTable();
-			string sql = @"SELECT ArtifactId 
-							FROM eddsdbo.SystemArtifact 
-							WHERE SystemArtifactIdentifier = @systemIdentifier
-						";
+			IEnumerable<SqlParameter> sqlParameters = new List<SqlParameter>
+			{
+				new SqlParameter("@ImagingSetSchedulerArtifactId", imagingSetSchedulerArtifactId),
+				new SqlParameter("@workspaceArtifactID", workspaceArtifactId)
+			};
 
-			var command = dbContext.CreateCommand();
-			command.CommandText = sql;
-			command.Parameters.Add(new SqlParameter("@systemIdentifier", systemIdentifier));
-			var dataAdapter = new SqlDataAdapter(command);
-			dataAdapter.Fill(dt);
-
-			var retVal = (dt.Rows.Count > 0) ? (int)dt.Rows[0][0] : 0;
-			return retVal;
+			eddsDbContext.ExecuteNonQuerySQLStatement(sql, sqlParameters);
 		}
 
 		public void UpdateAgentsToBeOnlyCreatedOnWebServer(IDBContext eddsDbContext)

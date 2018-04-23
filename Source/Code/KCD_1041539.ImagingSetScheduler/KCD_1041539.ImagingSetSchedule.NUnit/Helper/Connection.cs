@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data.SqlClient;
+using kCura.Data.RowDataGateway;
 using kCura.Relativity.Client;
+using Relativity.API;
 
 namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 {
@@ -32,7 +34,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 			return client;
 		}
 
-		public SqlConnection GetDbConnection(int workspaceArtifactId)
+		public IDBContext GetDbContext(int workspaceArtifactId)
 		{
             string dbName = _DB_NAME_PREFIX;
 
@@ -40,10 +42,10 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 			{
 				dbName += workspaceArtifactId.ToString();
 			}
-			var connectionString = String.Format("Server={0}{1};Database={2};User Id={3}; Password={4};", _SERVER_NAME, _DB_SERVER_SUFFIX, dbName, _DB_USER_NAME, _DB_PASSWORD);
-			var sqlConnection = new SqlConnection(connectionString);
-			sqlConnection.Open();
-			return sqlConnection;
+			
+			BaseContext baseContext = new Context(_SERVER_NAME+_DB_SERVER_SUFFIX, dbName, _DB_USER_NAME, _DB_PASSWORD);
+			IDBContext context = new DBContext(baseContext);
+			return context;
 		}
 
 	}

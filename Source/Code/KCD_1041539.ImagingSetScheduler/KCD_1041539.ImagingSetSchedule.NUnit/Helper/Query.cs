@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using Relativity.API;
 
 namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 {
@@ -42,20 +45,17 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 			return dt;
 		}
 
-		public static DataTable GetImagingSetSchedulerRecord(SqlConnection dbContext, int imagingSetSchedulerArtifactId)
+		public static DataTable GetImagingSetSchedulerRecord(IDBContext dbContext, int imagingSetSchedulerArtifactId)
 		{
-			DataTable dt = new DataTable();
 			string sql = @"SELECT LastRun, NextRun, Messages, Status 
 						FROM ImagingSetScheduler 
-						WHERE ArtifactId = @imagingSetSchedulerArtifactId
-						";
-			var command = dbContext.CreateCommand();
-			command.CommandText = sql;
-			command.Parameters.Add(new SqlParameter("@imagingSetSchedulerArtifactId", imagingSetSchedulerArtifactId));
-			var dataAdapter = new SqlDataAdapter(command);
-			dataAdapter.Fill(dt);
-
-			return dt;
+						WHERE ArtifactId = @imagingSetSchedulerArtifactId";
+			
+			IEnumerable<SqlParameter> sqlParameters = new List<SqlParameter>
+			{
+				new SqlParameter("@imagingSetSchedulerArtifactId", imagingSetSchedulerArtifactId)
+			};
+			return dbContext.ExecuteSqlStatementAsDataTable(sql, sqlParameters);
 		}
 
 		public static void RemoveImagingSetQueueRecords(SqlConnection dbContext)
@@ -67,25 +67,18 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 			command.ExecuteNonQuery();
 		}
 
-		public static DataTable GetTableRecordsFromQueue(SqlConnection dbContext, string tableName)
+		public static DataTable GetTableRecordsFromQueue(IDBContext dbContext, string tableName)
 		{
-			DataTable dt = new DataTable();
 			string sql = String.Format(@"SELECT * FROM {0}", tableName);
-			var command = dbContext.CreateCommand();
-			command.CommandText = sql;
-			var dataAdapter = new SqlDataAdapter(command);
-			dataAdapter.Fill(dt);
 
-			return dt;
+			return dbContext.ExecuteSqlStatementAsDataTable(sql);
 		}
 
-		public static void RemoveKcdQueueRecords(SqlConnection dbContext)
+		public static void RemoveKcdQueueRecords(IDBContext dbContext)
 		{
 			string sql = string.Format(@"DELETE FROM {0}", KCD_1041539.ImagingSetScheduler.Helper.Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE);
 
-			var command = dbContext.CreateCommand();
-			command.CommandText = sql;
-			command.ExecuteNonQuery();
+			dbContext.ExecuteNonQuerySQLStatement(sql);
 		}
 	}
 }

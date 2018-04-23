@@ -18,7 +18,7 @@ namespace KCD_1041539.ImagingSetScheduler.EventHandlers
 
 			try
 			{
-				Database.SqlQueryHelper.RemoveRecordFromQueue(Helper.GetDBContext(-1).GetConnection(), Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, ActiveArtifact.ArtifactID, Helper.GetActiveCaseID());
+				Database.SqlQueryHelper.RemoveRecordFromQueue(Helper.GetDBContext(-1), Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, ActiveArtifact.ArtifactID, Helper.GetActiveCaseID());
 			}
 			catch (Exception ex)
 			{
