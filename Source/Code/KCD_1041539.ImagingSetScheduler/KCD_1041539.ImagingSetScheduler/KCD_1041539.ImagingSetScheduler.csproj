@@ -19,7 +19,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -132,7 +132,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Relativity.API, Version=9.5.259.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Relativity.API.9.5.259.2\lib\Relativity.API.dll</HintPath>
+      <HintPath>..\packages\Relativity.API.9.5.259.2\lib\net462\Relativity.API.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Relativity.Authentication, Version=9.5.259.2, Culture=neutral, processorArchitecture=MSIL">
@@ -202,6 +202,7 @@
   <ItemGroup>
     <Compile Include="Agents\Manager.cs" />
     <Compile Include="Database\SqlQueryHelper.cs" />
+    <Compile Include="EventHandlers\ImagingSetSchedulerPageInteraction.cs" />
     <Compile Include="EventHandlers\ImagingSetSchedulerPreLoad.cs" />
     <Compile Include="EventHandlers\PreInstallValidation.cs" />
     <Compile Include="EventHandlers\RemoveFromQueue.cs" />
