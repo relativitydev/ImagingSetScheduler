@@ -7,6 +7,13 @@ namespace KCD_1041539.ImagingSetScheduler.EventHandlers
 	[kCura.EventHandler.CustomAttributes.Description("Inserts a deprecation warning message on Imaging Set Scheduler RDO.")]
 	public class ImagingSetSchedulerPageInteraction : kCura.EventHandler.PageInteractionEventHandler
 	{
+		private const string _OSIER_RELEASE_MESSAGE =
+			"Please be advised that starting in the Prairie Smoke release starting 7/31/2021 Imaging Set Scheduler functionality will be deprecated.<br/>" +
+			"Please delete all scheduled imaging jobs in advance as they will not be executed after the Prairie Smoke release.";
+
+		private const string _PRAIRIE_SMOKE_RELEASE_MESSAGE = "Please be advised that the Imaging Set Scheduler functionality has been deprecated.<br/>"+
+			"Please use Automated Workflows to schedule imaging jobs.";
+
 		public override Response PopulateScriptBlocks()
 		{
 			Response retVal = new Response {Success = true, Message = string.Empty};
@@ -34,18 +41,21 @@ namespace KCD_1041539.ImagingSetScheduler.EventHandlers
 			const string sql = "SELECT [Value] FROM [Relativity] WHERE [Key] = 'Version'";
 			string currentReleaseVersion = Helper.GetDBContext(-1).ExecuteSqlStatementAsScalar<string>(sql);
 			const string prairieSmokeVersion = "12.2";
+			const string osierReleaseVersion = "12.1";
 			bool isR1Instance = IsCloudInstanceEnabled();
 
-			string deprecationMessage;
+			string deprecationMessage = string.Empty;
 
-			if (isR1Instance && IsIncomingVersionHigherOrEqual(prairieSmokeVersion, currentReleaseVersion))
+			if (isR1Instance)
 			{
-				//test
-				deprecationMessage = "Imaging Set Scheduler is now obsolete and disabled. Check out Imaging Automated Workflows!";
-			}
-			else
-			{
-				deprecationMessage = string.Empty;
+				if (currentReleaseVersion.StartsWith(prairieSmokeVersion))
+				{
+					deprecationMessage = _PRAIRIE_SMOKE_RELEASE_MESSAGE;
+				}
+				else if (currentReleaseVersion.StartsWith(osierReleaseVersion))
+				{
+					deprecationMessage = _OSIER_RELEASE_MESSAGE;
+				}
 			}
 
 			return deprecationMessage;
@@ -61,35 +71,6 @@ namespace KCD_1041539.ImagingSetScheduler.EventHandlers
 				retVal = false;
 			}
 			return retVal;
-		}
-
-		private bool IsIncomingVersionHigherOrEqual(string targetVersion, string incomingVersion)
-		{
-			string[] targetVersionParts = targetVersion.Split('.');
-			string[] incomingVersionParts = incomingVersion.Split('.');
-
-			int maxIndex;
-
-			if (targetVersionParts.Length != incomingVersionParts.Length)
-			{
-				// stop at whatever the shortest is to prevent a out of bounds error
-				maxIndex = Math.Min(targetVersionParts.Length, incomingVersionParts.Length);
-			}
-			else
-			{
-				maxIndex = targetVersion.Length;
-			}
-
-			bool isVersionHigher = true;
-
-			// set flag to false when an incoming number is less than our target
-			for (int i = 0; i < maxIndex; i++)
-			{
-				int incomingVersionPart = Convert.ToInt32(incomingVersionParts[i]);
-				int targetVersionPart = Convert.ToInt32(targetVersionParts[i]);
-				isVersionHigher &= incomingVersionPart >= targetVersionPart;
-			}
-			return isVersionHigher;
 		}
 	}
 }
