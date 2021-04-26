@@ -7,11 +7,11 @@ namespace KCD_1041539.ImagingSetScheduler.EventHandlers
 	[kCura.EventHandler.CustomAttributes.Description("Inserts a deprecation warning message on Imaging Set Scheduler RDO.")]
 	public class ImagingSetSchedulerPageInteraction : kCura.EventHandler.PageInteractionEventHandler
 	{
-		private const string _OSIER_RELEASE_MESSAGE =
-			"In the Prairie Smoke release ( 7/31/2021 ) Imaging Set Scheduler functionality will be deprecated.<br/>"+
-			"Please delete all scheduled imaging jobs in advance and migrate them over to automated workflows to schedule imaging jobs.";
+		private const string _BEFORE_PRAIRIESMOKE_RELEASE_MESSAGE =
+			"Please be advised that starting in the Prairie Smoke release, Imaging Set Scheduler functionality will be deprecated.<br/>"
+			+"Please use the Scheduled Run trigger in Automated Workflow to run your scheduled imaging job.";
 
-		private const string _PRAIRIE_SMOKE_RELEASE_MESSAGE = "The Imaging Set Scheduler functionality has been deprecated.<br/>" +
+		private const string _PRAIRIE_SMOKE_RELEASE_MESSAGE = "Please be advised that the Imaging Set Scheduler functionality has been deprecated.<br/>" +
 			"Please use Automated Workflows to schedule imaging jobs.";
 
 		public override Response PopulateScriptBlocks()
@@ -54,7 +54,7 @@ namespace KCD_1041539.ImagingSetScheduler.EventHandlers
 				}
 				else if (currentReleaseVersion.StartsWith(osierReleaseVersion))
 				{
-					deprecationMessage = _OSIER_RELEASE_MESSAGE;
+					deprecationMessage = _BEFORE_PRAIRIESMOKE_RELEASE_MESSAGE;
 				}
 			}
 
