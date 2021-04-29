@@ -25,34 +25,43 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 			ExecutionIdentity identity = ExecutionIdentity.System;
 			var sqlQueryHelper = new SqlQueryHelper();
-
-			try
+			
+			if (IsCurrentVersionAfterPrairieSmokeRelease(agentHelper))
 			{
-				RaiseMessage("Retrieving all workspaces where application is installed", 10);
-				var workspaceDataTable = RetrieveApplicationWorkspaces(eddsDbContext);
-
-				if (workspaceDataTable.Rows.Count > 0)
+				RaiseMessage("Imaging Set Scheduler Manager Agent has been deprecated from Prairie Smoke release.", 10);
+			}
+			else
+			{
+				try
 				{
-					foreach (DataRow workspaceRow in workspaceDataTable.Rows)
+					RaiseMessage("Retrieving all workspaces where application is installed", 10);
+					var workspaceDataTable = RetrieveApplicationWorkspaces(eddsDbContext);
+
+					if (workspaceDataTable.Rows.Count > 0)
 					{
-						ProcessWorkspace(workspaceRow, svcMgr, identity, eddsDbContext);
+						foreach (DataRow workspaceRow in workspaceDataTable.Rows)
+						{
+							ProcessWorkspace(workspaceRow, svcMgr, identity, eddsDbContext);
+						}
 					}
+					else
+					{
+						RaiseMessage(String.Format("No workspaces found with {0} application installed", Constant.IMAGING_SET_SCHEDULER_APPLICATION_NAME), 10);
+					}
+
 				}
-				else
+				catch (Exception ex)
 				{
-					RaiseMessage(String.Format("No workspaces found with {0} application installed", Constant.IMAGING_SET_SCHEDULER_APPLICATION_NAME), 10);
+					String errorMessages = ex.ToString();
+					RaiseMessage(errorMessages, 1);
+
+					var errorcontext = String.Format("{0}. \n\nStack Trace:{1}", AGENT_TYPE, ex);
+					sqlQueryHelper.InsertRowIntoErrorLog(eddsDbContext, 0, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, 0, AgentID, errorcontext);
 				}
-			}
-			catch (Exception ex)
-			{
-				String errorMessages = ex.ToString();
-				RaiseMessage(errorMessages, 1);
 
-				var errorcontext = String.Format("{0}. \n\nStack Trace:{1}", AGENT_TYPE, ex);
-				sqlQueryHelper.InsertRowIntoErrorLog(eddsDbContext, 0, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, 0, AgentID, errorcontext);
+				RaiseMessage("Agent execution finished.", 10);
 			}
 
-			RaiseMessage("Agent execution finished.", 10);
 		}
 
 		private void ProcessWorkspace(DataRow workspaceRow, IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext)
@@ -168,5 +177,12 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 				RaiseMessage(errorMessages, 1);
 			}
 		}
+
+		private bool IsCurrentVersionAfterPrairieSmokeRelease(IHelper helper)
+		{
+			bool isR1Instance = VersionCheckHelper.IsCloudInstanceEnabled(helper);
+			bool versionCheckResult = VersionCheckHelper.VersionCheck(helper, Constant.Version.PRAIRIE_SMOKE_VERSION);
+			return (isR1Instance && versionCheckResult);
+		} 
 	}
 }

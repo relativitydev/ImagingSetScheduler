@@ -26,31 +26,39 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			ExecutionIdentity identity = ExecutionIdentity.System;
 			var sqlQueryHelper = new SqlQueryHelper();
 			
-			try
+			if (IsCurrentVersionAfterPrairieSmokeRelease(agentHelper))
 			{
-				RaiseMessage("Retrieving next imaging set scheduler in waiting status", 10);
-
-				var nextJob = SqlQueryHelper.RetrieveNextJobInQueue(eddsDbContext, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE);
-
-				if (nextJob != null && nextJob.Rows.Count > 0 && nextJob.Rows[0]["ImagingSetSchedulerArtifactId"].ToString() != "")
-				{
-					ProcesstImagingSetSchedulerJob(svcMgr, identity, eddsDbContext, nextJob);
-				}
-				else
-				{
-					RaiseMessage("No imaging set schedules ready to run", 10);
-				}
+				RaiseMessage("Imaging Set Scheduler Worker Agent has been deprecated from Prairie Smoke release.", 10);
 			}
-			catch (Exception ex)
+			else
 			{
-				String errorMessages = ex.ToString();
-				RaiseMessage(errorMessages, 1);
+				try
+				{
+					RaiseMessage("Retrieving next imaging set scheduler in waiting status", 10);
 
-				var errorcontext = String.Format("{0}. \n\nStack Trace:{1}", AGENT_TYPE, ex);
-				sqlQueryHelper.InsertRowIntoErrorLog(eddsDbContext, 0, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, 0, AgentID, errorcontext);
+					var nextJob = SqlQueryHelper.RetrieveNextJobInQueue(eddsDbContext, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE);
+
+					if (nextJob != null && nextJob.Rows.Count > 0 && nextJob.Rows[0]["ImagingSetSchedulerArtifactId"].ToString() != "")
+					{
+						ProcesstImagingSetSchedulerJob(svcMgr, identity, eddsDbContext, nextJob);
+					}
+					else
+					{
+						RaiseMessage("No imaging set schedules ready to run", 10);
+					}
+
+				}
+				catch (Exception ex)
+				{
+					String errorMessages = ex.ToString();
+					RaiseMessage(errorMessages, 1);
+
+					var errorcontext = String.Format("{0}. \n\nStack Trace:{1}", AGENT_TYPE, ex);
+					sqlQueryHelper.InsertRowIntoErrorLog(eddsDbContext, 0, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, 0, AgentID, errorcontext);
+				}
+
+				RaiseMessage("Agent execution finished.", 10);
 			}
-
-			RaiseMessage("Agent execution finished.", 10);
 		}
 
 		private void ProcesstImagingSetSchedulerJob(IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext, DataTable nextJob)
@@ -168,6 +176,12 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			{
 				imagingSetScheduler.RemoveRecordFromQueue(imagingSetScheduler.ArtifactId, eddsDbContext, workspaceArtifactId);
 			}
+		}
+		private bool IsCurrentVersionAfterPrairieSmokeRelease(IHelper helper)
+		{
+			bool isR1Instance = VersionCheckHelper.IsCloudInstanceEnabled(helper);
+			bool versionCheckResult = VersionCheckHelper.VersionCheck(helper, Constant.Version.PRAIRIE_SMOKE_VERSION);
+			return (isR1Instance && versionCheckResult);
 		}
 	}
 }

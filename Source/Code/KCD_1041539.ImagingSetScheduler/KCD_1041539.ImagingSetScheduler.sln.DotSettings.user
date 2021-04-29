@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2250de56_002D0f70_002D428f_002Da1b5_002D4ef836434e8b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="VersionCheckTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;NUnit2x::76ECD6F2-508F-4833-969D-53D02AE6ECF5::.NETFramework,Version=v4.6.2::KCD_1041539.ImagingSetSchedule.NUnit.Helper.VersionCheckTests.VersionCheckTest&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;NUnit2x::76ECD6F2-508F-4833-969D-53D02AE6ECF5::.NETFramework,Version=v4.6.2::KCD_1041539.ImagingSetSchedule.NUnit.Helper.VersionCheckTests.IsCloudInstanceEnabled&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
