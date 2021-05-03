@@ -143,5 +143,10 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 			public const string IMAGING_SET_SCHEDULER_DOES_NOT_EXIST = "Imaging Set Scheduler does not exist";
 			public const string WORKSPACE_DOES_NOT_EXIST = "Workspace does not exist";
 		}
+
+		public class Version
+		{
+			public const string PRAIRIE_SMOKE_VERSION = "12.2";
+		}
 	}
 }

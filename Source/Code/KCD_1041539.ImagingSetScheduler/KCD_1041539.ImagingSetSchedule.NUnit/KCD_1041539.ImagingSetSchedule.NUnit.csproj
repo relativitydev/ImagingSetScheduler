@@ -193,6 +193,7 @@
     <Compile Include="Helper\Connection.cs" />
     <Compile Include="Helper\Query.cs" />
     <Compile Include="Helper\ServiceManager.cs" />
+    <Compile Include="Helper\VersionCheckTests.cs" />
     <Compile Include="ImagingSetSchedulerPreLoadTests.cs" />
     <Compile Include="ImagingSetSchedulerTests.cs" />
     <Compile Include="AgentTests.cs" />

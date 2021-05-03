@@ -1,4 +1,5 @@
 ﻿using System;
+using KCD_1041539.ImagingSetScheduler.Helper;
 using kCura.EventHandler;
 
 namespace KCD_1041539.ImagingSetScheduler.EventHandlers
@@ -38,39 +39,16 @@ namespace KCD_1041539.ImagingSetScheduler.EventHandlers
 
 		private string BuildDeprecationMessage()
 		{
-			const string sql = "SELECT [Value] FROM [Relativity] WHERE [Key] = 'Version'";
-			string currentReleaseVersion = Helper.GetDBContext(-1).ExecuteSqlStatementAsScalar<string>(sql);
-			const string prairieSmokeVersion = "12.2";
-			const string osierReleaseVersion = "12.1";
-			bool isR1Instance = IsCloudInstanceEnabled();
+			bool isR1Instance = VersionCheckHelper.IsCloudInstanceEnabled(Helper);
 
 			string deprecationMessage = string.Empty;
 
 			if (isR1Instance)
 			{
-				if (currentReleaseVersion.StartsWith(prairieSmokeVersion))
-				{
-					deprecationMessage = _PRAIRIE_SMOKE_RELEASE_MESSAGE;
-				}
-				else if (currentReleaseVersion.StartsWith(osierReleaseVersion))
-				{
-					deprecationMessage = _BEFORE_PRAIRIESMOKE_RELEASE_MESSAGE;
-				}
+				deprecationMessage = VersionCheckHelper.VersionCheck(Helper, ImagingSetScheduler.Helper.Constant.Version.PRAIRIE_SMOKE_VERSION) ? _PRAIRIE_SMOKE_RELEASE_MESSAGE : _BEFORE_PRAIRIESMOKE_RELEASE_MESSAGE;
 			}
 
 			return deprecationMessage;
-		}
-
-		private bool IsCloudInstanceEnabled()
-		{
-			const string sql = "SELECT [Value] FROM [InstanceSetting] WHERE [Name] = 'CloudInstance' AND [Section] = 'Relativity.Core'";
-			string currentReleaseVersion = Helper.GetDBContext(-1).ExecuteSqlStatementAsScalar<string>(sql) ?? "false";
-			bool retVal;
-			if (!bool.TryParse(currentReleaseVersion.ToLower(), out retVal))
-			{
-				retVal = false;
-			}
-			return retVal;
 		}
 	}
 }

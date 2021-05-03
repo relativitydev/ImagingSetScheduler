@@ -218,6 +218,7 @@
     <Compile Include="Helper\RSAPI.cs" />
     <Compile Include="Helper\ServiceUrlHelper.cs" />
     <Compile Include="Helper\Validator.cs" />
+    <Compile Include="Helper\VersionCheckHelper.cs" />
     <Compile Include="Interfaces\IValidator.cs" />
     <Compile Include="Objects\ImagingSetScheduler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
