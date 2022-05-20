@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data.SqlClient;
-using kCura.Data.RowDataGateway;
 using kCura.Relativity.Client;
 using Relativity.API;
 
@@ -9,7 +8,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 	class Connection
 	{
 		// Modify these constants to match your own testing environment
-		public const int WORKSPACE_ARTIFACT_ID = 1037229;
+		/*public const int WORKSPACE_ARTIFACT_ID = 1037229;
 		public const int IMAGING_SET_SCHEDULER_ARTIFACT_ID = 1042985;
 
 		public Uri RsapiUri { get; set; }
@@ -44,9 +43,9 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 			}
 			
 			BaseContext baseContext = new Context(_SERVER_NAME+_DB_SERVER_SUFFIX, dbName, _DB_USER_NAME, _DB_PASSWORD);
-			IDBContext context = new DBContext(baseContext);
+			IDBContext context = Helper.GetDB
 			return context;
 		}
-
+		*/
 	}
 }

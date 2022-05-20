@@ -11,11 +11,11 @@ using KCD_1041539.ImagingSetSchedule.NUnit.Helper;
 
 namespace KCD_1041539.ImagingSetSchedule.NUnit
 {
-	[TestFixture]
+	//[TestFixture]
 	class ImagingSetSchedulerTests
 	{
-		#region Vars
-		IServicesMgr _svcMgr;
+		//#region Vars
+		/*IServicesMgr _svcMgr;
 		ExecutionIdentity _identity;
 		IDBContext _masterDBConnection;
 		IDBContext _workspaceDBConnection;
@@ -139,6 +139,6 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 			//assert
 			Assert.AreEqual(0, dt.Rows.Count);
 		}
-
+		*/
 	}
 }

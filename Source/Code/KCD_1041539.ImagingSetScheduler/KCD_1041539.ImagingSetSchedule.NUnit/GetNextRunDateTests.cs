@@ -12,7 +12,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 	[TestFixture]
 	class GetNextRunDateTests
 	{
-		#region Vars
+		/*#region Vars
 		IServicesMgr SvcMgr;
 		ExecutionIdentity Identity;
 		Objects.ImagingSetScheduler ImagingSetScheduler;
@@ -724,6 +724,6 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 			//assert
 			Assert.IsNotNull(ImagingSetScheduler.NextRunDate);
 			Assert.AreEqual(expectedResult, ImagingSetScheduler.NextRunDate.Value);
-		}
+		}*/
 	}
 }

@@ -11,7 +11,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 	[TestFixture]
 	class RsapiTests
 	{
-
+/*
 		#region Vars
 		IServicesMgr _svcMgr;
 		ExecutionIdentity _identity;
@@ -55,7 +55,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 			//assert
 			Assert.IsTrue(imagingSetSchedulesToCheck.ToList().Count > 0);
 		}
-
+*/
 
 	}
 }

@@ -4,14 +4,13 @@ using System.Data.SqlClient;
 using Objects = KCD_1041539.ImagingSetScheduler.Objects;
 using KCD_1041539.ImagingSetScheduler.Helper;
 using System;
-using kCura.Data.RowDataGateway;
 using KCD_1041539.ImagingSetSchedule.NUnit.Helper;
 
 namespace KCD_1041539.ImagingSetSchedule.NUnit
 {
 	[TestFixture]
 	class AgentTests
-	{
+	{/*
 		#region Vars
 		IServicesMgr SvcMgr;
 		ExecutionIdentity Identity;
@@ -80,6 +79,6 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 			//assert
 			Assert.AreEqual(errorMessage, (string)dt.Rows[0]["Messages"]);
 			Assert.AreEqual(testStatus, (string)dt.Rows[0]["Status"]);
-		}
+		}*/
 	}
 }

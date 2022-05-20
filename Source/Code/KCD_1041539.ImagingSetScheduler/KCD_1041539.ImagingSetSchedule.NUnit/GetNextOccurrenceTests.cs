@@ -12,7 +12,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 {
 	[TestFixture]
 	class GetNextOccurrenceTests
-	{
+	{/*
 		#region Vars
 		IServicesMgr SvcMgr;
 		ExecutionIdentity Identity;
@@ -167,6 +167,6 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit
 
 			//assert
 			Assert.AreEqual(expectedResult, nextOccurrence.ToString("d", DateTimeFormatInfo.InvariantInfo));
-		}
+		}*/
 	}
 }
