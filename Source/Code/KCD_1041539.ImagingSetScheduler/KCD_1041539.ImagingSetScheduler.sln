@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KCD_1041539.ImagingSetScheduler", "KCD_1041539.ImagingSetScheduler\KCD_1041539.ImagingSetScheduler.csproj", "{4D4E02E8-0803-4122-B675-DFB54E63BE00}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KCD_1041539.ImagingSetSchedule.NUnit", "KCD_1041539.ImagingSetSchedule.NUnit\KCD_1041539.ImagingSetSchedule.NUnit.csproj", "{76ECD6F2-508F-4833-969D-53D02AE6ECF5}"
@@ -22,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0CFBE4A-E3CD-472D-A929-B1FFFE42269F}
 	EndGlobalSection
 EndGlobal
