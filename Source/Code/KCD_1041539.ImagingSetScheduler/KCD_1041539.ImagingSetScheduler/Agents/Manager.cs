@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Relativity.API;
 using System.Data;
@@ -6,6 +7,7 @@ using KCD_1041539.ImagingSetScheduler.Helper;
 using DTOs = kCura.Relativity.Client.DTOs;
 using System.Data.SqlClient;
 using KCD_1041539.ImagingSetScheduler.Database;
+using Relativity.Services.Objects.DataContracts;
 
 namespace KCD_1041539.ImagingSetScheduler.Agents
 {
@@ -14,6 +16,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 	class Manager : kCura.Agent.AgentBase
 	{
 		private const String AGENT_TYPE = "Manager Agent";
+		private IServicesProxyFactory _serviceFactory;
 
 		public override void Execute()
 		{
@@ -22,6 +25,10 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			IAgentHelper agentHelper = Helper;
 			IDBContext eddsDbContext = agentHelper.GetDBContext(-1);
 			IServicesMgr svcMgr = ServiceUrlHelper.SetupServiceUrl(eddsDbContext, agentHelper);
+			if (_serviceFactory == null)
+			{
+				_serviceFactory = new ServicesProxyFactory(svcMgr);
+			}
 
 			ExecutionIdentity identity = ExecutionIdentity.System;
 			var sqlQueryHelper = new SqlQueryHelper();
@@ -41,7 +48,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 					{
 						foreach (DataRow workspaceRow in workspaceDataTable.Rows)
 						{
-							ProcessWorkspace(workspaceRow, svcMgr, identity, eddsDbContext);
+							ProcessWorkspace(workspaceRow, svcMgr, identity, eddsDbContext, _serviceFactory);
 						}
 					}
 					else
@@ -64,7 +71,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 		}
 
-		private void ProcessWorkspace(DataRow workspaceRow, IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext)
+		private void ProcessWorkspace(DataRow workspaceRow, IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext, IServicesProxyFactory servicesProxyFactory)
 		{
 			int workspaceArtifactId = 0;
 
@@ -74,7 +81,11 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				RaiseMessage(String.Format("Retrieving all imaging set schedules in workspace which are not in waiting status [WorkspaceArtifactID={0}]", workspaceArtifactId), 10);
 
-				var imagingSetSchedulesToCheck = RSAPI.RetrieveAllImagingSetSchedulesNotWaiting(svcMgr, identity, workspaceArtifactId).ToList();
+				var imagingSetSchedulesToCheck = RSAPI.RetrieveAllImagingSetSchedulesNotWaiting(svcMgr, identity, workspaceArtifactId).ToList(); // TODO: replace this call with the ObjectManagerHelper call in line 88
+
+				ObjectManagerHelper ObjectManagerHelper = new ObjectManagerHelper(servicesProxyFactory);
+
+				List<RelativityObject> list = ObjectManagerHelper.RetrieveAllImagingSetSchedulesNotWaitingAsync(workspaceArtifactId).ConfigureAwait(false).GetAwaiter().GetResult();
 
 				if (imagingSetSchedulesToCheck.Count > 0)
 				{
