@@ -18,7 +18,7 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
             _servicesProxyFactory = servicesProxyFactory;
         }
 
-        public async Task<List<RelativityObject>> RetrieveAllImagingSetSchedulesNotWaitingAsync(int workspaceId, IServicesProxyFactory servicesProxyFactory)
+        public static async Task<List<RelativityObject>> RetrieveAllImagingSetSchedulesNotWaitingAsync(int workspaceId, IServicesProxyFactory servicesProxyFactory)
         {
             using (IObjectManager objectManager = servicesProxyFactory.CreateServiceProxy<IObjectManager>())
             {
