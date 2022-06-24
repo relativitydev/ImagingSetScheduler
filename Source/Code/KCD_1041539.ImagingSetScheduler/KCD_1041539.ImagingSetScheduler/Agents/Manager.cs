@@ -83,9 +83,9 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				var imagingSetSchedulesToCheck = RSAPI.RetrieveAllImagingSetSchedulesNotWaiting(svcMgr, identity, workspaceArtifactId).ToList(); // TODO: replace this call with the ObjectManagerHelper call in line 88
 
-				ObjectManagerHelper ObjectManagerHelper = new ObjectManagerHelper(servicesProxyFactory);
+				ObjectManagerHelper objectManagerHelper = new ObjectManagerHelper(servicesProxyFactory);
 
-				List<RelativityObject> list = ObjectManagerHelper.RetrieveAllImagingSetSchedulesNotWaitingAsync(workspaceArtifactId).ConfigureAwait(false).GetAwaiter().GetResult();
+				List<RelativityObject> list = objectManagerHelper.RetrieveAllImagingSetSchedulesNotWaitingAsync(workspaceArtifactId, servicesProxyFactory).ConfigureAwait(false).GetAwaiter().GetResult();
 
 				if (imagingSetSchedulesToCheck.Count > 0)
 				{
