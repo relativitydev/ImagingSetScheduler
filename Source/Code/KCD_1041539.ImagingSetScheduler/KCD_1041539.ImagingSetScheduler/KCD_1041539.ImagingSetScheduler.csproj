@@ -127,8 +127,8 @@
     <Reference Include="Relativity.Imaging.Services.Interfaces">
       <HintPath>binaries\Relativity.Imaging.Services.Interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="Relativity.Kepler, Version=2.10.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Relativity.Kepler.2.10.2\lib\net462\Relativity.Kepler.dll</HintPath>
+    <Reference Include="Relativity.Kepler, Version=2.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Relativity.Kepler.2.15.0\lib\net462\Relativity.Kepler.dll</HintPath>
     </Reference>
     <Reference Include="Relativity.Logging.Interfaces, Version=9.4.300.6, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Relativity.Logging.Interfaces.9.4.300\lib\net45\Relativity.Logging.Interfaces.dll</HintPath>
@@ -179,6 +179,8 @@
   <ItemGroup>
     <Compile Include="Agents\Manager.cs" />
     <Compile Include="Database\SqlQueryHelper.cs" />
+    <Compile Include="Helper\IInstanceSettingManager.cs" />
+    <Compile Include="Helper\InstanceSettingManager.cs" />
     <Compile Include="EventHandlers\ImagingSetSchedulerPageInteraction.cs" />
     <Compile Include="EventHandlers\ImagingSetSchedulerPreLoad.cs" />
     <Compile Include="EventHandlers\PreInstallValidation.cs" />

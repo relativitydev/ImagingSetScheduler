@@ -5,7 +5,6 @@ using Relativity.API;
 using System.Data;
 using KCD_1041539.ImagingSetScheduler.Helper;
 using DTOs = kCura.Relativity.Client.DTOs;
-using System.Data.SqlClient;
 using KCD_1041539.ImagingSetScheduler.Database;
 using Relativity.Services.Objects.DataContracts;
 
@@ -17,6 +16,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 	{
 		private const String AGENT_TYPE = "Manager Agent";
 		private IServicesProxyFactory _serviceFactory;
+		private Helper.IInstanceSettingManager _instanceSettingManager;
 
 		public override void Execute()
 		{
@@ -29,6 +29,11 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			{
 				_serviceFactory = new ServicesProxyFactory(svcMgr);
 			}
+
+			if (_instanceSettingManager == null)
+            {
+				_instanceSettingManager = new InstanceSettingManager(Helper.GetInstanceSettingBundle());
+            }
 
 			ExecutionIdentity identity = ExecutionIdentity.System;
 			var sqlQueryHelper = new SqlQueryHelper();
@@ -48,7 +53,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 					{
 						foreach (DataRow workspaceRow in workspaceDataTable.Rows)
 						{
-							ProcessWorkspace(workspaceRow, svcMgr, identity, eddsDbContext, _serviceFactory);
+							ProcessWorkspace(workspaceRow, svcMgr, identity, eddsDbContext, _serviceFactory, _instanceSettingManager);
 						}
 					}
 					else
@@ -71,7 +76,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 		}
 
-		private void ProcessWorkspace(DataRow workspaceRow, IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext, IServicesProxyFactory servicesProxyFactory)
+		private void ProcessWorkspace(DataRow workspaceRow, IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext, IServicesProxyFactory servicesProxyFactory, IInstanceSettingManager instanceSettingManager)
 		{
 			int workspaceArtifactId = 0;
 
@@ -83,7 +88,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				var imagingSetSchedulesToCheck = RSAPI.RetrieveAllImagingSetSchedulesNotWaiting(svcMgr, identity, workspaceArtifactId).ToList(); // TODO: replace this call with the ObjectManagerHelper call in line 88
 
-				List<RelativityObject> list = ObjectManagerHelper.RetrieveAllImagingSetSchedulesNotWaitingAsync(workspaceArtifactId, servicesProxyFactory).ConfigureAwait(false).GetAwaiter().GetResult();
+				List<RelativityObject> list = ObjectManagerHelper.RetrieveAllImagingSetSchedulesNotWaitingAsync(workspaceArtifactId, servicesProxyFactory, instanceSettingManager).ConfigureAwait(false).GetAwaiter().GetResult();
 
 				if (imagingSetSchedulesToCheck.Count > 0)
 				{
