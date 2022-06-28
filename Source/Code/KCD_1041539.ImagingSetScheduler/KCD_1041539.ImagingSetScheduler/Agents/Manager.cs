@@ -16,7 +16,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 	{
 		private const String AGENT_TYPE = "Manager Agent";
 		private IServicesProxyFactory _serviceFactory;
-		private Helper.IInstanceSettingManager _instanceSettingManager;
+		private IInstanceSettingManager _instanceSettingManager;
 
 		public override void Execute()
 		{
