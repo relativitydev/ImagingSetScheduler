@@ -24,6 +24,12 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 		private IObjectManagerHelper _objectManagerHelper;
 
 		public IAgentHelper AgentHelper => _agentHelper ?? (_agentHelper = Helper);
+
+		public Manager()
+		{
+			OnAgentDisabled += ReleaseDependencies;
+		}
+
 		public override void Execute()
 		{
 			RaiseMessage("Agent execution started.", 10);
