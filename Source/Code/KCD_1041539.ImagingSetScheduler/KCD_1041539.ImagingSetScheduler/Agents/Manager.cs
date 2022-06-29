@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Relativity.API;
 using System.Data;
+using Castle.Windsor;
+using KCD_1041539.ImagingSetScheduler.Context;
 using KCD_1041539.ImagingSetScheduler.Helper;
 using DTOs = kCura.Relativity.Client.DTOs;
 using KCD_1041539.ImagingSetScheduler.Database;
+using KCD_1041539.ImagingSetScheduler.IoC;
 using Relativity.Services.Objects.DataContracts;
 
 namespace KCD_1041539.ImagingSetScheduler.Agents
@@ -15,30 +18,23 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 	class Manager : kCura.Agent.AgentBase
 	{
 		private const String AGENT_TYPE = "Manager Agent";
-		private IServicesProxyFactory _serviceFactory;
-		private IInstanceSettingManager _instanceSettingManager;
+		private IAgentHelper _agentHelper;
+		private IWindsorContainer _windsorContainer;
+		private IContextContainerFactory _contextContainerFactory;
+		private IObjectManagerHelper _objectManagerHelper;
 
+		public IAgentHelper AgentHelper => _agentHelper ?? (_agentHelper = Helper);
 		public override void Execute()
 		{
 			RaiseMessage("Agent execution started.", 10);
-
-			IAgentHelper agentHelper = Helper;
-			IDBContext eddsDbContext = agentHelper.GetDBContext(-1);
-			IServicesMgr svcMgr = ServiceUrlHelper.SetupServiceUrl(eddsDbContext, agentHelper);
-			if (_serviceFactory == null)
-			{
-				_serviceFactory = new ServicesProxyFactory(svcMgr);
-			}
-
-			if (_instanceSettingManager == null)
-            {
-				_instanceSettingManager = new InstanceSettingManager(Helper.GetInstanceSettingBundle());
-            }
+			ResolveDependencies();
+			IContextContainer contextContainer = _contextContainerFactory.BuildContextContainer();
+			IServicesMgr svcMgr = ServiceUrlHelper.SetupServiceUrl(contextContainer.MasterDbContext, AgentHelper);
 
 			ExecutionIdentity identity = ExecutionIdentity.System;
 			var sqlQueryHelper = new SqlQueryHelper();
 			
-			if (IsCurrentVersionAfterPrairieSmokeRelease(agentHelper))
+			if (IsCurrentVersionAfterPrairieSmokeRelease(AgentHelper))
 			{
 				RaiseMessage("Imaging Set Scheduler Manager Agent has been deprecated from Prairie Smoke release.", 10);
 			}
@@ -47,13 +43,13 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 				try
 				{
 					RaiseMessage("Retrieving all workspaces where application is installed", 10);
-					var workspaceDataTable = RetrieveApplicationWorkspaces(eddsDbContext);
+					var workspaceDataTable = RetrieveApplicationWorkspaces(contextContainer.MasterDbContext);
 
 					if (workspaceDataTable.Rows.Count > 0)
 					{
 						foreach (DataRow workspaceRow in workspaceDataTable.Rows)
 						{
-							ProcessWorkspace(workspaceRow, svcMgr, identity, eddsDbContext, _serviceFactory, _instanceSettingManager);
+							ProcessWorkspace(workspaceRow, svcMgr, identity, contextContainer);
 						}
 					}
 					else
@@ -68,7 +64,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 					RaiseMessage(errorMessages, 1);
 
 					var errorcontext = String.Format("{0}. \n\nStack Trace:{1}", AGENT_TYPE, ex);
-					sqlQueryHelper.InsertRowIntoErrorLog(eddsDbContext, 0, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, 0, AgentID, errorcontext);
+					sqlQueryHelper.InsertRowIntoErrorLog(contextContainer.MasterDbContext, 0, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, 0, AgentID, errorcontext);
 				}
 
 				RaiseMessage("Agent execution finished.", 10);
@@ -76,7 +72,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 		}
 
-		private void ProcessWorkspace(DataRow workspaceRow, IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext, IServicesProxyFactory servicesProxyFactory, IInstanceSettingManager instanceSettingManager)
+		private void ProcessWorkspace(DataRow workspaceRow, IServicesMgr svcMgr, ExecutionIdentity identity, IContextContainer contextContainer)
 		{
 			int workspaceArtifactId = 0;
 
@@ -88,13 +84,13 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				var imagingSetSchedulesToCheck = RSAPI.RetrieveAllImagingSetSchedulesNotWaiting(svcMgr, identity, workspaceArtifactId).ToList(); // TODO: replace this call with the ObjectManagerHelper call in line 88
 
-				List<RelativityObject> list = ObjectManagerHelper.RetrieveAllImagingSetSchedulesNotWaitingAsync(workspaceArtifactId, servicesProxyFactory, instanceSettingManager).ConfigureAwait(false).GetAwaiter().GetResult();
+				List<RelativityObject> list = _objectManagerHelper.RetrieveAllImagingSetSchedulesNotWaitingAsync(workspaceArtifactId, contextContainer).ConfigureAwait(false).GetAwaiter().GetResult();
 
 				if (imagingSetSchedulesToCheck.Count > 0)
 				{
 					foreach (DTOs.RDO imagingSetSchedulerRdo in imagingSetSchedulesToCheck)
 					{
-						ProcessImagingSetScheduler(imagingSetSchedulerRdo, svcMgr, identity, eddsDbContext, workspaceArtifactId);
+						ProcessImagingSetScheduler(imagingSetSchedulerRdo, svcMgr, identity, contextContainer.MasterDbContext, workspaceArtifactId);
 					}
 				}
 				else
@@ -197,6 +193,41 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			bool isR1Instance = VersionCheckHelper.IsCloudInstanceEnabled(helper);
 			bool versionCheckResult = VersionCheckHelper.VersionCheck(helper, Constant.Version.PRAIRIE_SMOKE_VERSION);
 			return (isR1Instance && versionCheckResult);
-		} 
+		}
+
+		private void ResolveDependencies()
+		{
+			if (_windsorContainer == null)
+			{
+				try
+				{
+					var windsorFactory = new WindsorFactory();
+					_windsorContainer = windsorFactory.GetWindsorContainer(AgentHelper);
+					_contextContainerFactory = _windsorContainer.Resolve<IContextContainerFactory>();
+					_objectManagerHelper = _windsorContainer.Resolve<IObjectManagerHelper>();
+				}
+				catch (Exception)
+				{
+					if (_windsorContainer != null)
+					{
+						_windsorContainer.Dispose();
+						_windsorContainer = null;
+					}
+					throw;
+				}
+
+			}
+		}
+
+		private void ReleaseDependencies()
+		{
+			if (_windsorContainer != null)
+			{
+				_windsorContainer.Release(_contextContainerFactory);
+				_windsorContainer.Release(_objectManagerHelper);
+				_windsorContainer.Dispose();
+				_windsorContainer = null;
+			}
+		}
 	}
 }

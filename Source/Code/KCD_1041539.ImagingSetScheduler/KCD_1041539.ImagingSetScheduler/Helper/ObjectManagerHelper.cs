@@ -1,28 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using KCD_1041539.ImagingSetScheduler.Context;
 using Relativity.Services.Objects;
 using Relativity.Services.Objects.DataContracts;
 
 namespace KCD_1041539.ImagingSetScheduler.Helper
 {
-    public class ObjectManagerHelper
+    public class ObjectManagerHelper: IObjectManagerHelper
     {
-        private readonly IServicesProxyFactory _servicesProxyFactory;
-        public static readonly Guid IMAGING_SET_SCHEDULER = new Guid("45C9FEB9-43D8-43FE-A216-85B1F062B0A7");
-        public ObjectManagerHelper(IServicesProxyFactory servicesProxyFactory) 
-        {
-            _servicesProxyFactory = servicesProxyFactory;
-        }
+	    public readonly Guid IMAGING_SET_SCHEDULER = new Guid("45C9FEB9-43D8-43FE-A216-85B1F062B0A7");
 
-        public static async Task<List<RelativityObject>> RetrieveAllImagingSetSchedulesNotWaitingAsync(int workspaceId, IServicesProxyFactory servicesProxyFactory, IInstanceSettingManager instanceSettingManager)
+	    public async Task<List<RelativityObject>> RetrieveAllImagingSetSchedulesNotWaitingAsync(int workspaceId, IContextContainer contextContainer)
         {
-            int batchSize = await instanceSettingManager.GetIntegerValueAsync("Relativity.Imaging", "ImagingSetSchedulerBatchSize", 1000).ConfigureAwait(false);
+            int batchSize = await contextContainer.InstanceSettingManager.GetIntegerValueAsync("Relativity.Imaging", "ImagingSetSchedulerBatchSize", 1000).ConfigureAwait(false);
             int iterator = 1;
             int totalCount;
             List<RelativityObject> res = new List<RelativityObject>();
 
-            using (IObjectManager objectManager = servicesProxyFactory.CreateServiceProxy<IObjectManager>())
+            using (IObjectManager objectManager = contextContainer.ServicesProxyFactory.CreateServiceProxy<IObjectManager>())
             {
                 var queryRequest = new QueryRequest()
                 {
