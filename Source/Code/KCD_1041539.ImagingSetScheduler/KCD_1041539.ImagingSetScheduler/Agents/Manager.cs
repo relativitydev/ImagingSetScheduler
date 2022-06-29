@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Relativity.API;
 using System.Data;
+using KCD_1041539.ImagingSetScheduler.Context;
 using KCD_1041539.ImagingSetScheduler.Helper;
 using DTOs = kCura.Relativity.Client.DTOs;
 using KCD_1041539.ImagingSetScheduler.Database;
@@ -15,8 +16,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 	class Manager : kCura.Agent.AgentBase
 	{
 		private const String AGENT_TYPE = "Manager Agent";
-		private IServicesProxyFactory _serviceFactory;
-		private IInstanceSettingManager _instanceSettingManager;
+		private IContextContainerFactory _contextContainerFactory;
 
 		public override void Execute()
 		{
@@ -25,15 +25,8 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			IAgentHelper agentHelper = Helper;
 			IDBContext eddsDbContext = agentHelper.GetDBContext(-1);
 			IServicesMgr svcMgr = ServiceUrlHelper.SetupServiceUrl(eddsDbContext, agentHelper);
-			if (_serviceFactory == null)
-			{
-				_serviceFactory = new ServicesProxyFactory(svcMgr);
-			}
-
-			if (_instanceSettingManager == null)
-            {
-				_instanceSettingManager = new InstanceSettingManager(Helper.GetInstanceSettingBundle());
-            }
+			_contextContainerFactory = new ContextContainerFactory(agentHelper);
+			IContextContainer contextContainer = _contextContainerFactory.BuildContextContainer();
 
 			ExecutionIdentity identity = ExecutionIdentity.System;
 			var sqlQueryHelper = new SqlQueryHelper();
@@ -53,7 +46,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 					{
 						foreach (DataRow workspaceRow in workspaceDataTable.Rows)
 						{
-							ProcessWorkspace(workspaceRow, svcMgr, identity, eddsDbContext, _serviceFactory, _instanceSettingManager);
+							ProcessWorkspace(workspaceRow, svcMgr, identity, contextContainer.MasterDbContext, contextContainer.ServicesProxyFactory, contextContainer.InstanceSettingManager);
 						}
 					}
 					else

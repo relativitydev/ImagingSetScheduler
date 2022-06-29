@@ -178,6 +178,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Agents\Manager.cs" />
+    <Compile Include="Context\ContextContainer.cs" />
+    <Compile Include="Context\ContextContainerFactory.cs" />
+    <Compile Include="Context\IContextContainer.cs" />
+    <Compile Include="Context\IContextContainerFactory.cs" />
     <Compile Include="Database\SqlQueryHelper.cs" />
     <Compile Include="Helper\IInstanceSettingManager.cs" />
     <Compile Include="Helper\InstanceSettingManager.cs" />
@@ -193,6 +197,7 @@
     <Compile Include="Helper\ImagingApiHelper.cs" />
     <Compile Include="Helper\ImagingSetHandlerQueries.cs" />
     <Compile Include="Helper\ImagingSetStatusDTO.cs" />
+    <Compile Include="Helper\IObjectManagerHelper.cs" />
     <Compile Include="Helper\IServicesProxyFactory.cs" />
     <Compile Include="Helper\ObjectManagerHelper.cs" />
     <Compile Include="Helper\Response.cs" />
