@@ -18,6 +18,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 	class Manager : kCura.Agent.AgentBase
 	{
 		private const String AGENT_TYPE = "Manager Agent";
+		private object _lock = new object();
 		private IContextContainerFactory _contextContainerFactory;
 		private IObjectManagerHelper _objectManagerHelper;
 		private IAgentHelper _agentHelper;
@@ -206,21 +207,27 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
         {
 			if (_windsorContainer == null)
 			{
-				try
+				lock (_lock)
 				{
-					var windsorFactory = new WindsorFactory();
-					_windsorContainer = windsorFactory.GetWindsorContainer(AgentHelper);
-					_contextContainerFactory = _windsorContainer.Resolve<IContextContainerFactory>();
-					_objectManagerHelper = _windsorContainer.Resolve<IObjectManagerHelper>();
-				}
-				catch (Exception)
-				{
-					if (_windsorContainer != null)
+					if (_windsorContainer == null)
 					{
-						_windsorContainer.Dispose();
-						_windsorContainer = null;
+						try
+						{
+							var windsorFactory = new WindsorFactory();
+							_windsorContainer = windsorFactory.GetWindsorContainer(AgentHelper);
+							_contextContainerFactory = _windsorContainer.Resolve<IContextContainerFactory>();
+							_objectManagerHelper = _windsorContainer.Resolve<IObjectManagerHelper>();
+						}
+						catch (Exception)
+						{
+							if (_windsorContainer != null)
+							{
+								_windsorContainer.Dispose();
+								_windsorContainer = null;
+							}
+							throw;
+						}
 					}
-					throw;
 				}
 			}
         }
@@ -229,10 +236,16 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
         {
 			if (_windsorContainer != null)
             {
-				_windsorContainer.Release(_contextContainerFactory);
-				_windsorContainer.Release(_objectManagerHelper);
-				_windsorContainer.Dispose();
-				_windsorContainer = null;
+				lock (_lock)
+				{
+					if (_windsorContainer != null)
+					{
+						_windsorContainer.Release(_contextContainerFactory);
+						_windsorContainer.Release(_objectManagerHelper);
+						_windsorContainer.Dispose();
+						_windsorContainer = null;
+					}
+				}
             }
         }
 	}
