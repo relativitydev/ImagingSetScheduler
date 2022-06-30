@@ -17,21 +17,24 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 	{
 		private const String AGENT_TYPE = "Manager Agent";
 		private IContextContainerFactory _contextContainerFactory;
+		private IObjectManagerHelper _objectManagerHelper;
+		private IAgentHelper _agentHelper;
+
+		public IAgentHelper AgentHelper => _agentHelper ?? (_agentHelper = Helper);
 
 		public override void Execute()
 		{
 			RaiseMessage("Agent execution started.", 10);
 
-			IAgentHelper agentHelper = Helper;
-			IDBContext eddsDbContext = agentHelper.GetDBContext(-1);
-			IServicesMgr svcMgr = ServiceUrlHelper.SetupServiceUrl(eddsDbContext, agentHelper);
-			_contextContainerFactory = new ContextContainerFactory(agentHelper);
+			_contextContainerFactory = new ContextContainerFactory(AgentHelper);
 			IContextContainer contextContainer = _contextContainerFactory.BuildContextContainer();
-
+			_objectManagerHelper = new ObjectManagerHelper();
+			IServicesMgr svcMgr = ServiceUrlHelper.SetupServiceUrl(contextContainer.MasterDbContext, AgentHelper);
+			
 			ExecutionIdentity identity = ExecutionIdentity.System;
 			var sqlQueryHelper = new SqlQueryHelper();
 			
-			if (IsCurrentVersionAfterPrairieSmokeRelease(agentHelper))
+			if (IsCurrentVersionAfterPrairieSmokeRelease(AgentHelper))
 			{
 				RaiseMessage("Imaging Set Scheduler Manager Agent has been deprecated from Prairie Smoke release.", 10);
 			}
@@ -40,13 +43,13 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 				try
 				{
 					RaiseMessage("Retrieving all workspaces where application is installed", 10);
-					var workspaceDataTable = RetrieveApplicationWorkspaces(eddsDbContext);
+					var workspaceDataTable = RetrieveApplicationWorkspaces(contextContainer.MasterDbContext);
 
 					if (workspaceDataTable.Rows.Count > 0)
 					{
 						foreach (DataRow workspaceRow in workspaceDataTable.Rows)
 						{
-							ProcessWorkspace(workspaceRow, svcMgr, identity, contextContainer.MasterDbContext, contextContainer.ServicesProxyFactory, contextContainer.InstanceSettingManager);
+							ProcessWorkspace(workspaceRow, svcMgr, identity, contextContainer);
 						}
 					}
 					else
@@ -61,7 +64,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 					RaiseMessage(errorMessages, 1);
 
 					var errorcontext = String.Format("{0}. \n\nStack Trace:{1}", AGENT_TYPE, ex);
-					sqlQueryHelper.InsertRowIntoErrorLog(eddsDbContext, 0, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, 0, AgentID, errorcontext);
+					sqlQueryHelper.InsertRowIntoErrorLog(contextContainer.MasterDbContext, 0, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, 0, AgentID, errorcontext);
 				}
 
 				RaiseMessage("Agent execution finished.", 10);
@@ -69,7 +72,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 		}
 
-		private void ProcessWorkspace(DataRow workspaceRow, IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext, IServicesProxyFactory servicesProxyFactory, IInstanceSettingManager instanceSettingManager)
+		private void ProcessWorkspace(DataRow workspaceRow, IServicesMgr svcMgr, ExecutionIdentity identity, IContextContainer contextContainer)
 		{
 			int workspaceArtifactId = 0;
 
@@ -81,13 +84,13 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				var imagingSetSchedulesToCheck = RSAPI.RetrieveAllImagingSetSchedulesNotWaiting(svcMgr, identity, workspaceArtifactId).ToList(); // TODO: replace this call with the ObjectManagerHelper call in line 88
 
-				List<RelativityObject> list = ObjectManagerHelper.RetrieveAllImagingSetSchedulesNotWaitingAsync(workspaceArtifactId, servicesProxyFactory, instanceSettingManager).ConfigureAwait(false).GetAwaiter().GetResult();
+				List<RelativityObject> list = _objectManagerHelper.RetrieveAllImagingSetSchedulesNotWaitingAsync(workspaceArtifactId, contextContainer).ConfigureAwait(false).GetAwaiter().GetResult();
 
 				if (imagingSetSchedulesToCheck.Count > 0)
 				{
 					foreach (DTOs.RDO imagingSetSchedulerRdo in imagingSetSchedulesToCheck)
 					{
-						ProcessImagingSetScheduler(imagingSetSchedulerRdo, svcMgr, identity, eddsDbContext, workspaceArtifactId);
+						ProcessImagingSetScheduler(imagingSetSchedulerRdo, svcMgr, identity, contextContainer.MasterDbContext, workspaceArtifactId);
 					}
 				}
 				else
