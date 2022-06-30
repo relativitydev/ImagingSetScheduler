@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Relativity.API;
 using System.Data;
+using Castle.Windsor;
 using KCD_1041539.ImagingSetScheduler.Context;
 using KCD_1041539.ImagingSetScheduler.Helper;
 using DTOs = kCura.Relativity.Client.DTOs;
 using KCD_1041539.ImagingSetScheduler.Database;
+using KCD_1041539.ImagingSetScheduler.IoC;
 using Relativity.Services.Objects.DataContracts;
 
 namespace KCD_1041539.ImagingSetScheduler.Agents
@@ -19,16 +21,21 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 		private IContextContainerFactory _contextContainerFactory;
 		private IObjectManagerHelper _objectManagerHelper;
 		private IAgentHelper _agentHelper;
+		private IWindsorContainer _windsorContainer;
 
 		public IAgentHelper AgentHelper => _agentHelper ?? (_agentHelper = Helper);
+
+		public Manager()
+		{
+			OnAgentDisabled += ReleaseDependencies;
+		}
 
 		public override void Execute()
 		{
 			RaiseMessage("Agent execution started.", 10);
 
-			_contextContainerFactory = new ContextContainerFactory(AgentHelper);
+			ResolveDependencies();
 			IContextContainer contextContainer = _contextContainerFactory.BuildContextContainer();
-			_objectManagerHelper = new ObjectManagerHelper();
 			IServicesMgr svcMgr = ServiceUrlHelper.SetupServiceUrl(contextContainer.MasterDbContext, AgentHelper);
 			
 			ExecutionIdentity identity = ExecutionIdentity.System;
@@ -194,5 +201,39 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			bool versionCheckResult = VersionCheckHelper.VersionCheck(helper, Constant.Version.PRAIRIE_SMOKE_VERSION);
 			return (isR1Instance && versionCheckResult);
 		} 
+
+		private void ResolveDependencies()
+        {
+			if (_windsorContainer == null)
+			{
+				try
+				{
+					var windsorFactory = new WindsorFactory();
+					_windsorContainer = windsorFactory.GetWindsorContainer(AgentHelper);
+					_contextContainerFactory = _windsorContainer.Resolve<IContextContainerFactory>();
+					_objectManagerHelper = _windsorContainer.Resolve<IObjectManagerHelper>();
+				}
+				catch (Exception)
+				{
+					if (_windsorContainer != null)
+					{
+						_windsorContainer.Dispose();
+						_windsorContainer = null;
+					}
+					throw;
+				}
+			}
+        }
+
+		private void ReleaseDependencies()
+        {
+			if (_windsorContainer != null)
+            {
+				_windsorContainer.Release(_contextContainerFactory);
+				_windsorContainer.Release(_objectManagerHelper);
+				_windsorContainer.Dispose();
+				_windsorContainer = null;
+            }
+        }
 	}
 }
