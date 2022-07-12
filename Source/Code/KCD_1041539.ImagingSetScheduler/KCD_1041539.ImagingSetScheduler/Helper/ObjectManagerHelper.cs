@@ -69,7 +69,6 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
                     res.AddRange(queryResult.Objects);
                 } while (iterator < totalCount);
 
-                 
                 return res;
             }
         }

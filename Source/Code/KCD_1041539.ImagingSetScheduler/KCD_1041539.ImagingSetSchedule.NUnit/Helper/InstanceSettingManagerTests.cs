@@ -1,16 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
-using AutoFixture;
-using KCD_1041539.ImagingSetScheduler.Context;
+﻿using System.Threading.Tasks;
 using KCD_1041539.ImagingSetScheduler.Helper;
 using Moq;
 using NUnit.Framework;
 using Relativity.API;
-using Relativity.Services.Objects;
-using Relativity.Services.Objects.DataContracts;
-
 namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 {
     [TestFixture]
