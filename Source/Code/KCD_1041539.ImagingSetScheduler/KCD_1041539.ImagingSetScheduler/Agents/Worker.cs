@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using Relativity.API;
 using KCD_1041539.ImagingSetScheduler.Helper;
@@ -6,6 +7,8 @@ using System.Data.SqlClient;
 using KCD_1041539.ImagingSetScheduler.Database;
 using KCD_1041539.ImagingSetScheduler.Interfaces;
 using System.Threading.Tasks;
+using KCD_1041539.ImagingSetScheduler.Context;
+using Relativity.Services.Objects.DataContracts;
 
 namespace KCD_1041539.ImagingSetScheduler.Agents
 {
@@ -14,19 +17,25 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 	public class Worker : kCura.Agent.AgentBase
 	{
 		private const String AGENT_TYPE = "Worker Agent";
+        private IContextContainerFactory _contextContainerFactory;
+        private IObjectManagerHelper _objectManagerHelper;
+        private IAgentHelper _agentHelper;
+
+        public IAgentHelper AgentHelper => _agentHelper ?? (_agentHelper = Helper);
 
 		public override void Execute()
 		{
 			RaiseMessage("Agent execution started.", 10);
 
-			IAgentHelper agentHelper = Helper;
-			IDBContext eddsDbContext = agentHelper.GetDBContext(-1);
-			IServicesMgr svcMgr = ServiceUrlHelper.SetupServiceUrl(eddsDbContext, agentHelper);
+            _contextContainerFactory = new ContextContainerFactory(AgentHelper);
+            IContextContainer contextContainer = _contextContainerFactory.BuildContextContainer();
+            _objectManagerHelper = new ObjectManagerHelper();
+			IServicesMgr svcMgr = ServiceUrlHelper.SetupServiceUrl(contextContainer.MasterDbContext, AgentHelper);
 
 			ExecutionIdentity identity = ExecutionIdentity.System;
 			var sqlQueryHelper = new SqlQueryHelper();
 			
-			if (IsCurrentVersionAfterPrairieSmokeRelease(agentHelper))
+			if (IsCurrentVersionAfterPrairieSmokeRelease(AgentHelper))
 			{
 				RaiseMessage("Imaging Set Scheduler Worker Agent has been deprecated from Prairie Smoke release.", 10);
 			}
@@ -36,11 +45,11 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 				{
 					RaiseMessage("Retrieving next imaging set scheduler in waiting status", 10);
 
-					var nextJob = SqlQueryHelper.RetrieveNextJobInQueue(eddsDbContext, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE);
+					var nextJob = SqlQueryHelper.RetrieveNextJobInQueue(contextContainer.MasterDbContext, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE);
 
 					if (nextJob != null && nextJob.Rows.Count > 0 && nextJob.Rows[0]["ImagingSetSchedulerArtifactId"].ToString() != "")
 					{
-						ProcesstImagingSetSchedulerJob(svcMgr, identity, eddsDbContext, nextJob);
+						ProcessImagingSetSchedulerJob(svcMgr, identity, contextContainer, nextJob);
 					}
 					else
 					{
@@ -54,14 +63,14 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 					RaiseMessage(errorMessages, 1);
 
 					var errorcontext = String.Format("{0}. \n\nStack Trace:{1}", AGENT_TYPE, ex);
-					sqlQueryHelper.InsertRowIntoErrorLog(eddsDbContext, 0, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, 0, AgentID, errorcontext);
+					sqlQueryHelper.InsertRowIntoErrorLog(contextContainer.MasterDbContext, 0, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, 0, AgentID, errorcontext);
 				}
 
 				RaiseMessage("Agent execution finished.", 10);
 			}
 		}
 
-		private void ProcesstImagingSetSchedulerJob(IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext, DataTable nextJob)
+		private void ProcessImagingSetSchedulerJob(IServicesMgr svcMgr, ExecutionIdentity identity, IContextContainer contextContainer, DataTable nextJob)
 		{
 			int workspaceArtifactId = 0;
 			int imagingSetSchedulerArtifactId = 0;
@@ -91,16 +100,18 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				RaiseMessage(String.Format("Initializing imaging set scheduler job [ImagingSetSchedulerArtifactID={0} WorkspaceArtifactId={1}]", imagingSetSchedulerArtifactId, workspaceArtifactId), 10);
 
-				var imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(svcMgr, identity, workspaceArtifactId, imagingSetSchedulerArtifactId);
+				//var imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(svcMgr, identity, workspaceArtifactId, imagingSetSchedulerArtifactId);
+                var imagingSetSchedulerRelativityObject = _objectManagerHelper.RetrieveSingleImagingSetScheduler(workspaceArtifactId, contextContainer, imagingSetSchedulerArtifactId).ConfigureAwait(false).GetAwaiter().GetResult();
+
 
 				//validate imaging set scheduler
-				validator.ValidateImagingSetScheduler(imagingSetSchedulerDto);
+				//validator.ValidateImagingSetScheduler(imagingSetSchedulerDto);
 
-				var imagingSetScheduler = new Objects.ImagingSetScheduler(imagingSetSchedulerDto);
+				var imagingSetScheduler = new Objects.ImagingSetScheduler(imagingSetSchedulerRelativityObject);
 
 				RaiseMessage(String.Format("Submitting imaging set scheduler job [ImagingSetSchedulerArtifactID={0} WorkspaceArtifactId={1}]", imagingSetSchedulerArtifactId, workspaceArtifactId), 10);
 
-				SubmitImagingSetToRunAsync(imagingSetScheduler, workspaceArtifactId, svcMgr, identity, eddsDbContext, validator).GetAwaiter().GetResult();
+				SubmitImagingSetToRunAsync(imagingSetScheduler, workspaceArtifactId, svcMgr, identity, contextContainer.MasterDbContext, validator).GetAwaiter().GetResult();
 			}
 			catch (Exception ex)
 			{
@@ -136,8 +147,8 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 		public async Task SubmitImagingSetToRunAsync(Objects.ImagingSetScheduler imagingSetScheduler, int workspaceArtifactId, IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext, IValidator validator)
 		{
 			try
-			{
-				var imagingSet = await ImagingApiHelper.RetrieveSingleImagingSetAsync(svcMgr, identity, workspaceArtifactId, imagingSetScheduler.ImagingSetArtifactId).ConfigureAwait(false);
+            {
+                var imagingSet = await ImagingApiHelper.RetrieveSingleImagingSetAsync(svcMgr, identity, workspaceArtifactId, imagingSetScheduler.ArtifactId).ConfigureAwait(false);
 
 				//check if the ImagingSet is currently running. If its running, skip current execution.
 				bool isImagingSetCurrentlyRunning = validator.VerifyIfImagingSetIsCurrentlyRunning(imagingSet);
