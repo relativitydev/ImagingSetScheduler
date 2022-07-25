@@ -8,6 +8,9 @@ using System.Globalization;
 using System.Data.SqlClient;
 using kCura.EventHandler;
 using Relativity.API;
+using Relativity.Services.Objects.DataContracts;
+using Choice = Relativity.Services.Objects.DataContracts.Choice;
+using Field = Relativity.Services.Objects.DataContracts.Field;
 
 namespace KCD_1041539.ImagingSetScheduler.Objects
 {
@@ -22,6 +25,43 @@ namespace KCD_1041539.ImagingSetScheduler.Objects
 		public DateTime? LastRunDate { get; set; }
 		public DateTime? NextRunDate { get; set; }
 		public int CreatedByUserId { get; set; }
+        public ImagingSetScheduler(RelativityObject artifact)
+        {
+            List<FieldValuePair> fieldValuePairs = artifact.FieldValues;
+			Name = (string)fieldValuePairs.Find(x => x.Field.Name == "Name").Value;
+
+            ArtifactId = artifact.ArtifactID;
+
+            FieldValuePair imagingSetFieldValuePair = fieldValuePairs.Find(x => x.Field.Name == "Imaging Set");
+            ImagingSetArtifactId = ((RelativityObjectValue)imagingSetFieldValuePair.Value).ArtifactID;
+
+            FrequencyList = new List<DayOfWeek>();
+            object frequencyList = fieldValuePairs.Find(x => x.Field.Name == "Frequency").Value;
+            List<Choice> choices = (List<Choice>)frequencyList;
+            choices.ForEach(c => FrequencyList.Add(ConvertStringToDayOfWeek(c.Name)));
+
+			Time = (string)fieldValuePairs.Find(x => x.Field.Name == "Time").Value;
+
+			LockImagesForQc = (bool)fieldValuePairs.Find(x => x.Field.Name == "Lock Images for QC").Value;
+
+            if (fieldValuePairs.Find(x => x.Field.Name == "Last Run").Value == null)
+            {
+                LastRunDate = DateTime.Now;
+
+            } else
+            {
+                LastRunDate = (DateTime?)fieldValuePairs.Find(x => x.Field.Name == "Last Run").Value;
+            }
+
+            if (fieldValuePairs.Find(x => x.Field.Name == "Next Run").Value != null)
+            {
+                NextRunDate = (DateTime?)fieldValuePairs.Find(x => x.Field.Name == "Next Run").Value;
+            }
+
+            imagingSetFieldValuePair = fieldValuePairs.Find(x => x.Field.Name == "System Created By");
+            Relativity.Services.Objects.DataContracts.User user = (Relativity.Services.Objects.DataContracts.User)imagingSetFieldValuePair.Value;
+            CreatedByUserId = user.ArtifactID;
+        }
 
 		public ImagingSetScheduler(kCura.EventHandler.Artifact artifact, int currentUserArtifactId)
 		{
