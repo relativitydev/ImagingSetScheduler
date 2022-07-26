@@ -36,8 +36,7 @@ namespace KCD_1041539.ImagingSetScheduler.Objects
             ImagingSetArtifactId = ((RelativityObjectValue)imagingSetFieldValuePair.Value).ArtifactID;
 
             FrequencyList = new List<DayOfWeek>();
-            object frequencyList = fieldValuePairs.Find(x => x.Field.Name == "Frequency").Value;
-            List<Choice> choices = (List<Choice>)frequencyList;
+            List<Choice> choices = (List<Choice>)fieldValuePairs.Find(x => x.Field.Name == "Frequency").Value;
             choices.ForEach(c => FrequencyList.Add(ConvertStringToDayOfWeek(c.Name)));
 
 			Time = (string)fieldValuePairs.Find(x => x.Field.Name == "Time").Value;

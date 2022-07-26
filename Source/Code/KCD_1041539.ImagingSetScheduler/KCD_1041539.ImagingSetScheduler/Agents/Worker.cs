@@ -110,12 +110,10 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				RaiseMessage(String.Format("Initializing imaging set scheduler job [ImagingSetSchedulerArtifactID={0} WorkspaceArtifactId={1}]", imagingSetSchedulerArtifactId, workspaceArtifactId), 10);
 
-				//var imagingSetSchedulerDto = RSAPI.RetrieveSingleImagingSetScheduler(svcMgr, identity, workspaceArtifactId, imagingSetSchedulerArtifactId);
                 var imagingSetSchedulerRelativityObject = _objectManagerHelper.RetrieveSingleImagingSetScheduler(workspaceArtifactId, contextContainer, imagingSetSchedulerArtifactId).ConfigureAwait(false).GetAwaiter().GetResult();
 
-
 				//validate imaging set scheduler
-				//validator.ValidateImagingSetScheduler(imagingSetSchedulerDto);
+				//validator.ValidateImagingSetScheduler(imagingSetSchedulerRelativityObject);
 
 				var imagingSetScheduler = new Objects.ImagingSetScheduler(imagingSetSchedulerRelativityObject);
 
@@ -158,7 +156,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 		{
 			try
             {
-                var imagingSet = await ImagingApiHelper.RetrieveSingleImagingSetAsync(svcMgr, identity, workspaceArtifactId, imagingSetScheduler.ArtifactId).ConfigureAwait(false);
+                var imagingSet = await ImagingApiHelper.RetrieveSingleImagingSetAsync(svcMgr, identity, workspaceArtifactId, imagingSetScheduler.ImagingSetArtifactId).ConfigureAwait(false);
 
 				//check if the ImagingSet is currently running. If its running, skip current execution.
 				bool isImagingSetCurrentlyRunning = validator.VerifyIfImagingSetIsCurrentlyRunning(imagingSet);
