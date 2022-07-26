@@ -24,6 +24,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 		private Mock<IObjectManager> _objectManager;
 		private Mock<IInstanceSettingManager> _instanceSettingManager;
 		private int _workspaceId;
+        private int _imagingSetSchedulerId;
 
 		[SetUp]
 		public void SetUp()
@@ -37,6 +38,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 			_serviceProxyFactory.Setup(x => x.CreateServiceProxy<IObjectManager>()).Returns(_objectManager.Object);
 			_contextContainer.Setup(x => x.InstanceSettingManager).Returns(_instanceSettingManager.Object);
 			_workspaceId = _testFixture.Create<int>();
+            _imagingSetSchedulerId = _testFixture.Create<int>();
 			_instance = new ObjectManagerHelper();
 		}
 
@@ -66,9 +68,38 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 			Assert.True(res.SequenceEqual(objectManagerResult.Objects));
 		}
 
+        [Test]
+        public async Task RetrieveSingleImagingSetSchedule_GoldFlow()
+        {
+			//Arrange
+            int batchsize = DEFAULT_BATCH_SIZE;
+            _instanceSettingManager
+                .Setup(x => x.GetIntegerValueAsync(SECTION, INSTANCE_SETTING_NAME, DEFAULT_BATCH_SIZE))
+                .ReturnsAsync(batchsize);
+
+            string condition = $"('Artifact ID' == {_imagingSetSchedulerId})";
+
+            QueryResult objectManagerResult = CreateObjectManagerResult();
+
+            _objectManager.Setup(x => x.QueryAsync(
+                It.Is<int>(i => i == _workspaceId),
+                It.Is<QueryRequest>(q => q.Condition.Equals(condition)),
+                It.Is<int>(j => j == 1),
+                It.Is<int>(k => k == DEFAULT_BATCH_SIZE)
+            )).ReturnsAsync(objectManagerResult);
+
+			//Act
+            RelativityObject res = await _instance.RetrieveSingleImagingSetScheduler(_workspaceId, _contextContainer.Object, _imagingSetSchedulerId)
+                .ConfigureAwait(false);
+			
+			//Assert
+            Assert.True(res.Equals(objectManagerResult.Objects[0]));
+        }
+
         private QueryResult CreateObjectManagerResult()
         {
             QueryResult result = new QueryResult();
+            result.TotalCount = 1;
             result.Objects.Add(new RelativityObject
             {
                 ArtifactID = _testFixture.Create<int>()
