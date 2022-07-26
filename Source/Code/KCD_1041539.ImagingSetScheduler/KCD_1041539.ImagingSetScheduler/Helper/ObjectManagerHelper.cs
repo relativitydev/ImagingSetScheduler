@@ -29,67 +29,24 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
                 int batchSize = await contextContainer.InstanceSettingManager.GetIntegerValueAsync("Relativity.Imaging", "ImagingSetSchedulerBatchSize", 1000).ConfigureAwait(false);
                 int totalCount;
 
-                using (IObjectManager objectManager =
-                       contextContainer.ServicesProxyFactory.CreateServiceProxy<IObjectManager>())
+                using (IObjectManager objectManager = contextContainer.ServicesProxyFactory.CreateServiceProxy<IObjectManager>())
                 {
-                    var queryRequest = new QueryRequest()
-                    {
-                        ObjectType = new ObjectTypeRef { Guid = IMAGING_SET_SCHEDULER },
-                        Fields = new List<FieldRef>
-                        {
-                            new FieldRef()
-                            {
-                                Guid = Constant.Guids.Field.ImagingSetScheduler.FREQUENCY
-                            },
-                            new FieldRef()
-                            {
-                                Guid = Constant.Guids.Field.ImagingSetScheduler.NAME
-                            },
-                            new FieldRef()
-                            {
-                                Guid = Constant.Guids.Field.ImagingSetScheduler.IMAGING_SET
-                            },
-                            new FieldRef()
-                            {
-                                Guid = Constant.Guids.Field.ImagingSetScheduler.TIME
-                            },
-                            new FieldRef()
-                            {
-                                Guid = Constant.Guids.Field.ImagingSetScheduler.LOCK_IMAGES_FOR_QC
-                            },
-                            new FieldRef()
-                            {
-                                Guid = Constant.Guids.Field.ImagingSetScheduler.LAST_RUN
-                            },
-                            new FieldRef()
-                            {
-                                Guid = Constant.Guids.Field.ImagingSetScheduler.NEXT_RUN
-                            },
-                            new FieldRef()
-                            {
-                                Name = "System Created By"
-                            }
-                        },
-                        Condition = $"(('Artifact ID' == {imagingSetSchedulerId}))"
-                    };
-                    
+                    var queryRequest = NewQueryRequest($"(('Artifact ID' == {imagingSetSchedulerId}))");
+
                     QueryResult queryResult = await objectManager.QueryAsync(workspaceId, queryRequest, 1, batchSize).ConfigureAwait(false);
                     totalCount = queryResult.TotalCount;
 
                     if (totalCount > 1)
                     {
-                        var errorContext =
-                            String.Format(
-                                "An error has occurred: multiple instances of ImagingSetSchedulerArtifactId: {0}. WorkspaceArtifactId: {1}",
+                        var errorContext = String.Format("An error has occurred: multiple instances of ImagingSetSchedulerArtifactId: {0}. WorkspaceArtifactId: {1}",
                                 imagingSetSchedulerId, workspaceId);
                         throw new CustomExceptions.ImagingSetSchedulerException(errorContext);
-                    } 
+                    }
 
                     if (totalCount == 0)
                     {
                         var errorContext =
-                            String.Format(
-                                "An error has occurred: no instance of ImagingSetSchedulerArtifactId: {0}. WorkspaceArtifactId: {1}",
+                            String.Format("An error has occurred: no instance of ImagingSetSchedulerArtifactId: {0}. WorkspaceArtifactId: {1}",
                                 imagingSetSchedulerId, workspaceId);
                         throw new CustomExceptions.ImagingSetSchedulerException(errorContext);
                     }
@@ -100,9 +57,8 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
             }
             catch(Exception ex)
             {
-                var errorContext = String.Format("An error occurred when retrieving Imaging Set Scheduler [WorkspaceArtifactId: {0}, ImagingSetSchedulerArtifactId: {1}]",
-                    workspaceId,
-                    imagingSetSchedulerId);
+                var errorContext = String.Format("An error occurred when retrieving Imaging Set Scheduler [WorkspaceArtifactId: {0}, ImagingSetSchedulerArtifactId: {1}]", 
+                    workspaceId, imagingSetSchedulerId);
                 throw new CustomExceptions.ImagingSetSchedulerException(errorContext, ex);
             }
         }
@@ -116,46 +72,7 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 
             using (IObjectManager objectManager = contextContainer.ServicesProxyFactory.CreateServiceProxy<IObjectManager>())
             {
-                var queryRequest = new QueryRequest()
-                {
-                    ObjectType = new ObjectTypeRef { Guid = IMAGING_SET_SCHEDULER },
-                    Fields = new List<FieldRef>
-                    {
-                        new FieldRef()
-                        {
-                            Guid = Constant.Guids.Field.ImagingSetScheduler.FREQUENCY
-                        },
-                        new FieldRef()
-                        {
-                            Guid = Constant.Guids.Field.ImagingSetScheduler.NAME
-                        },
-                        new FieldRef()
-                        {
-                            Guid = Constant.Guids.Field.ImagingSetScheduler.IMAGING_SET
-                        },
-                        new FieldRef()
-                        {
-                            Guid = Constant.Guids.Field.ImagingSetScheduler.TIME
-                        },
-                        new FieldRef()
-                        {
-                            Guid = Constant.Guids.Field.ImagingSetScheduler.LOCK_IMAGES_FOR_QC
-                        },
-                        new FieldRef()
-                        {
-                            Guid = Constant.Guids.Field.ImagingSetScheduler.LAST_RUN
-                        },
-                        new FieldRef()
-                        {
-                            Guid = Constant.Guids.Field.ImagingSetScheduler.NEXT_RUN
-                        },
-                        new FieldRef()
-                        {
-                            Name = "System Created By"
-                        }
-                    },
-                    Condition = "(((NOT 'Status' ISSET) OR NOT ('Status' IN ['waiting'])))"
-                };
+                var queryRequest = NewQueryRequest("(((NOT 'Status' ISSET) OR NOT ('Status' IN ['waiting'])))");
 
                 do
                 {
@@ -167,6 +84,52 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 
                 return res;
             }
+        }
+
+        private QueryRequest NewQueryRequest(string condition)
+        {
+            var queryRequest = new QueryRequest()
+            {
+                ObjectType = new ObjectTypeRef { Guid = IMAGING_SET_SCHEDULER },
+                Fields = new List<FieldRef>
+                {
+                    new FieldRef()
+                    {
+                        Guid = Constant.Guids.Field.ImagingSetScheduler.FREQUENCY
+                    },
+                    new FieldRef()
+                    {
+                        Guid = Constant.Guids.Field.ImagingSetScheduler.NAME
+                    },
+                    new FieldRef()
+                    {
+                        Guid = Constant.Guids.Field.ImagingSetScheduler.IMAGING_SET
+                    },
+                    new FieldRef()
+                    {
+                        Guid = Constant.Guids.Field.ImagingSetScheduler.TIME
+                    },
+                    new FieldRef()
+                    {
+                        Guid = Constant.Guids.Field.ImagingSetScheduler.LOCK_IMAGES_FOR_QC
+                    },
+                    new FieldRef()
+                    {
+                        Guid = Constant.Guids.Field.ImagingSetScheduler.LAST_RUN
+                    },
+                    new FieldRef()
+                    {
+                        Guid = Constant.Guids.Field.ImagingSetScheduler.NEXT_RUN
+                    },
+                    new FieldRef()
+                    {
+                        Name = "System Created By"
+                    }
+                },
+                Condition = condition
+            };
+
+            return queryRequest;
         }
     }
 }
