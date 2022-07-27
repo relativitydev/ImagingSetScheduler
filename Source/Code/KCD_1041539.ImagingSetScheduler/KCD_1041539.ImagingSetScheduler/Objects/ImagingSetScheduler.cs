@@ -32,12 +32,12 @@ namespace KCD_1041539.ImagingSetScheduler.Objects
 
             ArtifactId = artifact.ArtifactID;
 
-            FieldValuePair imagingSetFieldValuePair = fieldValuePairs.Find(x => x.Field.Name == "Imaging Set");
-            if ((RelativityObjectValue)imagingSetFieldValuePair.Value == null)
+            object imagingSetField = fieldValuePairs.Find(x => x.Field.Name == "Imaging Set").Value;
+            if (imagingSetField == null)
             {
                 throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Imaging Set field is NULL.");
             }
-            ImagingSetArtifactId = ((RelativityObjectValue)imagingSetFieldValuePair.Value).ArtifactID;
+            ImagingSetArtifactId = ((RelativityObjectValue)imagingSetField).ArtifactID;
 
             FrequencyList = new List<DayOfWeek>();
             List<Choice> choices = (List<Choice>)fieldValuePairs.Find(x => x.Field.Name == "Frequency").Value ?? throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Frequency field is NULL.");
@@ -65,8 +65,8 @@ namespace KCD_1041539.ImagingSetScheduler.Objects
                 NextRunDate = (DateTime?)fieldValuePairs.Find(x => x.Field.Name == "Next Run").Value;
             }
 
-            imagingSetFieldValuePair = fieldValuePairs.Find(x => x.Field.Name == "System Created By");
-            Relativity.Services.Objects.DataContracts.User user = (Relativity.Services.Objects.DataContracts.User)imagingSetFieldValuePair.Value;
+            FieldValuePair userFieldValuePair = fieldValuePairs.Find(x => x.Field.Name == "System Created By");
+            Relativity.Services.Objects.DataContracts.User user = (Relativity.Services.Objects.DataContracts.User)userFieldValuePair.Value;
             CreatedByUserId = user.ArtifactID;
         }
 
