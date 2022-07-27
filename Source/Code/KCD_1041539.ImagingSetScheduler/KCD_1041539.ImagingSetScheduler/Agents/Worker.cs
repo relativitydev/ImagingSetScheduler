@@ -112,10 +112,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
                 var imagingSetSchedulerRelativityObject = _objectManagerHelper.RetrieveSingleImagingSetScheduler(workspaceArtifactId, contextContainer, imagingSetSchedulerArtifactId).ConfigureAwait(false).GetAwaiter().GetResult();
 
-				//validate imaging set scheduler
-				//validator.ValidateImagingSetScheduler(imagingSetSchedulerRelativityObject);
-
-				var imagingSetScheduler = new Objects.ImagingSetScheduler(imagingSetSchedulerRelativityObject);
+                var imagingSetScheduler = new Objects.ImagingSetScheduler(imagingSetSchedulerRelativityObject);
 
 				RaiseMessage(String.Format("Submitting imaging set scheduler job [ImagingSetSchedulerArtifactID={0} WorkspaceArtifactId={1}]", imagingSetSchedulerArtifactId, workspaceArtifactId), 10);
 

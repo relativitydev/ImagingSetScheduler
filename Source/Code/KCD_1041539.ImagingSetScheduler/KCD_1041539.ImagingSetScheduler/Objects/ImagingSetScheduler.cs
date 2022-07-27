@@ -28,25 +28,33 @@ namespace KCD_1041539.ImagingSetScheduler.Objects
         public ImagingSetScheduler(RelativityObject artifact)
         {
             List<FieldValuePair> fieldValuePairs = artifact.FieldValues;
-			Name = (string)fieldValuePairs.Find(x => x.Field.Name == "Name").Value;
+            Name = (string)fieldValuePairs.Find(x => x.Field.Name == "Name").Value ?? throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Name field is NULL.");
 
             ArtifactId = artifact.ArtifactID;
 
             FieldValuePair imagingSetFieldValuePair = fieldValuePairs.Find(x => x.Field.Name == "Imaging Set");
+            if ((RelativityObjectValue)imagingSetFieldValuePair.Value == null)
+            {
+                throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Imaging Set field is NULL.");
+            }
             ImagingSetArtifactId = ((RelativityObjectValue)imagingSetFieldValuePair.Value).ArtifactID;
 
             FrequencyList = new List<DayOfWeek>();
-            List<Choice> choices = (List<Choice>)fieldValuePairs.Find(x => x.Field.Name == "Frequency").Value;
+            List<Choice> choices = (List<Choice>)fieldValuePairs.Find(x => x.Field.Name == "Frequency").Value ?? throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Frequency field is NULL.");
             choices.ForEach(c => FrequencyList.Add(ConvertStringToDayOfWeek(c.Name)));
 
-			Time = (string)fieldValuePairs.Find(x => x.Field.Name == "Time").Value;
+            if (choices.Count == 0)
+            {
+				throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Frequency field is empty.");
+            }
 
-			LockImagesForQc = (bool)fieldValuePairs.Find(x => x.Field.Name == "Lock Images for QC").Value;
+			Time = (string)fieldValuePairs.Find(x => x.Field.Name == "Time").Value ?? throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Time field is NULL.");
+
+			LockImagesForQc = (bool?)fieldValuePairs.Find(x => x.Field.Name == "Lock Images for QC").Value ?? throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Lock Images for QC field is NULL.");
 
             if (fieldValuePairs.Find(x => x.Field.Name == "Last Run").Value == null)
             {
                 LastRunDate = DateTime.Now;
-
             } else
             {
                 LastRunDate = (DateTime?)fieldValuePairs.Find(x => x.Field.Name == "Last Run").Value;
