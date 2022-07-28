@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using KCD_1041539.ImagingSetScheduler.Helper;
 using DTOs = kCura.Relativity.Client.DTOs;
-using kCura.Relativity.Client;
 using System.Globalization;
-using System.Data.SqlClient;
+using System.Threading.Tasks;
+using KCD_1041539.ImagingSetScheduler.Context;
 using kCura.EventHandler;
 using Relativity.API;
 using Relativity.Services.Objects.DataContracts;
 using Choice = Relativity.Services.Objects.DataContracts.Choice;
-using Field = Relativity.Services.Objects.DataContracts.Field;
 
 namespace KCD_1041539.ImagingSetScheduler.Objects
 {
@@ -25,9 +24,9 @@ namespace KCD_1041539.ImagingSetScheduler.Objects
 		public DateTime? LastRunDate { get; set; }
 		public DateTime? NextRunDate { get; set; }
 		public int CreatedByUserId { get; set; }
-        public ImagingSetScheduler(RelativityObject artifact)
-        {
-            List<FieldValuePair> fieldValuePairs = artifact.FieldValues;
+		public ImagingSetScheduler(RelativityObject artifact)
+		{
+			List<FieldValuePair> fieldValuePairs = artifact.FieldValues;
             Name = (string)fieldValuePairs.Find(x => x.Field.Name == "Name").Value ?? throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Name field is NULL.");
 
             ArtifactId = artifact.ArtifactID;
@@ -126,25 +125,25 @@ namespace KCD_1041539.ImagingSetScheduler.Objects
 			CreatedByUserId = artifact.SystemCreatedBy.ArtifactID;
 		}
 
-		public void SetToComplete(IServicesMgr svcMgr, ExecutionIdentity identity, int imagingSetArtifactId, int workspaceArtifactId)
+		public void SetToComplete(IContextContainer contextContainer, int imagingSetArtifactId, int workspaceArtifactId, IObjectManagerHelper objectManagerHelper)
 		{
 			LastRunDate = DateTime.Now;
 			GetNextRunDate(FrequencyList, DateTime.Now, Time);
-			Update(svcMgr, identity, workspaceArtifactId, LastRunDate, NextRunDate, "", Constant.ImagingSetSchedulerStatus.COMPLETED_AT + " " + LastRunDate.Value);
+			Update(workspaceArtifactId, contextContainer, LastRunDate, NextRunDate, "", Constant.ImagingSetSchedulerStatus.COMPLETED_AT + " " + LastRunDate.Value, objectManagerHelper);
 		}
 
-		public void SetToCompleteWithErrors(IServicesMgr svcMgr, ExecutionIdentity identity, int imagingSetArtifactId, int workspaceArtifactId, string errorMessages)
+		public void SetToCompleteWithErrors(IContextContainer contextContainer, int imagingSetArtifactId, int workspaceArtifactId, string errorMessages, IObjectManagerHelper objectManagerHelper)
 		{
 			LastRunDate = DateTime.Now;
 			GetNextRunDate(FrequencyList, DateTime.Now, Time);
-			Update(svcMgr, identity, workspaceArtifactId, LastRunDate, NextRunDate, errorMessages, Constant.ImagingSetSchedulerStatus.COMPLETE_WITH_ERRORS + " at " + LastRunDate.Value);
+			Update(workspaceArtifactId, contextContainer, LastRunDate, NextRunDate, errorMessages, Constant.ImagingSetSchedulerStatus.COMPLETE_WITH_ERRORS + " at " + LastRunDate.Value, objectManagerHelper);
 		}
 
-		public void SetToSkipped(IServicesMgr svcMgr, ExecutionIdentity identity, int imagingSetArtifactId, int workspaceArtifactId)
+		public void SetToSkipped(IContextContainer contextContainer, int imagingSetArtifactId, int workspaceArtifactId, IObjectManagerHelper objectManagerHelper)
 		{
 			LastRunDate = DateTime.Now;
 			GetNextRunDate(FrequencyList, DateTime.Now, Time);
-			Update(svcMgr, identity, workspaceArtifactId, LastRunDate, NextRunDate, "", Constant.ImagingSetSchedulerStatus.SKIPPED + " " + LastRunDate.Value);
+			Update(workspaceArtifactId, contextContainer, LastRunDate, NextRunDate, "", Constant.ImagingSetSchedulerStatus.SKIPPED + " " + LastRunDate.Value, objectManagerHelper);
 		}
 
 		public void RemoveRecordFromQueue(int imagingSetArtifactId, IDBContext eddsDbContext, int workspaceArtifactId)
@@ -157,20 +156,16 @@ namespace KCD_1041539.ImagingSetScheduler.Objects
 			Database.SqlQueryHelper.InsertIntoJobQueue(eddsDbContext, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, imagingSetSchedulerArtifactId, workspaceArtifactId);
 		}
 
-		public void Update(IServicesMgr svcMgr, ExecutionIdentity identity, int workspaceArtifactId, DateTime? lastRun, DateTime? nextRun, string messages, string status)
+		public void Update(int workspaceArtifactId, IContextContainer contextContainer, DateTime? lastRun, DateTime? nextRun, string messages, string status, IObjectManagerHelper objectManagerHelper)
 		{
-			using (IRSAPIClient client = svcMgr.CreateProxy<IRSAPIClient>(identity))
-			{
-				client.APIOptions.WorkspaceID = workspaceArtifactId;
-				client.APIOptions.StrictMode = true;
+			Task<MassUpdateResult> res = objectManagerHelper.UpdateImagingSetScheduler(workspaceArtifactId, contextContainer, ArtifactId,
+					lastRun, nextRun, messages, status);
 
-				Response<IEnumerable<DTOs.RDO>> res = RSAPI.UpdateImagingSetScheduler(client, ArtifactId, lastRun, nextRun, messages, status, workspaceArtifactId);
-				if (!res.Success)
-				{
-					throw new CustomExceptions.ImagingSetSchedulerException(res.Message);
-				}
+			if (!res.Result.Success)
+			{
+				throw new CustomExceptions.ImagingSetSchedulerException(res.Result.Message);
 			}
-		}
+        }
 
 		public void GetNextRunDate(List<DayOfWeek> frequencyList, DateTime today, string scheduledTime)
 		{
