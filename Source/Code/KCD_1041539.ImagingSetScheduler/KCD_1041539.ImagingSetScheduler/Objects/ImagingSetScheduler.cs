@@ -8,6 +8,9 @@ using System.Globalization;
 using System.Data.SqlClient;
 using kCura.EventHandler;
 using Relativity.API;
+using Relativity.Services.Objects.DataContracts;
+using Choice = Relativity.Services.Objects.DataContracts.Choice;
+using Field = Relativity.Services.Objects.DataContracts.Field;
 
 namespace KCD_1041539.ImagingSetScheduler.Objects
 {
@@ -22,6 +25,50 @@ namespace KCD_1041539.ImagingSetScheduler.Objects
 		public DateTime? LastRunDate { get; set; }
 		public DateTime? NextRunDate { get; set; }
 		public int CreatedByUserId { get; set; }
+        public ImagingSetScheduler(RelativityObject artifact)
+        {
+            List<FieldValuePair> fieldValuePairs = artifact.FieldValues;
+            Name = (string)fieldValuePairs.Find(x => x.Field.Name == "Name").Value ?? throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Name field is NULL.");
+
+            ArtifactId = artifact.ArtifactID;
+
+            object imagingSetField = fieldValuePairs.Find(x => x.Field.Name == "Imaging Set").Value;
+            if (imagingSetField == null)
+            {
+                throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Imaging Set field is NULL.");
+            }
+            ImagingSetArtifactId = ((RelativityObjectValue)imagingSetField).ArtifactID;
+
+            FrequencyList = new List<DayOfWeek>();
+            List<Choice> choices = (List<Choice>)fieldValuePairs.Find(x => x.Field.Name == "Frequency").Value ?? throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Frequency field is NULL.");
+            choices.ForEach(c => FrequencyList.Add(ConvertStringToDayOfWeek(c.Name)));
+
+            if (choices.Count == 0)
+            {
+				throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Frequency field is empty.");
+            }
+
+			Time = (string)fieldValuePairs.Find(x => x.Field.Name == "Time").Value ?? throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Time field is NULL.");
+
+			LockImagesForQc = (bool?)fieldValuePairs.Find(x => x.Field.Name == "Lock Images for QC").Value ?? throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Lock Images for QC field is NULL.");
+
+            if (fieldValuePairs.Find(x => x.Field.Name == "Last Run").Value == null)
+            {
+                LastRunDate = DateTime.Now;
+            } else
+            {
+                LastRunDate = (DateTime?)fieldValuePairs.Find(x => x.Field.Name == "Last Run").Value;
+            }
+
+            if (fieldValuePairs.Find(x => x.Field.Name == "Next Run").Value != null)
+            {
+                NextRunDate = (DateTime?)fieldValuePairs.Find(x => x.Field.Name == "Next Run").Value;
+            }
+
+            FieldValuePair userFieldValuePair = fieldValuePairs.Find(x => x.Field.Name == "System Created By");
+            Relativity.Services.Objects.DataContracts.User user = (Relativity.Services.Objects.DataContracts.User)userFieldValuePair.Value;
+            CreatedByUserId = user.ArtifactID;
+        }
 
 		public ImagingSetScheduler(kCura.EventHandler.Artifact artifact, int currentUserArtifactId)
 		{
