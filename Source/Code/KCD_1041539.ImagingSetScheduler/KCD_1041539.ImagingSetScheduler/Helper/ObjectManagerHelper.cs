@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using KCD_1041539.ImagingSetScheduler.Context;
+using Relativity.Services.Exceptions;
 using Relativity.Services.Objects;
 using Relativity.Services.Objects.DataContracts;
+using Relativity.Services.Interfaces.Workspace;
 
 namespace KCD_1041539.ImagingSetScheduler.Helper
 {
@@ -142,7 +144,29 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
                 throw new CustomExceptions.ImagingSetSchedulerException(errorContext, ex);
             }
         }
-    
+
+        public async Task<bool> DoesWorkspaceExists(int workspaceArtifactId, IContextContainer contextContainer)
+        {
+	        if (workspaceArtifactId < 1)
+	        {
+		        throw new ArgumentException(Constant.ErrorMessages.WORKSPACE_ARTIFACT_ID_CANNOT_BE_NEGATIVE);
+	        }
+	        
+			try
+			{
+				using (IWorkspaceManager workspaceManager =
+				       contextContainer.ServicesProxyFactory.CreateServiceProxy<IWorkspaceManager>())
+				{
+					var res = await workspaceManager.ReadAsync(workspaceArtifactId, false, false).ConfigureAwait(false);
+					return true;
+				}
+			}
+			catch (NotFoundException)
+			{
+				return false;
+			}
+        }
+
         private QueryRequest NewQueryRequest(string condition)
         {
             var queryRequest = new QueryRequest()
