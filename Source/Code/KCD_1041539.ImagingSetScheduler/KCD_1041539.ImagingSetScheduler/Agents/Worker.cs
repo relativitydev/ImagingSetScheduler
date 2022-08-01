@@ -59,7 +59,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 					if (nextJob != null && nextJob.Rows.Count > 0 && nextJob.Rows[0]["ImagingSetSchedulerArtifactId"].ToString() != "")
 					{
-						ProcessImagingSetSchedulerJob(svcMgr, identity, contextContainer, nextJob);
+						ProcessImagingSetSchedulerJob(svcMgr, identity, contextContainer, nextJob, _objectManagerHelper);
 					}
 					else
 					{
@@ -80,7 +80,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			}
 		}
 
-		private void ProcessImagingSetSchedulerJob(IServicesMgr svcMgr, ExecutionIdentity identity, IContextContainer contextContainer, DataTable nextJob)
+		private void ProcessImagingSetSchedulerJob(IServicesMgr svcMgr, ExecutionIdentity identity, IContextContainer contextContainer, DataTable nextJob, IObjectManagerHelper _objectManagerHelper)
 		{
 			int workspaceArtifactId = 0;
 			int imagingSetSchedulerArtifactId = 0;
@@ -100,9 +100,11 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				workspaceArtifactId = (int)nextJob.Rows[0]["WorkspaceArtifactId"];
 
-				if (!validator.DoesWorkspaceExists(svcMgr, identity, workspaceArtifactId))
+				bool workspaceExists = validator.DoesWorkspaceExists(workspaceArtifactId, contextContainer, _objectManagerHelper).ConfigureAwait(false).GetAwaiter().GetResult();
+
+				if (!workspaceExists)
 				{
-					var errorContext = String.Format("{0}. [WorkspaceArtifactid: {1}]", Constant.ErrorMessages.WORKSPACE_DOES_NOT_EXIST, workspaceArtifactId);
+					var errorContext = String.Format("{0}. [WorkspaceArtifactId: {1}]", Constant.ErrorMessages.WORKSPACE_DOES_NOT_EXIST, workspaceArtifactId);
 					throw new CustomExceptions.ImagingSetSchedulerException(errorContext);
 				}
 

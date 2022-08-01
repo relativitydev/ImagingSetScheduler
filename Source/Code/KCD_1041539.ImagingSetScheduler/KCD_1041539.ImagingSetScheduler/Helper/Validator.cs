@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading.Tasks;
+using KCD_1041539.ImagingSetScheduler.Context;
 using kCura.Relativity.Client;
 using KCD_1041539.ImagingSetScheduler.Database;
 using KCD_1041539.ImagingSetScheduler.Interfaces;
@@ -132,9 +134,9 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 			return true;
 		}
 
-		public bool DoesWorkspaceExists(IServicesMgr svcMgr, ExecutionIdentity identity, int workspaceArtifactId)
+		public Task<bool> DoesWorkspaceExists(int workspaceArtifactId, IContextContainer contextContainer, IObjectManagerHelper objectManagerHelper)
 		{
-			Boolean retVal = RSAPI.DoesWorkspaceExists(svcMgr, identity, workspaceArtifactId);
+			var retVal = objectManagerHelper.DoesWorkspaceExists(workspaceArtifactId, contextContainer);
 			return retVal;
 		}
 	}
