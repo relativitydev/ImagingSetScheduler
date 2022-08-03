@@ -23,6 +23,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 		private const string SECTION = "Relativity.Imaging";
 		private const string INSTANCE_SETTING_NAME = "ImagingSetSchedulerBatchSize";
 		private ObjectManagerHelper _instance;
+		private WorkspaceRepository _workspaceRepository;
 		private Mock<IContextContainer> _contextContainer;
 		private Mock<IServicesProxyFactory> _serviceProxyFactory;
 		private Mock<IObjectManager> _objectManager;
@@ -50,6 +51,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 			_workspaceId = _testFixture.Create<int>();
             _imagingSetSchedulerId = _testFixture.Create<int>();
 			_instance = new ObjectManagerHelper();
+			_workspaceRepository = new WorkspaceRepository();
 			_lastRun = _testFixture.Create<DateTime>();
 			_nextRun = _testFixture.Create<DateTime>();
         }
@@ -124,7 +126,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 			//Assert
 			Assert.True(res.Success.Equals(objectManagerMassUpdateResult.Success));
         }
-
+		
         [Test]
         public async Task DoesWorkspaceExists_GoldFlow()
         {
@@ -139,7 +141,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 				It.Is<bool>(z => z == false))).ReturnsAsync(response);
 
 			//Act
-			bool res = await _instance.DoesWorkspaceExists(_workspaceId, _contextContainer.Object).ConfigureAwait(false);
+			bool res = await _workspaceRepository.DoesWorkspaceExists(_workspaceId, _contextContainer.Object).ConfigureAwait(false);
 
 			//Assert
 			Assert.True(res.Equals(true));
@@ -157,12 +159,12 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 		        It.Is<bool>(z => z == false))).ThrowsAsync(new NotFoundException());
 
 	        //Act
-	        bool res = await _instance.DoesWorkspaceExists(_workspaceId, _contextContainer.Object).ConfigureAwait(false);
+	        bool res = await _workspaceRepository.DoesWorkspaceExists(_workspaceId, _contextContainer.Object).ConfigureAwait(false);
 
 	        //Assert
 	        Assert.True(res.Equals(false));
         }
-
+		
 		private QueryResult CreateObjectManagerResult()
         {
             QueryResult result = new QueryResult();
