@@ -133,11 +133,5 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 			}
 			return true;
 		}
-
-		public Task<bool> DoesWorkspaceExists(int workspaceArtifactId, IContextContainer contextContainer, IObjectManagerHelper objectManagerHelper)
-		{
-			var retVal = objectManagerHelper.DoesWorkspaceExists(workspaceArtifactId, contextContainer);
-			return retVal;
-		}
 	}
 }

@@ -17,7 +17,5 @@ namespace KCD_1041539.ImagingSetScheduler.Interfaces
 		bool VerifyImagingApplicationVersionForImagingSetExternalApi(IDBContext workspaceDbContext);
 
 		bool VerifyIfImagingSetIsCurrentlyRunning(ImagingSet imagingSet);
-
-		Task<bool> DoesWorkspaceExists(int workspaceArtifactId, IContextContainer contextContainer, IObjectManagerHelper objectManagerHelper);
 	}
 }

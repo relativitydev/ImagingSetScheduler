@@ -37,14 +37,5 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
         /// <param name="status">The new status of the Imaging Set Schedule.</param>
         /// <returns>A count of the objects updated, success status, and a description of the update.</returns>
         Task<MassUpdateResult> UpdateImagingSetScheduler(int workspaceArtifactId, IContextContainer contextContainer, int imagingSetSchedulerArtifactId, DateTime? lastRun, DateTime? nextRun, string message, string status);
-
-        /// <summary>
-        /// Determines if a workspace exists.
-        /// </summary>
-        /// <param name="workspaceArtifactId">The Artifact ID of the workspace.</param>
-        /// <param name="contextContainer">The context container.</param>
-        /// <returns>A boolean, true if the workspace exists, false otherwise.</returns>
-		Task<bool> DoesWorkspaceExists(int workspaceArtifactId, IContextContainer contextContainer);
-
     }
 }
