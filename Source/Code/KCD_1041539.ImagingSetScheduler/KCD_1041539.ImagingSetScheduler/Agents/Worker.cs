@@ -38,9 +38,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			RaiseMessage("Agent execution started.", 10);
 
 			ResolveDependencies();
-            _contextContainerFactory = new ContextContainerFactory(AgentHelper);
             IContextContainer contextContainer = _contextContainerFactory.BuildContextContainer();
-            _objectManagerHelper = new ObjectManagerHelper();
             workspaceRepository = new WorkspaceRepository();
 			IServicesMgr svcMgr = ServiceUrlHelper.SetupServiceUrl(contextContainer.MasterDbContext, AgentHelper);
 
@@ -197,12 +195,14 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 				imagingSetScheduler.RemoveRecordFromQueue(imagingSetScheduler.ArtifactId, contextContainer.MasterDbContext, workspaceArtifactId);
 			}
 		}
+
 		private bool IsCurrentVersionAfterPrairieSmokeRelease(IHelper helper)
 		{
 			bool isR1Instance = VersionCheckHelper.IsCloudInstanceEnabled(helper);
 			bool versionCheckResult = VersionCheckHelper.VersionCheck(helper, Constant.Version.PRAIRIE_SMOKE_VERSION);
 			return (isR1Instance && versionCheckResult);
 		}
+
         private void ResolveDependencies()
         {
             if (_windsorContainer == null)
