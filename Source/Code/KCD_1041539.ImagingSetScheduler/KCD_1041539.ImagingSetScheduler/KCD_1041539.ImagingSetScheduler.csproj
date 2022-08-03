@@ -213,7 +213,9 @@
     <Compile Include="Helper\ServiceUrlHelper.cs" />
     <Compile Include="Helper\Validator.cs" />
     <Compile Include="Helper\VersionCheckHelper.cs" />
+    <Compile Include="Helper\WorkspaceRepository.cs" />
     <Compile Include="Interfaces\IValidator.cs" />
+    <Compile Include="Interfaces\IWorkspaceRepository.cs" />
     <Compile Include="IoC\WindsorFactory.cs" />
     <Compile Include="Objects\ImagingSetScheduler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
