@@ -24,7 +24,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
         private IObjectManagerHelper _objectManagerHelper;
         private IAgentHelper _agentHelper;
         private IWindsorContainer _windsorContainer;
-        private IWorkspaceRepository workspaceRepository;
+        private IWorkspaceRepository _workspaceRepository;
 
         public IAgentHelper AgentHelper => _agentHelper ?? (_agentHelper = Helper);
 
@@ -39,7 +39,6 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 			ResolveDependencies();
             IContextContainer contextContainer = _contextContainerFactory.BuildContextContainer();
-            workspaceRepository = new WorkspaceRepository();
 			IServicesMgr svcMgr = ServiceUrlHelper.SetupServiceUrl(contextContainer.MasterDbContext, AgentHelper);
 
 			ExecutionIdentity identity = ExecutionIdentity.System;
@@ -100,7 +99,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				workspaceArtifactId = (int)nextJob.Rows[0]["WorkspaceArtifactId"];
 
-				bool workspaceExists = workspaceRepository.DoesWorkspaceExists(workspaceArtifactId, contextContainer).ConfigureAwait(false).GetAwaiter().GetResult();
+				bool workspaceExists = _workspaceRepository.DoesWorkspaceExists(workspaceArtifactId, contextContainer).ConfigureAwait(false).GetAwaiter().GetResult();
 
 				if (!workspaceExists)
 				{
@@ -217,6 +216,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
                             _windsorContainer = windsorFactory.GetWindsorContainer(AgentHelper);
                             _contextContainerFactory = _windsorContainer.Resolve<IContextContainerFactory>();
                             _objectManagerHelper = _windsorContainer.Resolve<IObjectManagerHelper>();
+                            _workspaceRepository = _windsorContainer.Resolve<IWorkspaceRepository>();
                         }
                         catch (Exception)
                         {
