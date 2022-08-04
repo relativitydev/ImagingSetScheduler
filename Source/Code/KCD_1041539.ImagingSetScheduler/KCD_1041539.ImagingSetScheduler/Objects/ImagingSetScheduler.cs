@@ -24,6 +24,8 @@ namespace KCD_1041539.ImagingSetScheduler.Objects
 		public DateTime? LastRunDate { get; set; }
 		public DateTime? NextRunDate { get; set; }
 		public int CreatedByUserId { get; set; }
+		public string Message { get; set; }
+		public string Status { get; set; }
 		public ImagingSetScheduler(RelativityObject artifact)
 		{
 			List<FieldValuePair> fieldValuePairs = artifact.FieldValues;
@@ -129,21 +131,27 @@ namespace KCD_1041539.ImagingSetScheduler.Objects
 		{
 			LastRunDate = DateTime.Now;
 			GetNextRunDate(FrequencyList, DateTime.Now, Time);
-			Update(workspaceArtifactId, contextContainer, LastRunDate, NextRunDate, "", Constant.ImagingSetSchedulerStatus.COMPLETED_AT + " " + LastRunDate.Value, objectManagerHelper);
+			Message = "";
+			Status = Constant.ImagingSetSchedulerStatus.COMPLETED_AT + " " + LastRunDate.Value;
+			Update(workspaceArtifactId, contextContainer, objectManagerHelper);
 		}
 
 		public void SetToCompleteWithErrors(IContextContainer contextContainer, int imagingSetArtifactId, int workspaceArtifactId, string errorMessages, IObjectManagerHelper objectManagerHelper)
 		{
 			LastRunDate = DateTime.Now;
 			GetNextRunDate(FrequencyList, DateTime.Now, Time);
-			Update(workspaceArtifactId, contextContainer, LastRunDate, NextRunDate, errorMessages, Constant.ImagingSetSchedulerStatus.COMPLETE_WITH_ERRORS + " at " + LastRunDate.Value, objectManagerHelper);
+			Message = errorMessages;
+			Status = Constant.ImagingSetSchedulerStatus.COMPLETE_WITH_ERRORS + " at " + LastRunDate.Value;
+			Update(workspaceArtifactId, contextContainer, objectManagerHelper);
 		}
 
 		public void SetToSkipped(IContextContainer contextContainer, int imagingSetArtifactId, int workspaceArtifactId, IObjectManagerHelper objectManagerHelper)
 		{
 			LastRunDate = DateTime.Now;
 			GetNextRunDate(FrequencyList, DateTime.Now, Time);
-			Update(workspaceArtifactId, contextContainer, LastRunDate, NextRunDate, "", Constant.ImagingSetSchedulerStatus.SKIPPED + " " + LastRunDate.Value, objectManagerHelper);
+			Message = "";
+			Status = Constant.ImagingSetSchedulerStatus.SKIPPED + " " + LastRunDate.Value;
+			Update(workspaceArtifactId, contextContainer, objectManagerHelper);
 		}
 
 		public void RemoveRecordFromQueue(int imagingSetArtifactId, IDBContext eddsDbContext, int workspaceArtifactId)
@@ -156,10 +164,10 @@ namespace KCD_1041539.ImagingSetScheduler.Objects
 			Database.SqlQueryHelper.InsertIntoJobQueue(eddsDbContext, Constant.Tables.IMAGING_SET_SCHEDULER_QUEUE, imagingSetSchedulerArtifactId, workspaceArtifactId);
 		}
 
-		public void Update(int workspaceArtifactId, IContextContainer contextContainer, DateTime? lastRun, DateTime? nextRun, string messages, string status, IObjectManagerHelper objectManagerHelper)
+		public void Update(int workspaceArtifactId, IContextContainer contextContainer, IObjectManagerHelper objectManagerHelper)
 		{
 			Task<MassUpdateResult> res = objectManagerHelper.UpdateImagingSetScheduler(workspaceArtifactId, contextContainer, ArtifactId,
-					lastRun, nextRun, messages, status);
+				LastRunDate, NextRunDate, Message, Status);
 
 			if (!res.Result.Success)
 			{

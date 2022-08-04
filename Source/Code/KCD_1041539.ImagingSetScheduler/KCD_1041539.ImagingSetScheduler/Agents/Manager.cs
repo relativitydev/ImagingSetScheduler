@@ -179,7 +179,10 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				imagingSetScheduler.InsertRecordIntoQueue(contextContainer.MasterDbContext, imagingSetScheduler.ArtifactId, workspaceArtifactId);
 
-				imagingSetScheduler.Update(workspaceArtifactId, contextContainer, imagingSetScheduler.LastRunDate, imagingSetScheduler.NextRunDate, "", Constant.ImagingSetSchedulerStatus.WAITING, _objectManagerHelper);
+				imagingSetScheduler.Message = "";
+				imagingSetScheduler.Status = Constant.ImagingSetSchedulerStatus.WAITING;
+
+				imagingSetScheduler.Update(workspaceArtifactId, contextContainer, _objectManagerHelper);
 
 				RaiseMessage(String.Format("Imaging set scheduler added to Worker queue [ImagingSetSchedulerArtifactID={0} WorkspaceArtifactID={1}]", imagingSetScheduler.ArtifactId, workspaceArtifactId), 10);
 			}
