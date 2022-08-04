@@ -98,7 +98,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 				{
 					foreach (DTOs.RDO imagingSetSchedulerRdo in imagingSetSchedulesToCheck)
 					{
-						ProcessImagingSetScheduler(imagingSetSchedulerRdo, svcMgr, identity, contextContainer.MasterDbContext, workspaceArtifactId);
+						ProcessImagingSetScheduler(imagingSetSchedulerRdo, svcMgr, identity, workspaceArtifactId, contextContainer);
 					}
 				}
 				else
@@ -114,7 +114,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			}
 		}
 
-		private void ProcessImagingSetScheduler(DTOs.RDO imagingSetSchedulerRdo, IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext, int workspaceArtifactId)
+		private void ProcessImagingSetScheduler(DTOs.RDO imagingSetSchedulerRdo, IServicesMgr svcMgr, ExecutionIdentity identity,  int workspaceArtifactId, IContextContainer contextContainer)
 		{
 			int currentImagingSetSchedulerArtifactId = 0;
 			DateTime? nextRunDate = null;
@@ -130,7 +130,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				if (nextRunDate.HasValue && nextRunDate <= DateTime.Now)
 				{
-					InsertIntoKcdQueue(imagingSetSchedulerRdo, svcMgr, identity, eddsDbContext, workspaceArtifactId);
+					InsertIntoKcdQueue(imagingSetSchedulerRdo, svcMgr, identity, workspaceArtifactId, contextContainer);
 				}
 			}
 			catch (Exception ex)
@@ -169,7 +169,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			SqlQueryHelper.SetErrorMessage(workspaceDbContext, errorMessage, Constant.ImagingSetSchedulerStatus.MANAGER_ERROR, imagingSetArtifactId);
 		}
 
-		public void InsertIntoKcdQueue(DTOs.RDO imagingSetSchedulerRdo, IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext, int workspaceArtifactId)
+		public void InsertIntoKcdQueue(DTOs.RDO imagingSetSchedulerRdo, IServicesMgr svcMgr, ExecutionIdentity identity, int workspaceArtifactId, IContextContainer contextContainer)
 		{
 			try
 			{
@@ -177,9 +177,12 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				RaiseMessage(String.Format("Checking to see if the imaging set schedule is ready to run [ImagingSetSchedulerArtifactID={0} WorkspaceArtifactID={1}]", imagingSetScheduler.ArtifactId, workspaceArtifactId), 10);
 
-				imagingSetScheduler.InsertRecordIntoQueue(eddsDbContext, imagingSetScheduler.ArtifactId, workspaceArtifactId);
+				imagingSetScheduler.InsertRecordIntoQueue(contextContainer.MasterDbContext, imagingSetScheduler.ArtifactId, workspaceArtifactId);
 
-				imagingSetScheduler.Update(svcMgr, identity, workspaceArtifactId, null, null, "", Constant.ImagingSetSchedulerStatus.WAITING);
+				imagingSetScheduler.Message = "";
+				imagingSetScheduler.Status = Constant.ImagingSetSchedulerStatus.WAITING;
+
+				imagingSetScheduler.Update(workspaceArtifactId, contextContainer, _objectManagerHelper);
 
 				RaiseMessage(String.Format("Imaging set scheduler added to Worker queue [ImagingSetSchedulerArtifactID={0} WorkspaceArtifactID={1}]", imagingSetScheduler.ArtifactId, workspaceArtifactId), 10);
 			}

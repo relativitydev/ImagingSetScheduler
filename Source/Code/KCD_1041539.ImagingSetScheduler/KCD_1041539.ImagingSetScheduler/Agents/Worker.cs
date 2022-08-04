@@ -37,9 +37,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			RaiseMessage("Agent execution started.", 10);
 
 			ResolveDependencies();
-            _contextContainerFactory = new ContextContainerFactory(AgentHelper);
             IContextContainer contextContainer = _contextContainerFactory.BuildContextContainer();
-            _objectManagerHelper = new ObjectManagerHelper();
 			IServicesMgr svcMgr = ServiceUrlHelper.SetupServiceUrl(contextContainer.MasterDbContext, AgentHelper);
 
 			ExecutionIdentity identity = ExecutionIdentity.System;
@@ -116,7 +114,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				RaiseMessage(String.Format("Submitting imaging set scheduler job [ImagingSetSchedulerArtifactID={0} WorkspaceArtifactId={1}]", imagingSetSchedulerArtifactId, workspaceArtifactId), 10);
 
-				SubmitImagingSetToRunAsync(imagingSetScheduler, workspaceArtifactId, svcMgr, identity, contextContainer.MasterDbContext, validator).GetAwaiter().GetResult();
+				SubmitImagingSetToRunAsync(imagingSetScheduler, workspaceArtifactId, svcMgr, identity, validator, contextContainer).GetAwaiter().GetResult();
 			}
 			catch (Exception ex)
 			{
@@ -149,7 +147,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			SqlQueryHelper.SetErrorMessage(workspaceDbContext, errorMessage, Constant.ImagingSetSchedulerStatus.COMPLETE_WITH_ERRORS, imagingSetArtifactId);
 		}
 
-		public async Task SubmitImagingSetToRunAsync(Objects.ImagingSetScheduler imagingSetScheduler, int workspaceArtifactId, IServicesMgr svcMgr, ExecutionIdentity identity, IDBContext eddsDbContext, IValidator validator)
+		public async Task SubmitImagingSetToRunAsync(Objects.ImagingSetScheduler imagingSetScheduler, int workspaceArtifactId, IServicesMgr svcMgr, ExecutionIdentity identity, IValidator validator, IContextContainer contextContainer)
 		{
 			try
             {
@@ -159,7 +157,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 				bool isImagingSetCurrentlyRunning = validator.VerifyIfImagingSetIsCurrentlyRunning(imagingSet);
 				if (isImagingSetCurrentlyRunning)
 				{
-					imagingSetScheduler.SetToSkipped(svcMgr, identity, imagingSetScheduler.ArtifactId, workspaceArtifactId);
+					imagingSetScheduler.SetToSkipped(contextContainer, imagingSetScheduler.ArtifactId, workspaceArtifactId, _objectManagerHelper);
 
 					RaiseMessage(String.Format("{2} [ImagingSetSchedulerArtifactID={0} WorkspaceArtifactId={1}]",
 						imagingSetScheduler.ArtifactId,
@@ -170,7 +168,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 				{
 					await ImagingApiHelper.RunImagingSetAsync(imagingSet, svcMgr, identity, workspaceArtifactId, imagingSetScheduler.LockImagesForQc, imagingSetScheduler.CreatedByUserId).ConfigureAwait(false);
 
-					imagingSetScheduler.SetToComplete(svcMgr, identity, imagingSetScheduler.ArtifactId, workspaceArtifactId);
+					imagingSetScheduler.SetToComplete(contextContainer, imagingSetScheduler.ArtifactId, workspaceArtifactId, _objectManagerHelper);
 
 					RaiseMessage(String.Format("Imaging set scheduler job is submitted. [ImagingSetSchedulerArtifactID={0} WorkspaceArtifactId={1}]", imagingSetScheduler.ArtifactId, workspaceArtifactId), 10);
 				}
@@ -181,7 +179,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				if (imagingSetScheduler.ArtifactId > 0 && workspaceArtifactId > 0)
 				{
-					imagingSetScheduler.SetToCompleteWithErrors(svcMgr, identity, imagingSetScheduler.ArtifactId, workspaceArtifactId, errorMessages);
+					imagingSetScheduler.SetToCompleteWithErrors(contextContainer, imagingSetScheduler.ArtifactId, workspaceArtifactId, errorMessages, _objectManagerHelper);
 				}
 
 				RaiseMessage(errorMessages, 1);
@@ -190,15 +188,17 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			}
 			finally
 			{
-				imagingSetScheduler.RemoveRecordFromQueue(imagingSetScheduler.ArtifactId, eddsDbContext, workspaceArtifactId);
+				imagingSetScheduler.RemoveRecordFromQueue(imagingSetScheduler.ArtifactId, contextContainer.MasterDbContext, workspaceArtifactId);
 			}
 		}
+
 		private bool IsCurrentVersionAfterPrairieSmokeRelease(IHelper helper)
 		{
 			bool isR1Instance = VersionCheckHelper.IsCloudInstanceEnabled(helper);
 			bool versionCheckResult = VersionCheckHelper.VersionCheck(helper, Constant.Version.PRAIRIE_SMOKE_VERSION);
 			return (isR1Instance && versionCheckResult);
 		}
+
         private void ResolveDependencies()
         {
             if (_windsorContainer == null)

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoFixture;
@@ -25,6 +26,10 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 		private Mock<IInstanceSettingManager> _instanceSettingManager;
 		private int _workspaceId;
         private int _imagingSetSchedulerId;
+        private DateTime _lastRun;
+        private DateTime _nextRun;
+        private const string MESSAGE = "message";
+        private const string STATUS = "status";
 
 		[SetUp]
 		public void SetUp()
@@ -40,7 +45,9 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 			_workspaceId = _testFixture.Create<int>();
             _imagingSetSchedulerId = _testFixture.Create<int>();
 			_instance = new ObjectManagerHelper();
-		}
+			_lastRun = _testFixture.Create<DateTime>();
+			_nextRun = _testFixture.Create<DateTime>();
+        }
 
 		[Test]
 		public async Task RetrieveAllImagingSetSchedulesNotWaitingAsync_GoldFlow()
@@ -96,6 +103,23 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
             Assert.True(res.Equals(objectManagerResult.Objects[0]));
         }
 
+        [Test]
+        public async Task UpdateImagingSetScheduler_GoldFlow()
+        {
+	        //Arrange
+	        MassUpdateResult objectManagerMassUpdateResult = CreateObjectManagerMassUpdateResult();
+	        string condition = $"(('Artifact ID' == {_imagingSetSchedulerId}))";
+
+	        _objectManager.Setup(x => x.UpdateAsync(It.Is<int>(i => i == _workspaceId), It.Is<MassUpdateByCriteriaRequest>(m=>m.ObjectIdentificationCriteria.Condition == condition))).ReturnsAsync(objectManagerMassUpdateResult);
+
+			//Act
+			var res = await _instance.UpdateImagingSetScheduler(_workspaceId, _contextContainer.Object,
+				_imagingSetSchedulerId, _lastRun, _nextRun, MESSAGE, STATUS).ConfigureAwait(false);
+
+			//Assert
+			Assert.True(res.Success.Equals(objectManagerMassUpdateResult.Success));
+        }
+
         private QueryResult CreateObjectManagerResult()
         {
             QueryResult result = new QueryResult();
@@ -105,6 +129,15 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
                 ArtifactID = _testFixture.Create<int>()
             });
             return result;
+        }
+
+        private MassUpdateResult CreateObjectManagerMassUpdateResult()
+        {
+	        MassUpdateResult result = new MassUpdateResult();
+	        result.TotalObjectsUpdated = 1;
+	        result.Success = true;
+	        result.Message = "message";
+	        return result;
         }
     }
 }
