@@ -208,7 +208,6 @@
     <Compile Include="Helper\IServicesProxyFactory.cs" />
     <Compile Include="Helper\ObjectManagerHelper.cs" />
     <Compile Include="Helper\Response.cs" />
-    <Compile Include="Helper\RSAPI.cs" />
     <Compile Include="Helper\ServicesProxyFactory.cs" />
     <Compile Include="Helper\ServiceUrlHelper.cs" />
     <Compile Include="Helper\Validator.cs" />
