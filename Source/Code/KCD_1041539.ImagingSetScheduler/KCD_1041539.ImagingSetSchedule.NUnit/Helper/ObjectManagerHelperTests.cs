@@ -7,6 +7,9 @@ using KCD_1041539.ImagingSetScheduler.Context;
 using KCD_1041539.ImagingSetScheduler.Helper;
 using Moq;
 using NUnit.Framework;
+using Relativity.Services.Exceptions;
+using Relativity.Services.Interfaces.Workspace;
+using Relativity.Services.Interfaces.Workspace.Models;
 using Relativity.Services.Objects;
 using Relativity.Services.Objects.DataContracts;
 
@@ -20,10 +23,12 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 		private const string SECTION = "Relativity.Imaging";
 		private const string INSTANCE_SETTING_NAME = "ImagingSetSchedulerBatchSize";
 		private ObjectManagerHelper _instance;
+		private WorkspaceRepository _workspaceRepository;
 		private Mock<IContextContainer> _contextContainer;
 		private Mock<IServicesProxyFactory> _serviceProxyFactory;
 		private Mock<IObjectManager> _objectManager;
 		private Mock<IInstanceSettingManager> _instanceSettingManager;
+		private Mock<IWorkspaceManager> _workspaceManager;
 		private int _workspaceId;
         private int _imagingSetSchedulerId;
         private DateTime _lastRun;
@@ -39,12 +44,14 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 			_serviceProxyFactory = new Mock<IServicesProxyFactory>();
 			_objectManager = new Mock<IObjectManager>();
 			_instanceSettingManager = new Mock<IInstanceSettingManager>();
+			_workspaceManager = new Mock<IWorkspaceManager>();
 			_contextContainer.Setup(x => x.ServicesProxyFactory).Returns(_serviceProxyFactory.Object);
 			_serviceProxyFactory.Setup(x => x.CreateServiceProxy<IObjectManager>()).Returns(_objectManager.Object);
 			_contextContainer.Setup(x => x.InstanceSettingManager).Returns(_instanceSettingManager.Object);
 			_workspaceId = _testFixture.Create<int>();
             _imagingSetSchedulerId = _testFixture.Create<int>();
 			_instance = new ObjectManagerHelper();
+			_workspaceRepository = new WorkspaceRepository();
 			_lastRun = _testFixture.Create<DateTime>();
 			_nextRun = _testFixture.Create<DateTime>();
         }
@@ -84,7 +91,7 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
                 .Setup(x => x.GetIntegerValueAsync(SECTION, INSTANCE_SETTING_NAME, DEFAULT_BATCH_SIZE))
                 .ReturnsAsync(batchsize);
 
-            string condition = $"('Artifact ID' == {_imagingSetSchedulerId})";
+            string condition = $"(('Artifact ID' == {_imagingSetSchedulerId}))";
 
             QueryResult objectManagerResult = CreateObjectManagerResult();
 
@@ -119,8 +126,46 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 			//Assert
 			Assert.True(res.Success.Equals(objectManagerMassUpdateResult.Success));
         }
+		
+        [Test]
+        public async Task DoesWorkspaceExists_GoldFlow()
+        {
+			//Arrange
+			_serviceProxyFactory.Setup(x => x.CreateServiceProxy<IWorkspaceManager>()).Returns(_workspaceManager.Object);
 
-        private QueryResult CreateObjectManagerResult()
+			WorkspaceResponse response = CreateWorkspaceResponse();
+
+			_workspaceManager.Setup(x => x.ReadAsync(
+				It.Is<int>(i => i == _workspaceId),
+				It.Is<bool>(y=> y == false),
+				It.Is<bool>(z => z == false))).ReturnsAsync(response);
+
+			//Act
+			bool res = await _workspaceRepository.DoesWorkspaceExists(_workspaceId, _contextContainer.Object).ConfigureAwait(false);
+
+			//Assert
+			Assert.True(res.Equals(true));
+        }
+
+        [Test]
+        public async Task DoesWorkspaceExists_NotFound()
+        {
+	        //Arrange
+	        _serviceProxyFactory.Setup(x => x.CreateServiceProxy<IWorkspaceManager>()).Returns(_workspaceManager.Object);
+
+	        _workspaceManager.Setup(x => x.ReadAsync(
+		        It.Is<int>(i => i == _workspaceId),
+		        It.Is<bool>(y => y == false),
+		        It.Is<bool>(z => z == false))).ThrowsAsync(new NotFoundException());
+
+	        //Act
+	        bool res = await _workspaceRepository.DoesWorkspaceExists(_workspaceId, _contextContainer.Object).ConfigureAwait(false);
+
+	        //Assert
+	        Assert.True(res.Equals(false));
+        }
+		
+		private QueryResult CreateObjectManagerResult()
         {
             QueryResult result = new QueryResult();
             result.TotalCount = 1;
@@ -138,6 +183,14 @@ namespace KCD_1041539.ImagingSetSchedule.NUnit.Helper
 	        result.Success = true;
 	        result.Message = "message";
 	        return result;
+        }
+
+        private WorkspaceResponse CreateWorkspaceResponse()
+        {
+	        WorkspaceResponse response = new WorkspaceResponse();
+	        response.Keywords = "placeholder";
+	        response.Notes = "placeholder";
+	        return response;
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using kCura.Relativity.Client;
+﻿using System.Threading.Tasks;
+using KCD_1041539.ImagingSetScheduler.Context;
+using KCD_1041539.ImagingSetScheduler.Helper;
+using kCura.Relativity.Client;
 using Relativity.API;
 using Relativity.Imaging.Services.Interfaces;
 using DTOs = kCura.Relativity.Client.DTOs;
@@ -14,7 +17,5 @@ namespace KCD_1041539.ImagingSetScheduler.Interfaces
 		bool VerifyImagingApplicationVersionForImagingSetExternalApi(IDBContext workspaceDbContext);
 
 		bool VerifyIfImagingSetIsCurrentlyRunning(ImagingSet imagingSet);
-
-		bool DoesWorkspaceExists(IServicesMgr svcMgr, ExecutionIdentity identity, int workspaceArtifactId);
 	}
 }

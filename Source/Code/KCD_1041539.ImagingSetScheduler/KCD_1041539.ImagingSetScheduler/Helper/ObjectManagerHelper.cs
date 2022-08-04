@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using KCD_1041539.ImagingSetScheduler.Context;
+using Relativity.Services.Exceptions;
 using Relativity.Services.Objects;
 using Relativity.Services.Objects.DataContracts;
+using Relativity.Services.Interfaces.Workspace;
 
 namespace KCD_1041539.ImagingSetScheduler.Helper
 {
@@ -142,7 +144,7 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
                 throw new CustomExceptions.ImagingSetSchedulerException(errorContext, ex);
             }
         }
-    
+
         private QueryRequest NewQueryRequest(string condition)
         {
             var queryRequest = new QueryRequest()
