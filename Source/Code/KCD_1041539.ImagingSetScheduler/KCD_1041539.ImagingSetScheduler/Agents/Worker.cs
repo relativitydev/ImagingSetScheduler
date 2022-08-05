@@ -39,9 +39,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 			ResolveDependencies();
             IContextContainer contextContainer = _contextContainerFactory.BuildContextContainer();
-			IServicesMgr svcMgr = ServiceUrlHelper.SetupServiceUrl(contextContainer.MasterDbContext, AgentHelper);
 
-			ExecutionIdentity identity = ExecutionIdentity.System;
 			var sqlQueryHelper = new SqlQueryHelper();
 			
 			if (IsCurrentVersionAfterPrairieSmokeRelease(AgentHelper))
@@ -58,7 +56,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 					if (nextJob != null && nextJob.Rows.Count > 0 && nextJob.Rows[0]["ImagingSetSchedulerArtifactId"].ToString() != "")
 					{
-						ProcessImagingSetSchedulerJob(svcMgr, identity, contextContainer, nextJob, _objectManagerHelper);
+						ProcessImagingSetSchedulerJob(contextContainer, nextJob, _objectManagerHelper);
 					}
 					else
 					{
@@ -79,7 +77,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			}
 		}
 
-		private void ProcessImagingSetSchedulerJob(IServicesMgr svcMgr, ExecutionIdentity identity, IContextContainer contextContainer, DataTable nextJob, IObjectManagerHelper _objectManagerHelper)
+		private void ProcessImagingSetSchedulerJob(IContextContainer contextContainer, DataTable nextJob, IObjectManagerHelper _objectManagerHelper)
 		{
 			int workspaceArtifactId = 0;
 			int imagingSetSchedulerArtifactId = 0;
@@ -117,7 +115,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				RaiseMessage(String.Format("Submitting imaging set scheduler job [ImagingSetSchedulerArtifactID={0} WorkspaceArtifactId={1}]", imagingSetSchedulerArtifactId, workspaceArtifactId), 10);
 
-				SubmitImagingSetToRunAsync(imagingSetScheduler, workspaceArtifactId, svcMgr, identity, validator, contextContainer).GetAwaiter().GetResult();
+				SubmitImagingSetToRunAsync(imagingSetScheduler, workspaceArtifactId, validator, contextContainer).GetAwaiter().GetResult();
 			}
 			catch (Exception ex)
 			{
@@ -150,11 +148,11 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			SqlQueryHelper.SetErrorMessage(workspaceDbContext, errorMessage, Constant.ImagingSetSchedulerStatus.COMPLETE_WITH_ERRORS, imagingSetArtifactId);
 		}
 
-		public async Task SubmitImagingSetToRunAsync(Objects.ImagingSetScheduler imagingSetScheduler, int workspaceArtifactId, IServicesMgr svcMgr, ExecutionIdentity identity, IValidator validator, IContextContainer contextContainer)
+		public async Task SubmitImagingSetToRunAsync(Objects.ImagingSetScheduler imagingSetScheduler, int workspaceArtifactId, IValidator validator, IContextContainer contextContainer)
 		{
 			try
             {
-                var imagingSet = await ImagingApiHelper.RetrieveSingleImagingSetAsync(svcMgr, identity, workspaceArtifactId, imagingSetScheduler.ImagingSetArtifactId).ConfigureAwait(false);
+                var imagingSet = await ImagingApiHelper.RetrieveSingleImagingSetAsync(contextContainer.ServicesMgr, contextContainer.Identity, workspaceArtifactId, imagingSetScheduler.ImagingSetArtifactId).ConfigureAwait(false);
 
 				//check if the ImagingSet is currently running. If its running, skip current execution.
 				bool isImagingSetCurrentlyRunning = validator.VerifyIfImagingSetIsCurrentlyRunning(imagingSet);
@@ -169,7 +167,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 				}
 				else
 				{
-					await ImagingApiHelper.RunImagingSetAsync(imagingSet, svcMgr, identity, workspaceArtifactId, imagingSetScheduler.LockImagesForQc, imagingSetScheduler.CreatedByUserId).ConfigureAwait(false);
+					await ImagingApiHelper.RunImagingSetAsync(imagingSet, contextContainer.ServicesMgr, contextContainer.Identity, workspaceArtifactId, imagingSetScheduler.LockImagesForQc, imagingSetScheduler.CreatedByUserId).ConfigureAwait(false);
 
 					imagingSetScheduler.SetToComplete(contextContainer, imagingSetScheduler.ArtifactId, workspaceArtifactId, _objectManagerHelper);
 

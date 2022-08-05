@@ -34,9 +34,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 			ResolveDependencies();
 			IContextContainer contextContainer = _contextContainerFactory.BuildContextContainer();
-			IServicesMgr svcMgr = ServiceUrlHelper.SetupServiceUrl(contextContainer.MasterDbContext, AgentHelper);
-			
-			ExecutionIdentity identity = ExecutionIdentity.System;
+
 			var sqlQueryHelper = new SqlQueryHelper();
 			
 			if (IsCurrentVersionAfterPrairieSmokeRelease(AgentHelper))
@@ -54,7 +52,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 					{
 						foreach (DataRow workspaceRow in workspaceDataTable.Rows)
 						{
-							ProcessWorkspace(workspaceRow, svcMgr, identity, contextContainer);
+							ProcessWorkspace(workspaceRow, contextContainer);
 						}
 					}
 					else
@@ -77,7 +75,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 		}
 
-		private void ProcessWorkspace(DataRow workspaceRow, IServicesMgr svcMgr, ExecutionIdentity identity, IContextContainer contextContainer)
+		private void ProcessWorkspace(DataRow workspaceRow, IContextContainer contextContainer)
 		{
 			int workspaceArtifactId = 0;
 
@@ -93,7 +91,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 				{
 					foreach (RelativityObject imagingSetSchedulerObj in imagingSetSchedulesToCheck)
 					{
-						ProcessImagingSetScheduler(imagingSetSchedulerObj, svcMgr, identity, workspaceArtifactId, contextContainer);
+						ProcessImagingSetScheduler(imagingSetSchedulerObj, workspaceArtifactId, contextContainer);
 					}
 				}
 				else
@@ -109,7 +107,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			}
 		}
 
-		private void ProcessImagingSetScheduler(RelativityObject imagingSetSchedulerObj, IServicesMgr svcMgr, ExecutionIdentity identity,  int workspaceArtifactId, IContextContainer contextContainer)
+		private void ProcessImagingSetScheduler(RelativityObject imagingSetSchedulerObj, int workspaceArtifactId, IContextContainer contextContainer)
 		{
 			int currentImagingSetSchedulerArtifactId = 0;
 			DateTime? nextRunDate = null;
@@ -125,7 +123,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				if (nextRunDate.HasValue && nextRunDate <= DateTime.Now)
 				{
-					InsertIntoKcdQueue(imagingSetSchedulerObj, svcMgr, identity, workspaceArtifactId, contextContainer);
+					InsertIntoKcdQueue(imagingSetSchedulerObj, workspaceArtifactId, contextContainer);
 				}
 			}
 			catch (Exception ex)
@@ -164,7 +162,7 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			SqlQueryHelper.SetErrorMessage(workspaceDbContext, errorMessage, Constant.ImagingSetSchedulerStatus.MANAGER_ERROR, imagingSetArtifactId);
 		}
 
-		public void InsertIntoKcdQueue(RelativityObject imagingSetSchedulerObj, IServicesMgr svcMgr, ExecutionIdentity identity, int workspaceArtifactId, IContextContainer contextContainer)
+		public void InsertIntoKcdQueue(RelativityObject imagingSetSchedulerObj, int workspaceArtifactId, IContextContainer contextContainer)
 		{
 			try
 			{

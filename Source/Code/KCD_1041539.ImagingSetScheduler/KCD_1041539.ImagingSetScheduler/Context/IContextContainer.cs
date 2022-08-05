@@ -34,5 +34,11 @@ namespace KCD_1041539.ImagingSetScheduler.Context
 		/// </summary>
 		/// <returns>Property value of ServicesProxyFactory.</returns>
 		IServicesProxyFactory ServicesProxyFactory { get; }
-    }
+
+		/// <summary>
+		/// Create an instance of ExecutionIdentity and read the value.
+		/// </summary>
+		/// <returns>Property value of Identity.</returns>
+		ExecutionIdentity Identity { get; }
+	}
 }
