@@ -5,6 +5,7 @@ using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using KCD_1041539.ImagingSetScheduler.Context;
 using KCD_1041539.ImagingSetScheduler.Helper;
+using KCD_1041539.ImagingSetScheduler.Interfaces;
 using Relativity.API;
 
 namespace KCD_1041539.ImagingSetScheduler.IoC
@@ -28,8 +29,9 @@ namespace KCD_1041539.ImagingSetScheduler.IoC
                     .ImplementedBy<ContextContainerFactory>()
                     .LifestyleTransient());
             container.Register(Component.For<IObjectManagerHelper>().ImplementedBy<ObjectManagerHelper>().LifestyleTransient());
+            container.Register(Component.For<IWorkspaceRepository>().ImplementedBy<WorkspaceRepository>().LifestyleTransient());
 
-            return container;
+			return container;
         }
     }
 }
