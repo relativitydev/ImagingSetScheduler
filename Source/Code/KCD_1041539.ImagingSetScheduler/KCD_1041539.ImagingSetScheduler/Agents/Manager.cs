@@ -89,9 +89,9 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 
 				if (imagingSetSchedulesToCheck.Count > 0)
 				{
-					foreach (RelativityObject imagingSetSchedulerObj in imagingSetSchedulesToCheck)
+					foreach (RelativityObject imagingSetSchedulerObject in imagingSetSchedulesToCheck)
 					{
-						ProcessImagingSetScheduler(imagingSetSchedulerObj, workspaceArtifactId, contextContainer);
+						ProcessImagingSetScheduler(imagingSetSchedulerObject, workspaceArtifactId, contextContainer);
 					}
 				}
 				else
@@ -107,23 +107,23 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			}
 		}
 
-		private void ProcessImagingSetScheduler(RelativityObject imagingSetSchedulerObj, int workspaceArtifactId, IContextContainer contextContainer)
+		private void ProcessImagingSetScheduler(RelativityObject imagingSetSchedulerObject, int workspaceArtifactId, IContextContainer contextContainer)
 		{
 			int currentImagingSetSchedulerArtifactId = 0;
 			DateTime? nextRunDate = null;
 
 			try
 			{
-				currentImagingSetSchedulerArtifactId = imagingSetSchedulerObj.ArtifactID;
+				currentImagingSetSchedulerArtifactId = imagingSetSchedulerObject.ArtifactID;
 
-				if (imagingSetSchedulerObj[Constant.Guids.Field.ImagingSetScheduler.NEXT_RUN].Value != null)
+				if (imagingSetSchedulerObject[Constant.Guids.Field.ImagingSetScheduler.NEXT_RUN].Value != null)
 				{
-					nextRunDate = (DateTime?)imagingSetSchedulerObj[Constant.Guids.Field.ImagingSetScheduler.NEXT_RUN].Value;
+					nextRunDate = (DateTime?)imagingSetSchedulerObject[Constant.Guids.Field.ImagingSetScheduler.NEXT_RUN].Value;
 				}
 
 				if (nextRunDate.HasValue && nextRunDate <= DateTime.Now)
 				{
-					InsertIntoKcdQueue(imagingSetSchedulerObj, workspaceArtifactId, contextContainer);
+					InsertIntoKcdQueue(imagingSetSchedulerObject, workspaceArtifactId, contextContainer);
 				}
 			}
 			catch (Exception ex)
@@ -162,11 +162,11 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			SqlQueryHelper.SetErrorMessage(workspaceDbContext, errorMessage, Constant.ImagingSetSchedulerStatus.MANAGER_ERROR, imagingSetArtifactId);
 		}
 
-		public void InsertIntoKcdQueue(RelativityObject imagingSetSchedulerObj, int workspaceArtifactId, IContextContainer contextContainer)
+		public void InsertIntoKcdQueue(RelativityObject imagingSetSchedulerObject, int workspaceArtifactId, IContextContainer contextContainer)
 		{
 			try
 			{
-				var imagingSetScheduler = new Objects.ImagingSetScheduler(imagingSetSchedulerObj);
+				var imagingSetScheduler = new Objects.ImagingSetScheduler(imagingSetSchedulerObject);
 
 				RaiseMessage(String.Format("Checking to see if the imaging set schedule is ready to run [ImagingSetSchedulerArtifactID={0} WorkspaceArtifactID={1}]", imagingSetScheduler.ArtifactId, workspaceArtifactId), 10);
 
@@ -183,9 +183,9 @@ namespace KCD_1041539.ImagingSetScheduler.Agents
 			{
 				var errorMessages = String.Format("Check Errors tab for any additional error messages. \n\nError Message: {0}", ex);
 
-				if (imagingSetSchedulerObj.ArtifactID > 0 && workspaceArtifactId > 0)
+				if (imagingSetSchedulerObject.ArtifactID > 0 && workspaceArtifactId > 0)
 				{
-					SetError(Helper.GetDBContext(workspaceArtifactId), errorMessages, imagingSetSchedulerObj.ArtifactID);
+					SetError(Helper.GetDBContext(workspaceArtifactId), errorMessages, imagingSetSchedulerObject.ArtifactID);
 				}
 
 				RaiseMessage(errorMessages, 1);
