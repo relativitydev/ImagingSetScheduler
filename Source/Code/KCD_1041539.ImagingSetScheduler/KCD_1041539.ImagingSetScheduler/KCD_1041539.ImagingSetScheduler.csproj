@@ -60,9 +60,6 @@
     <Reference Include="kCura.EventHandler, Version=17.6.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Relativity.EventHandler.17.6.1\lib\net462\kCura.EventHandler.dll</HintPath>
     </Reference>
-    <Reference Include="kCura.Relativity.Client, Version=15.6.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Relativity.Rsapi.15.6.0\lib\net462\kCura.Relativity.Client.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
@@ -208,7 +205,6 @@
     <Compile Include="Helper\IServicesProxyFactory.cs" />
     <Compile Include="Helper\ObjectManagerHelper.cs" />
     <Compile Include="Helper\Response.cs" />
-    <Compile Include="Helper\RSAPI.cs" />
     <Compile Include="Helper\ServicesProxyFactory.cs" />
     <Compile Include="Helper\ServiceUrlHelper.cs" />
     <Compile Include="Helper\Validator.cs" />

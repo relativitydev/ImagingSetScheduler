@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Threading.Tasks;
-using KCD_1041539.ImagingSetScheduler.Context;
-using kCura.Relativity.Client;
 using KCD_1041539.ImagingSetScheduler.Database;
 using KCD_1041539.ImagingSetScheduler.Interfaces;
 using Relativity.API;
-using DTOs = kCura.Relativity.Client.DTOs;
 using Relativity.Imaging.Services.Interfaces;
 
 namespace KCD_1041539.ImagingSetScheduler.Helper
@@ -17,44 +13,6 @@ namespace KCD_1041539.ImagingSetScheduler.Helper
 		public Validator()
 		{
 			SqlQueryHelper = new SqlQueryHelper();
-		}
-
-
-		public void ValidateImagingSetScheduler(DTOs.RDO imagingSetSchedulerRdo)
-		{
-			String nameField = imagingSetSchedulerRdo[Constant.Guids.Field.ImagingSetScheduler.NAME].ValueAsFixedLengthText;
-			if (nameField == null)
-			{
-				throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Name field is NULL.");
-			}
-
-			DTOs.Artifact imagingSetField = imagingSetSchedulerRdo[Constant.Guids.Field.ImagingSetScheduler.IMAGING_SET].ValueAsSingleObject;
-			if (imagingSetField == null)
-			{
-				throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Imaging Set field is NULL.");
-			}
-
-			DTOs.MultiChoiceFieldValueList frequencyField = imagingSetSchedulerRdo[Constant.Guids.Field.ImagingSetScheduler.FREQUENCY].ValueAsMultipleChoice;
-			if (frequencyField == null)
-			{
-				throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Frequency field is NULL.");
-			}
-			if (frequencyField.Count == 0)
-			{
-				throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Frequency field is empty.");
-			}
-
-			String timeField = imagingSetSchedulerRdo[Constant.Guids.Field.ImagingSetScheduler.TIME].ValueAsFixedLengthText;
-			if (timeField == null)
-			{
-				throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Time field is NULL.");
-			}
-
-			bool? lockImagesForQcField = imagingSetSchedulerRdo[Constant.Guids.Field.ImagingSetScheduler.LOCK_IMAGES_FOR_QC].ValueAsYesNo;
-			if (lockImagesForQcField == null)
-			{
-				throw new CustomExceptions.ImagingSetSchedulerException("Imaging Set Scheduler - Lock Images for QC field is NULL.");
-			}
 		}
 
 		public bool VerifyRelativityVersionForImagingSetExternalApi(IDBContext eddsDbContext)

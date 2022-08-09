@@ -19,13 +19,15 @@ namespace KCD_1041539.ImagingSetScheduler.Context
             IAPILog logger = _helper.GetLoggerFactory().GetLogger();
             IInstanceSettingManager instanceSettingManager = new InstanceSettingManager(_helper.GetInstanceSettingBundle());
             IServicesProxyFactory servicesProxyFactory = new ServicesProxyFactory(servicesMgr);
+            ExecutionIdentity identity = ExecutionIdentity.System;
 
             return new ContextContainer(
                 masterDbContext,
                 servicesMgr,
                 logger,
                 instanceSettingManager,
-                servicesProxyFactory);
+                servicesProxyFactory,
+                identity);
         }
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using KCD_1041539.ImagingSetScheduler.Helper;
-using DTOs = kCura.Relativity.Client.DTOs;
 using System.Globalization;
 using System.Threading.Tasks;
 using KCD_1041539.ImagingSetScheduler.Context;
@@ -97,34 +96,6 @@ namespace KCD_1041539.ImagingSetScheduler.Objects
 			}
 
 			CreatedByUserId = currentUserArtifactId;
-		}
-
-		public ImagingSetScheduler(DTOs.RDO artifact)
-		{
-			FrequencyList = new List<DayOfWeek>();
-			artifact[Constant.Guids.Field.ImagingSetScheduler.FREQUENCY].ValueAsMultipleChoice.ToList().ForEach(c => FrequencyList.Add(ConvertStringToDayOfWeek(c.Name)));
-			ArtifactId = artifact.ArtifactID;
-			Name = artifact[Constant.Guids.Field.ImagingSetScheduler.NAME].ValueAsFixedLengthText;
-
-			ImagingSetArtifactId = artifact[Constant.Guids.Field.ImagingSetScheduler.IMAGING_SET].ValueAsSingleObject.ArtifactID;
-			if (ImagingSetArtifactId == 0)
-			{
-				throw new CustomExceptions.ImagingSetSchedulerException(Constant.Messages.MESSAGE_IMAGING_SET_DELETED);
-			}
-
-			Time = artifact[Constant.Guids.Field.ImagingSetScheduler.TIME].ValueAsFixedLengthText;
-			LockImagesForQc = artifact[Constant.Guids.Field.ImagingSetScheduler.LOCK_IMAGES_FOR_QC].ValueAsYesNo.Value;
-
-			LastRunDate = (artifact[Constant.Guids.Field.ImagingSetScheduler.LAST_RUN].ValueAsDate.HasValue)
-				? artifact[Constant.Guids.Field.ImagingSetScheduler.LAST_RUN].ValueAsDate.Value
-				: DateTime.Now;
-
-			if (artifact[Constant.Guids.Field.ImagingSetScheduler.NEXT_RUN].ValueAsDate.HasValue)
-			{
-				NextRunDate = artifact[Constant.Guids.Field.ImagingSetScheduler.NEXT_RUN].ValueAsDate.Value;
-			}
-
-			CreatedByUserId = artifact.SystemCreatedBy.ArtifactID;
 		}
 
 		public void SetToComplete(IContextContainer contextContainer, int imagingSetArtifactId, int workspaceArtifactId, IObjectManagerHelper objectManagerHelper)
